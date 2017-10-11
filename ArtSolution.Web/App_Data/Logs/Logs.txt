@@ -2306,3 +2306,122 @@ DEBUG 2017-09-20 15:45:11,836 [14   ] Abp.Modules.AbpModuleManager             -
 DEBUG 2017-09-20 15:45:11,838 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2017-09-20 15:45:11,839 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2017-09-20 15:45:11,839 [14   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-10-11 12:52:31,724 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-11 12:52:31,746 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-11 12:52:31,754 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,756 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,757 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,757 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,757 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,757 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,757 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,758 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,758 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,758 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,758 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,758 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:31,764 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-11 12:52:32,303 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-11 12:52:34,601 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-11 12:52:34,610 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-11 12:52:34,611 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-11 12:52:34,613 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-11 12:52:34,822 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-11 12:52:34,940 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 48 classes define auto mapping attributes
+DEBUG 2017-10-11 12:52:34,940 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-11 12:52:34,944 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-11 12:52:34,945 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-11 12:52:34,946 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-11 12:52:43,037 [5    ] olution.Web.Controllers.CommonController - Common Header µÄ CustomerID:
+INFO  2017-10-11 12:52:50,112 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.DashboardController.Index is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:52:53,707 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 176 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:52:58,800 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 346 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:04,244 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 669 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:08,172 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetCustomerByMobileAsync is executed by user 1 in 128 ms from 192.168.2.178 IP address with succeed.
+WARN  2017-10-11 12:53:16,584 [10   ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-11 12:53:16,714 [10   ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-11 12:53:16,721 [10   ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+INFO  2017-10-11 12:53:18,983 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 524 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,268 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 284 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,368 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 97 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,499 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 129 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,579 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 78 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,652 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 70 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,732 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 78 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,826 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 92 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:19,842 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 1399 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,112 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 116 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,183 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 69 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,286 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 101 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,402 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 114 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,534 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 130 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,673 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 136 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,809 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 133 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,983 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 172 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:20,998 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 1009 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:41,864 [15   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.BrandController.List is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:56,592 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.BrandService.GetAllBrands is executed by user 1 in 115 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:53:56,609 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.BrandController.List is executed by user 1 in 11970 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:54:01,511 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.BrandService.GetAllBrands is executed by user 1 in 133 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:55:05,782 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.BrandService.GetAllBrands is executed by user 1 in 58618 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:55:05,799 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.BrandController.List is executed by user 1 in 67058 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:55:21,927 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.BrandService.GetAllBrands is executed by user 1 in 122 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:55:21,942 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.BrandController.List is executed by user 1 in 1507 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:37,096 [22   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.BrandService.GetAllBrands is executed by user 1 in 184569 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:37,111 [22   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.BrandController.List is executed by user 1 in 184587 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:44,219 [22   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.CategoryService.GetAllCategories is executed by user 1 in 106 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:44,235 [22   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.ProductController.List is executed by user 1 in 126 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:50,395 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 224 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:50,410 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.ProductController.List is executed by user 1 in 242 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:54,183 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 109 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:58:54,198 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.ProductController.List is executed by user 1 in 125 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:59:03,013 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 97 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:59:03,027 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.ProductController.List is executed by user 1 in 112 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:59:06,002 [22   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 101 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:59:06,017 [22   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.ProductController.List is executed by user 1 in 119 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:59:11,369 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 91 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-11 12:59:11,384 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.ProductController.List is executed by user 1 in 107 ms from 192.168.2.178 IP address with succeed.

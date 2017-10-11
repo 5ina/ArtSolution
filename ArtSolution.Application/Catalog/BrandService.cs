@@ -32,8 +32,7 @@ namespace ArtSolution.Catalog
             var query = _brandRepository.GetAll();
 
             if (!String.IsNullOrWhiteSpace(keywords))
-                query = query.Where(b => b.Name.Contains(keywords) ||
-                                        b.Description.Contains(keywords));
+                query = query.Where(b => b.Name.Contains(keywords));
 
             query = query.OrderBy(b => b.DisplayOrder);
             return new PagedResult<Brand>(query, pageIndex, pageSize);
