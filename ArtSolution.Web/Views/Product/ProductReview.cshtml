@@ -1,0 +1,34 @@
+﻿@model ArtSolution.Web.Models.Orders.ProductReviewListModel
+
+<div class="reviews">
+    <div class="review-title">
+        买家评论
+    </div>
+    <div class="review-content">
+        @if (Model.Total > 0)
+        {
+
+            foreach (var item in Model.Reviews)
+            {
+                <div class="review-item">
+                    <div class="review-item-head">
+                        <span class="review-customer pull-left">@item.CustomerName</span>
+                        <span class="review-time pull-right">@item.CreationTime.ToString("mm-dd")</span>
+                    </div>
+                </div>
+            }
+            if (Model.Total > 3)
+            {
+                <div class="review-result">
+                    <a href="@Url.Action("ReviewsAll","Product",new { productId = Model.ProductId })">查看更多</a>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="review-result">
+                <span>暂时没有评论</span>
+            </div>
+        }
+    </div>
+</div>

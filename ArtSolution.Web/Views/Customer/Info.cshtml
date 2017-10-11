@@ -1,0 +1,50 @@
+﻿@model ArtSolution.Web.Models.Customers.CustomerModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_CenterHeader", "用户信息")
+<div class="container">
+    <div class="customers">
+        <div class="form-group customer-info">
+            <div class="content-data">
+                @if (!String.IsNullOrWhiteSpace(Model.CustomerAvatar))
+                {
+                    <img src="@Model.CustomerAvatar" class="img-circle avatar" />
+                }
+                else
+                {
+                    <img src="~/images/default-avatar.png" class="img-circle avatar" />
+                }
+                <span>@Model.NickName</span>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <fieldset>
+                <div class="control-group clearfix">
+                    @Html.LabelFor(model => model.Mobile, new { @class = "control-label pull-left" })
+
+                    <div class="controls pull-right">
+                        <a class="change" href="@Url.Action("Mobile","Customer")">
+                            @if (String.IsNullOrWhiteSpace(Model.Mobile))
+                            {
+                                @Html.Raw("无法获取");
+                            }
+                            else
+                            {
+                                @Model.Mobile
+                            }
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="control-group result"><div class="result-home">
+    <a class="btn btn-sm" href="/">返回首页</a>
+</div>
+                    </div>
+</fieldset>
+        </div>
+    </div>
+</div>

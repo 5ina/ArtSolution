@@ -1,0 +1,12 @@
+﻿@model ArtSolution.Web.Models.News.TopicModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.AddTitleParts(Model.Title);
+}
+@Html.Action("Header", "Common")
+
+<div class="topic-detail">
+    @Html.Raw(Model.Content)
+</div>
+
+@Html.Partial("_Footer")

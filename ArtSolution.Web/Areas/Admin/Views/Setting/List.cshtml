@@ -1,0 +1,140 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryListModel
+@{
+    ViewBag.Title = "高级配置";
+}
+
+<section class="content-header">
+    <h1>配置列表（高级选项）</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Keywords, new { @placeholder = "关键字查询", @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <a href="#" class="reload btn btn-social-icon" id="search-settings"><i class="fa fa-search"></i></a>
+            </div>
+        </div>
+        <div id="settings-grid"></div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $("#settings-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "Setting"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: additionalData
+                    },
+                    update: {
+                        url: "@Html.Raw(Url.Action("SettingUpdate", "Setting"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: addAntiForgeryToken
+                    },
+                    destroy: {
+                        url: "@Html.Raw(Url.Action("SettingDelete", "Setting"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: addAntiForgeryToken
+                    },
+                    parameterMap: function (data, operation) {
+                        if (operation != "read") {
+                            return data;
+                        } else {
+                            //for some reasons only such "Filter" data be parsed
+                            return JSON.stringify(data);
+                        }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors",
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Name: { editable: true, type: "string" },
+                            Value: { editable: true, type: "string" },
+                            Id: { editable: false, type: "number" }
+                        }
+                    }
+                },
+                requestEnd: function (e) {
+                    if (e.type == "create" || e.type == "update") {
+                        this.read();
+                    }
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            editable: {
+                confirmation: "确认删除",
+                mode: "inline"
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Name",
+                    title: "配置名称",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Value",
+                    title: "配置值",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    command: [
+                        {
+                            name: "edit",
+                            text: {
+                                edit: "编辑",
+                                update: "更新",
+                                cancel: "取消"
+                            }
+                        }, {
+                            name: "destroy",
+                            text: "删除"
+                        }
+                    ],
+                    width: 200
+                }
+            ]
+        });
+
+        //search button
+        $('#search-settings').click(function () {
+            var grid = $('#settings-grid').data('kendoGrid');
+            grid.dataSource.page(0);
+        });
+    });
+    function additionalData() {
+        var data = {
+            Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+        };
+        return data;
+    }
+</script>

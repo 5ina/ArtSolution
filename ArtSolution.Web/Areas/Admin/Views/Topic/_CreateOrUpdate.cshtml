@@ -1,0 +1,57 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="new-edit">
+
+    <div class="box box-default">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table class="adminContent">
+
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Title):
+                                    </td>
+                                    <td class="adminData">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+
+                                            @Html.ValidationMessageFor(model => model.Title)
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.SystemName):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.TextBoxFor(model => model.SystemName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SystemName)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Content):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.EditorFor(model => model.Content)
+                                        @Html.ValidationMessageFor(model => model.Content)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>            
+</div>

@@ -1,0 +1,121 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Setting.WeChatSettingModel
+@{
+    ViewBag.Title = "Order";
+}
+
+<section class="content-header">
+    <h1>微信配置</h1>
+    <ol class="function"></ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("WeChat", "Setting", FormMethod.Post, new { id = "system-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                </div>
+            </div>
+
+            <div id="attribute-edit">
+                <div class="row">
+                    <div class="col-md-10">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.AppId):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.AppId, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AppId)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.AppSecret):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.AppSecret, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AppSecret)
+                                    </div>
+                                </td>
+                            </tr>       
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Token):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.Token, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Token)
+                                    </div>
+                                </td>
+                            </tr>      
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.MchId):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.MchId, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.MchId)
+                                    </div>
+                                </td>
+                            </tr>     
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Key):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.Key, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Key)
+                                    </div>
+                                </td>
+                            </tr>     
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Notify_Url):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.Notify_Url, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Notify_Url)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Expire):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.EditorFor(model => model.Expire, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Expire)
+                                    </div>
+                                </td>
+                            </tr>                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>
+
+

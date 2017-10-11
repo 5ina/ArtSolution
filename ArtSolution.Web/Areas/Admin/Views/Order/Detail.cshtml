@@ -1,0 +1,22 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+@{
+    //page title
+    ViewBag.Title = "订单详情";
+}
+
+<section class="content-header">
+    <h1>订单详情</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        <div class="section-header">            
+            <ol class="breadcrumbs pull-right">
+                <li><a href="@Url.Action("List")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>返回列表</a></li>
+            </ol>
+        </div>
+
+        <div class="order-detail">
+            @Html.Partial("_OrderView", Model)
+        </div>
+    </div>
+</section>

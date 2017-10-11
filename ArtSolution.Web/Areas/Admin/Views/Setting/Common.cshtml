@@ -1,0 +1,119 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Setting.CommonModel
+@{
+    ViewBag.Title = "公共配置";
+}
+
+<section class="content-header">
+    <h1>公共配置</h1>
+    <ol class="function"></ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("Common", "Setting", FormMethod.Post, new { id = "system-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                </div>
+            </div>
+
+            <div id="attribute-edit">
+                <div class="row">
+                    <div class="col-md-10">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.StoreName):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.StoreName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.StoreName)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.StoreURL):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.StoreURL, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.StoreURL)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.MetaTitle):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.MetaTitle, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.MetaTitle)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.MetaKeywords):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.MetaKeywords, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.MetaKeywords)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.MetaDescription):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.MetaDescription, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.MetaDescription)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.EnabledIcon):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.EnabledIcon)
+                                        @Html.ValidationMessageFor(model => model.EnabledIcon)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.EnabledReview):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.EnabledReview)
+                                        @Html.ValidationMessageFor(model => model.EnabledReview)
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>
+
+

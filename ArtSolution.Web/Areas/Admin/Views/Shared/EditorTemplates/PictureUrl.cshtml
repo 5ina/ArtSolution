@@ -1,0 +1,40 @@
+﻿@model string
+@using ArtSolution;
+@{ 
+    var imgId = CommonHelper.GenerateCode(2);
+}
+<div class="picture-url upload-img">
+    <img src="@if (!string.IsNullOrWhiteSpace(Model)) { <text>@Model</text>} else { <text>/images/upload-image.png</text>}" class="preview" />
+    <input id="img-@imgId" name="image" class="input-upload-img" type="file" multiple="multiple" accept="image/png,image/jpeg">
+    @Html.HiddenFor(model=>model)
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#img-@imgId").change(function () {
+
+            var formData = new FormData();
+            formData.append("image", $("#img-@imgId")[0].files[0]);
+            $.ajax({
+            type: "POST",
+                url: "@(Url.Content("~/Admin/Picture/AsyncUploadImage"))",
+                data: formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                enctype: "multipart/form-data",
+                beforeSend: function () {
+                    console.log("正在进行，请稍候");
+                },
+                success: function (data) {
+                    $(".preview").attr("src", data.url);
+                    $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").val(data.url);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("上传失败，请检查网络后重试");
+                }
+            });
+        });
+    });
+</script>

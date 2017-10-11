@@ -1,0 +1,90 @@
+﻿@model ArtSolution.Web.Models.News.LoanModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_CenterHeader", "我要借款")
+<div class="container">
+    <div class="customer-loan">
+
+        @using (Html.BeginForm("Loan", "Customer", FormMethod.Post, new { @class = "form-horizontal" ,id="loan-form", onsubmit = " return validationdata()" }))
+        {
+            var validationSummary = Html.ValidationSummary(true, "登录成功");
+            if (!MvcHtmlString.IsNullOrEmpty(validationSummary))
+            {
+                <div class="message-error">@validationSummary</div>
+            }
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtEditorFor(model=>model.Name)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mobile, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtEditorFor(model => model.Mobile)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sex, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    <label> @Html.RadioButtonFor(model => model.Sex, 1) 男</label>
+                    <label> @Html.RadioButtonFor(model => model.Sex,2) 女</label>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.SchoolName, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtEditorFor(model => model.SchoolName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Location, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.HiddenFor(model => model.Location)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdCardPositive, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtEditorFor(model => model.IdCardPositive)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdCardSide, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtEditorFor(model => model.IdCardSide)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quota, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtDropDownListFor(model => model.Cycle, Model.AvailableQuotas, null, "请选择分期金额", true)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cycle, new { @class = "col-xs-4 control-label" })
+                <div class="col-xs-8">
+                    @Html.ArtDropDownListFor(model => model.Cycle, Model.AvailableCyclies, null, "请选择分期时间", true)
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="col-sm-12 sumbit">
+                        <input type="submit" class="btn btn-danger" value="提交" />
+                    </div>
+                </div>
+        }
+
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    function validationdata()
+    {
+        return false;
+    }
+</script>

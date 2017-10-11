@@ -1,0 +1,89 @@
+﻿@using ArtSolution.Domain.Orders;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_CenterHeader", "我的订单")
+<div class="myorder">
+    <div class="order-status" role="group" aria-label="...">
+            <button type="button" class="btn-status active" data-status="0">全部</button>
+            <button type="button" class="btn-status" data-status="10">未支付</button>
+            <button type="button" class="btn-status" data-status="20">未发货</button>
+            <button type="button" class="btn-status" data-status="30">未签收</button>
+            <button type="button" class="btn-status" data-status="100">已取消</button>
+    </div>
+
+    @Html.Hidden("pageIndex", 0)
+    @Html.Hidden("pageSize", 10)
+    <div class="order-datas">
+
+    </div>
+
+    <script type="text/javascript">
+
+        getOrderData();
+        $(document).ready(function () {
+
+            $(".btn-status").click(function () {
+                $(".btn-status").removeClass("active");
+                $(this).addClass("active");
+                var status = $(this).attr("data-status");
+                var data = {
+                    status: status,
+                    pageIndex: $("#pageIndex").val(),
+                    pageSize: $("#pageSize").val()
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/Order/OrderDatas",
+                    data: data,
+                    datatype: "json",
+                    success: function (result) {
+                        drawData(result);
+                    }
+                });
+            });
+        });
+        function getOrderData()
+        {
+            var data = {
+                status: 0,
+                pageIndex: $("#pageIndex").val(),
+                pageSize: $("#pageSize").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Order/OrderDatas",
+                data: data,
+                datatype: "json",
+                success: function (result) {
+                    drawData(result);
+                }
+            });
+        }
+        function drawData(result)
+        {
+            $(".order-datas").html('');
+            $("#pageIndex").val(result.draw);
+            $.each(result.Data, function (i, result) {
+                var content = '<div class="item">';
+                content += '<div class="item-title">';
+                content += '<div class="pull-left"><a href="/Order/Detail?orderId='+result["Id"]+'">下单时间:' + result["CreateTime"] + '<a/></div><div class="pull-right">' + result["OrderStatus"] + '</div>';
+                content += '</div>';
+
+                $.each(result.Products, function (j, p) {
+                    content += '<div class="form-group clearfix">';
+                    content += '<div class="col-xs-3"><a href="/Product/Detail?productId='+p.ProductId+'"><img src="' + p.Image + '"/></a></div>';
+                    content += '<div class="col-xs-9"><p><a href="/Product/Detail?productId='+p.ProductId+'">' + p.Name + '</a></p></div>';
+                    content +="</div>";
+                 });
+                content += '<div class="item-price clearfix"><span class="pull-left">合计：' + result["Total"] + '</span>';
+                
+                if (result["Status"] == @((int)OrderStatus.Pending) )
+                    content += '<a class="pull-right" href="/Order/GoOnPay?orderId='+result["Id"]+'">去支付</a>';
+                content +="</div>";
+                $(".order-datas").append(content);
+            });
+        }
+    </script>
+</div>

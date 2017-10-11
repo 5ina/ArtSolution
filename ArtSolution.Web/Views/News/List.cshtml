@@ -1,0 +1,65 @@
+﻿@model ArtSolution.Web.Models.News.ShopNewItemListModel
+@{
+    ViewBag.Title = "新闻列表";
+}
+<div class="news-page">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row margin-bottom-5">
+                    <div class="col-xs-12 result-news">
+                        <h2>新闻中心</h2>
+                        <small class="shop-bg-red badge-results"> 共 @Model.TotalCount 条</small>
+                    </div>
+                </div>
+                <!-- 新闻列表 -->
+                <div class="filter-results">
+
+                    @foreach (var item in Model.Items)
+            {
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="product-description product-description-brd">
+                                    <div class="overflow-h margin-bottom-5">
+                                        <div class="pull-left">
+                                            <h4 class="title-price">
+                                                <a href="@Url.Action("Detail", "News", new { newsId = item.Id })">@item.Title</a>
+                                            </h4>
+                                            <span class="gender text-uppercase">@item.PublishDateTime.ToString("yyyy-MM-dd")</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="title-price">查看详情</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            }
+                </div><!--/end filter resilts-->
+                <div class="text-center">
+                    <ul class="pagination pagination-v2">
+                        @if (Model.HasPrev)
+                    {
+                            <li><a href="@Url.Action("List", new { pageIndex = Model.CurrentPage - 1, pageSize = 15 })"><i class="fa fa-angle-left"></i></a></li>
+                    }
+                        <li><a @if (Model.CurrentPage == 0) { <text> class="active" </text> }>1</a></li>
+
+                        @if (Model.CurrentPage != 0)
+                    {
+                            <li class="active"><a>@Model.CurrentPage + 1</a></li>
+                    }
+
+                        @if (Model.CurrentPage > 1)
+                    {
+                            <li><a href="@Url.Action("List", new { pageIndex = Model.CurrentPage + 1, pageSize = 15 })"> @Model.CurrentPage +1</a></li>
+                    }
+
+                        @if (Model.HasNext)
+                    {
+                            <li><a href="@Url.Action("List", new { pageIndex = Model.CurrentPage + 1, pageSize = 15 })"><i class="fa fa-angle-right"></i></a></li>
+                    }
+                    </ul>
+                </div><!--/end pagination-->
+            </div>
+        </div><!--/end row-->
+
+</div>

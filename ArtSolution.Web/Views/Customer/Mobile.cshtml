@@ -1,0 +1,85 @@
+﻿@model ArtSolution.Web.Models.Customers.CustomerMobleModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_CenterHeader", "用户信息")
+<div class="container">
+    <div class="customer-mobile">
+
+        @using (Html.BeginForm("Mobile", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            var validationSummary = Html.ValidationSummary(true, "登录成功");
+            if (!MvcHtmlString.IsNullOrEmpty(validationSummary))
+            {
+                <div class="message-error">@validationSummary</div>
+            }
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.CustomerId)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Mobile, new { @class = "col-xs-3 control-label" })
+                    <div class="col-xs-9">
+                        <input type="tel" id="Mobile" name="Mobile" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Captcha, new { @class = "col-xs-3 control-label" })
+
+                    <div class="col-xs-9">
+                        <div class="input-group">
+                            <input type="tel" id="Captcha" name="Captcha" class="form-control captcha" />
+
+
+                            <input type="button" class="btn btn-default captcha" onclick="sendCode(this);" value="验证码" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 sumbit">
+                        <input type="submit" class="btn btn-danger" value="保存" />
+                    </div>
+
+                </div>            
+        }
+
+        <script type="text/javascript">
+            var clock = '';
+            var nums = 30;
+            var btn;
+            function sendCode(thisBtn) {
+                if ($("#Mobile").val())
+                {
+                    alert("请输入手机号");
+                    return;
+                }
+                getCaptcha($("#Mobile").val());
+                btn = thisBtn;
+                btn.disabled = true; //将按钮置为不可点击
+                btn.value = '(' + nums + ')';
+                clock = setInterval(doLoop, 1000); //一秒执行一次
+            }
+            function doLoop() {
+                nums--;
+                if (nums > 0) {
+                    btn.value = '(' + nums + ')';
+                } else {
+                    clearInterval(clock); //清除js定时器
+                    btn.disabled = false;
+                    btn.value = '获取验证码';
+                    nums = 30; //重置时间
+                }
+            }
+
+            function getCaptcha(obj) {
+                $.ajax({
+                    type: "GET",
+                    url: "/Customer/Captcha",
+                    data: { Mobile: obj },
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+            }
+        </script>
+    </div>
+</div>

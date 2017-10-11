@@ -1,0 +1,94 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Setting.SystemSettingModel
+@{
+    ViewBag.Title = "系统配置";
+}
+
+
+<section class="content-header">
+    <h1>系统配置</h1>
+    <ol class="function"></ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("System", "Setting", FormMethod.Post, new { id = "system-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                </div>
+            </div>
+
+            <div id="attribute-edit">
+                <div class="row">
+                    <div class="col-md-10">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.SiteName):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.SiteName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SiteName)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Title):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Title)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Keywords):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Keywords)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Description):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.Description)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Tel):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                                        @Html.TextBoxFor(model => model.Tel, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Tel)
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>

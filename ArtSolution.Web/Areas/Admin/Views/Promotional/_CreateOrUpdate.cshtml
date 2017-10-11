@@ -1,0 +1,120 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="promotional-edit">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#promotional_info" data-toggle="tab">基本信息</a>
+            </li>
+
+            <li>
+                <a href="#promotional_seo" data-toggle="tab">优化信息</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="promotional_info">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="adminContent">
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Name):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.Name)
+                                    @Html.ValidationMessageFor(model => model.Name)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.PromotionalImage):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.PromotionalImage)
+                                    @Html.ValidationMessageFor(model => model.PromotionalImage)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Published):
+                                </td>
+                                <td class="adminData">
+                                    @Html.EditorFor(model => model.Published)
+                                    @Html.ValidationMessageFor(model => model.Published)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.StartDate):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.StartDate, "开始时间")
+                                    @Html.ValidationMessageFor(model => model.StartDate)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.EndDate):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.EndDate, "结束时间")
+                                    @Html.ValidationMessageFor(model => model.EndDate)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.PromotionalPath):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.PromotionalPath, "以为'/'为起点")
+                                    @Html.ValidationMessageFor(model => model.PromotionalPath)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="promotional_seo">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Title):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.Title)
+                                    @Html.ValidationMessageFor(model => model.Title)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Keywords):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.Keywords)
+                                    @Html.ValidationMessageFor(model => model.Keywords)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Description):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextAreaFor(model => model.Description, new { rows = "2", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

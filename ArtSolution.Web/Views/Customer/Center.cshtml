@@ -1,0 +1,119 @@
+﻿@model ArtSolution.Web.Models.Customers.CustomerCenterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    @Html.Action("Header", "Common")
+
+
+    <div class="customers">
+
+        <div class="form-group customer-info">
+            <div class="content-data">
+                @if (!String.IsNullOrWhiteSpace(Model.CustomerAvatar))
+                {
+                    <img src="@Model.CustomerAvatar" class="img-circle avatar" />
+                }
+                else
+                {
+                    <img src="~/images/default-avatar.png" class="img-circle avatar" />
+                }
+                <span>@Model.CustomerName</span>
+                @if (Model.BindMobile)
+                {
+                    <a class="bing-mobile" href="@Url.Action("Info","Customer")">绑定手机</a>
+                }
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.Action("Reward", "Customer")
+            @Html.Action("Coupon", "Customer")
+
+@if (Model.Promoter)
+{
+    @Html.Action("Commission", "Customer")
+
+}
+
+        </div>
+        <div class="form-group">
+            <div class="content-data">
+                <i class="fa fa-align-justify"></i>
+                <a class="btn-customer" href="@Url.Action("MyOrder","Order")">我的订单</a>
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="content-data">
+                <i class="fa fa-align-justify"></i>
+                <a class="btn-customer" href="@Url.Action("MyCarts", "ShoppingCart")">我的购物车</a>
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="content-data">
+
+                @if (Model.Promoter)
+                {
+                    <i class="fa fa-align-justify"></i>
+                    <a class="btn-customer" href="@Url.Action("MyQRCode", "Customer")">推广码</a>
+                    <i class="fa fa-angle-right"></i>
+                }
+                else
+                {
+                    <i class="fa fa-align-justify"></i>
+                    <a class="btn-customer" href="@Url.Action("ApplyPromoter", "Customer")">申请推广人</a>
+                    <i class="fa fa-angle-right"></i>
+                }
+            </div>
+        </div>
+        @if (Model.Promoter)
+        {
+
+            <div class="form-group">
+                <div class="content-data">
+                    <i class="fa fa-align-justify"></i>
+                    <a class="btn-customer" href="@Url.Action("MyCustomer","Customer")">我的用户</a>
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        }
+        @*<div class="form-group">
+            <div class="content-data">
+                <i class="fa fa-align-justify"></i>
+                <a class="btn-customer" href="@Url.Action("MyReview","Customer")">我的评论</a>
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>*@
+
+        @if (Model.CustomerId > 0)
+        {
+            @*<div class="form-group">
+                <div class="content-data">
+                    <i class="fa fa-align-justify"></i>
+                    <a class="btn-customer" href="@Url.Action("Loan","Customer")">我要借款</a>
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>*@
+        }
+        <div class="form-group">
+                <div class="content-data">
+                    <i class="fa fa-align-justify"></i>
+                    <a class="btn-customer" href="@Url.Action("Wish","Customer")">愿望单</a>
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        <div class="form-group margin-top-80">
+            <a href="@Url.Action("Detail", "Topic", new { systemName = "Helper" })" title="常见问题">
+                <img class="footer-logo" src="~/images/qa.png" alt="常见问题">
+            </a>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</div>

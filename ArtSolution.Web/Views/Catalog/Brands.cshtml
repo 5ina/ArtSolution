@@ -1,0 +1,27 @@
+﻿@model  List<ArtSolution.Web.Models.Catalogs.BrandModel>
+@{
+    ViewBag.Title = "全部品牌";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("Header", "Common")
+
+<div class="brands-page">
+
+    <div class="brand-title">
+        <h4>全部品牌</h4>
+    </div>
+    
+    <div class="brand-content">
+        @foreach (var item in Model)
+        {
+            <div class="brand-items">
+                <a href="@Url.Action("BrandProducts", "Catalog", new { brandId = item.Id })">
+                    <img src="@item.BrandImage" title="@item.Name" />
+                    <p>@item.Name</p>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+

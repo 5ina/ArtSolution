@@ -1,0 +1,23 @@
+﻿<nav class="navbar navbar-default navbar-fixed-bottom">
+    <ul class="wd-nav">
+        <li class="for_gaq">
+            <a href="@Url.Action("Index","Home")" title="首页">
+                <i class="fa fa-home"></i>
+                <span>首页</span>
+            </a>
+        </li>
+        <li class="for_gaq dropdown">
+            <a class="dropdown-toggle" id="topCatalog" href="#" title="商品类别" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="fa fa-navicon "></span>
+                <span>商品分类</span>
+            </a>
+            @Html.Action("TopCatalog", "Catalog")
+        </li>
+        <li class="for_gaq">
+            <a href="@Url.Action("Brands", "Catalog")" title="商品品牌">
+                <span class="fa fa-gg"></span>
+                <span>商品品牌</span>
+            </a>
+        </li>
+    </ul>
+</nav>

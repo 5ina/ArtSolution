@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "留言板";
+}
+
+@section Styles
+{
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css")
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/jquery.dataTables.min.css")
+}
+@section Scripts
+    {
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/jquery.dataTables.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/dataTables.bootstrap.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js")
+}
+
+<section class="content-header">
+    <h1>留言板</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">        
+        <table id="msg_local" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>姓名</th>
+                    <th>手机</th>
+                    <th>发布时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    $(function () {
+        var adverts = $("#msg_local").dataTable({
+            ajax: {
+                url: "MessageList",
+                type: "POST",
+            },
+            columns: [
+                    { "data": "Id" },
+                    { "data": "Name" },
+                    { "data": "Mobile" },
+                    { "data": "CreationTime" },
+                    {
+                        "data": null, "render": function (data, type, row) {
+                            var result = '<a class="btn btn-info" href="Edit?Id=' + data["Id"] + '">编辑</a>';
+                            result += '<a class="btn bg-orange color-palette" href="#" id="del">删除</a>';
+                            return result;
+                        }
+                    },
+            ],
+            paging: true,
+            searching: false,//搜索
+            language: {
+                lengthMenu: '<select class="form-control input-xsmall" id="PageSize">' + '<option value="1">1</option>' + '<option value="10">10</option>' + '<option value="20">20</option>' + '<option value="30">30</option>' + '<option value="40">40</option>' + '<option value="50">50</option>' + '</select>条记录',
+                paginate: {//分页的样式内容。
+                    previous: "上一页",
+                    next: "下一页",
+                    first: "第一页",
+                    last: "最后"
+                },
+
+                zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+                //下面三者构成了总体的左下角的内容。
+                info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，共 _TOTAL_ 条",//左下角的信息显示，大写的词为关键字。
+                infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                infoFiltered: ""//筛选之后的左下角筛选提示，
+            },
+            pagingType: "full_numbers",//分页样式的类型
+
+        });
+        /**
+         * 删除
+         */
+        $('#msg_local tbody').on('click', 'a#del', function () {
+            var data = $('#msg_local').DataTable().row($(this).parents('tr')).data();
+            $.ajax({
+                type: "POST",
+                url: "MessageDelete?id=" + data["Id"],
+                success: function (result) {
+                    if (result = "ok")
+                        adverts.api().ajax.reload();
+                }
+            });
+        });
+
+        $('.reload').click(function () {
+            adverts.api().ajax.reload();
+        })
+
+    });
+
+</script>

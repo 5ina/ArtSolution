@@ -1,0 +1,30 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+@{
+    //page title
+    ViewBag.Title = "主题管理";
+}
+
+<section class="content-header">
+    <h1>编辑主题</h1>
+  
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("Edit", "Topic", FormMethod.Post, new { id = "topic-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options pull-left">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                    <input type="submit" name="save-continue" class="btn btn-primary btn-success" value="保存并编辑" />
+                </div>
+                <ol class="function pull-right">
+                    <li><a href="@Url.Action("List")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>返回列表</a></li>
+                </ol>
+            </div>
+            @Html.Partial("_CreateOrUpdate", Model)
+        }
+
+
+    </div>
+</section>

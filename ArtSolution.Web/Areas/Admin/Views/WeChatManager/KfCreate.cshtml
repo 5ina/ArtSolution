@@ -1,0 +1,29 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.WeChat.KfModel
+@{
+    //page title
+    ViewBag.Title = "新增客服";
+}
+
+<section class="content-header">
+    <h1>新增客服</h1>
+    <ol class="function">
+        <li><a href="@Url.Action("KfList")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>返回客服列表</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("KfCreate", "WeChatManager", FormMethod.Post, new { id = "customer-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                    <input type="submit" name="save-continue" class="btn btn-primary btn-success" value="保存并编辑" />
+                </div>
+            </div>
+            @Html.Partial("_CreateOrUpdateKf", Model)
+        }
+
+
+    </div>
+</section>

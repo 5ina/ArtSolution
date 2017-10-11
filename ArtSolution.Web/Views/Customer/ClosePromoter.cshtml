@@ -1,0 +1,19 @@
+﻿@model ArtSolution.Web.Models.Customers.CustomerCenterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    @Html.Action("Header", "Common")
+
+    <div class="customers">
+        <h5>推广模式已关闭</h5>
+        <div class="result">
+            <div class="result-home">
+            <a class="btn btn-sm" href="/">返回首页</a>
+        </div>
+    </div>
+    </div>
+    @Html.Partial("_Footer")
+</div>

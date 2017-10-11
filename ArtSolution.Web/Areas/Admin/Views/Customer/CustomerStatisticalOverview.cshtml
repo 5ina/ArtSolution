@@ -1,0 +1,12 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Customers.CustomerStatisticalOverviewModel
+
+<div class="info-box">
+    <span class="info-box-icon bg-aqua"><i class="fa fa-user-o"></i></span>
+
+    <div class="info-box-content">
+        <span class="info-box-number"><a href="@Url.Action("List","Customer")">用户统计</a>(总数量： @Model.CustomerTotalCount)</span>
+        <span class="info-box-text">本周新增：@Model.CustomerWeekNewCount</span>
+        <span class="info-box-text">本月新增：@Model.CustomerMonthNewCount</span>
+    </div>
+    <!-- /.info-box-content -->
+</div>

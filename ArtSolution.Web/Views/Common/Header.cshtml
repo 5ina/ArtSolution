@@ -1,0 +1,24 @@
+﻿@model ArtSolution.Web.Models.Common.CommonHeaderModel
+<div class="head_wrapper">
+    <div class="head_back">
+        @if (Model.EnabledIcon)
+        {
+            <a class="hd_logo" href="@Url.Action("Index","Home")" title="@Model.StoreName"></a>
+        }
+        else
+        {
+            <a class="hd_logo_text" href="@Url.Action("Index","Home")" title="@Model.StoreName"></a>
+        }
+        @if (Model.HasLoginCustomer)
+        {        
+        <a href="@Url.Action("MyCarts", "ShoppingCart")" class="top_cart"><i class="fa fa-shopping-bag fa-lg"></i></a>
+        <div class="my_shop" >
+            <a href="@Url.Action("Center", "Customer")">会员中心</a>
+        </div>
+        }
+        @if (!String.IsNullOrWhiteSpace(ViewData["Title"].ToString()))
+        {
+            <h5>@ViewData["Title"]</h5>
+        }
+    </div>
+</div>

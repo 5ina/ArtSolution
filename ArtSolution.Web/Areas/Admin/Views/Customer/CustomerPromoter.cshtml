@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "推广者列表";
+}
+<section class="content-header">
+    <h1>推广者列表</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        
+        <div id="customer-grid"></div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#customer-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("CustomerPromoter", "Customer"))",
+                        type: "POST",
+                        dataType: "json",
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors"
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 20,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20, 50]
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Name",
+                    title: "用户昵称",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Mobile",
+                    title: "手机号",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "PromoterCount",
+                    title: "推广人数",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Total",
+                    title: "推广总成交",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 200,
+                    template: '<a class="btn btn-success" href="PromoterList/#=Id#">查看详情</a>'
+                }
+            ]
+        });
+    });
+</script>
+

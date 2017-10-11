@@ -1,0 +1,137 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+
+<div class="panel-group">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <i class="fa fa-info"></i>
+            <h3 class="box-title">商品属性</h3>
+        </div>
+        <div class="box-header with-border">
+
+            <table class="adminContent none">
+                <tbody>
+
+                    <tr>
+                        <td class="adminTitle"></td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                <a class="btn btn-default btn-u-green create-attribute">新增属性</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="adminContent product-attributes">
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>价格</th>
+                        <th>库存</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var att in Model.AvailableAttributes)
+                    {
+                    <tr id="att-@att.Id">
+                        <td class="adminTitle">
+                            <input type="tel" class="form-control" name="Product_Attribute_Name" value="@att.ValueName" />
+                            </td>
+                        <td class="adminData">
+                            <input type="tel" class="form-control" name="Product_Attribute_Price"  value="@att.Price"/>
+                        </td>
+                        <td>
+                            <input type="tel" class="form-control" name="Product_Attribute_Stock" value="@att.Stock" />
+                        </td>
+                        <td>
+                            <a class="edit btn btn-primary" data-attribute="@att.Id">保存</a>
+                            <a class="del btn btn-danger" data-attribute="@att.Id">删除</a>
+
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".create-attribute").click(function () {
+
+            if ($("#att-0").length == 0) {
+                var newTr = '<tr id="att-0"><td class="adminTitle"><input type="tel" class="form-control" name="Product_Attribute_Name"  value=""/></td>';
+                newTr += '<td class="adminData"><input type="tel" class="form-control" name="Product_Attribute_Price"  value=""/></td>';
+                newTr += '<td><input type="tel" class="form-control" name="Product_Attribute_Stock" value="" /></td>';
+                newTr += '<td><a class="edit btn btn-primary" data-attribute="0">保存</a><a class="del btn btn-danger" data-attribute="0">删除</a></td>';
+                newTr += '</tr>';
+
+                $("table.product-attributes").append(newTr);
+            }
+        });
+
+        $(".del").click(function () {
+            var attributeId = $(this).data("attribute");
+            if (attributeId > 0)
+            {
+                $.ajax({
+                    url: "DeleteAttribute",
+                    type: "POST",
+                    data: { attributeId: attributeId },
+                    success: function () {
+                        $("#att-" + attributeId).remove();
+                    }
+                });
+            }
+
+        });
+    });
+
+    $(document).on("click", "a.edit", function () {
+        var attributeId = $(this).data("attribute");
+        var url = "";
+        if (attributeId > 0)
+            url = "/Admin/Product/UpdateAttribute";
+        else
+            url = "/Admin/Product/CreateAttribute";
+
+        var data = additionalData($("#att-"+attributeId));
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType:"json",
+            data: {
+                Price:data.Price,
+                Stock:data.Stock,
+                ValueName:data.ValueName,
+                ProductId: @(Model.Id),
+                Id :attributeId},
+            success: function (result) {
+                if(attributeId == 0)
+                {
+                    $("#att-0 a.edit").attr("data-attribute",attributeId);
+                    $("#att-0 a.del").attr("data-attribute",attributeId);
+                    $("#att-0").attr("id",attributeId);
+                }
+                $("#@Html.FieldIdFor(model=>model.StockQuantity)").val(result.stock);
+                $("#@Html.FieldIdFor(model=>model.Price)").val(result.price);
+                swal("保存成功");
+            }
+        });
+    });
+
+
+    function additionalData(obj) {
+        var data = {
+            Price: obj.find("input[name='Product_Attribute_Price']").val(),
+            Stock :obj.find("input[name='Product_Attribute_Stock']").val(),
+            ValueName :obj.find("input[name='Product_Attribute_Name']").val(),
+            ProductId : @(Model.Id),
+            };
+        return data;
+    }
+</script>

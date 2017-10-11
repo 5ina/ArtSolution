@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@RenderSection("styles", required: false)
+@RenderSection("scripts", required: false)
+<div class="container">
+    @RenderBody()
+    
+        @Html.Partial("_Relevant")
+
+    <div class="shop-qrcode margin-bottom-40">
+        <img src="~/images/qrcode.jpg" />
+    </div>
+    
+</div>
+
+@Html.Partial("_Footer")

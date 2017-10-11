@@ -1,0 +1,23 @@
+﻿@model decimal
+
+<div class="input-group @ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)">
+    <input type="tel" value="@Model" name="@ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty)" class="form-control" />
+    <span class="input-group-addon">%</span>
+
+    <div class="input-group-btn-vertical">
+        <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+        <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+    </div>
+</div>
+
+<script type="text/javascript">
+        (function ($) {
+            $('.@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty) .btn:first-of-type').on('click', function () {
+                $('.@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty) input').val(parseInt($('.@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty) input').val(), 10) + 1);
+            });
+            $('.@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty) .btn:last-of-type').on('click', function () {
+                $('.@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty) input').val(parseInt($('.@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty) input').val(), 10) - 1);
+            });
+
+        })(jQuery);
+</script>

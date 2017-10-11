@@ -1,0 +1,49 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+<table class="adminView">
+    <tr>
+        <td class="adminTitle">@Html.LabelFor(model => model.OrderSn)</td>
+        <td class="adminData">@Model.OrderSn</td>
+        <td class="adminTitle">@Html.LabelFor(model => model.CreationTime)</td>
+        <td class="adminData">@Model.CreationTime</td>
+
+        <td class="adminTitle">@Html.LabelFor(model => model.OrderStatus)</td>
+        <td class="adminData">@Model.OrderStatus</td>
+    </tr>
+    <tr>
+        <td class="adminTitle">@Html.LabelFor(model => model.Subtotal)</td>
+        <td class="adminData">@Model.Subtotal</td>
+        <td class="adminTitle">@Html.LabelFor(model => model.OrderTotal)</td>
+        <td class="adminData">@Model.OrderTotal</td>
+
+        <td class="adminTitle">@Html.LabelFor(model => model.Freight)</td>
+        <td class="adminData"><i class="fa fa-rmb"></i> @Model.Freight</td>
+    </tr>
+    <tr>
+        <td class="adminTitle">@Html.LabelFor(model => model.OrderRemarks)</td>
+        <td class="adminData" colspan="5">@Model.OrderRemarks</td>
+    </tr>
+</table>
+
+<table class="adminView">
+    <thead>
+        <tr>
+            <td width="150">图片</td>
+            <td>商品名称</td>
+            <td width="100">单价</td>
+            <td width="200">规格</td>
+            <td>数量</td>
+            <td>小计</td>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Products)
+    {
+        <tr>
+            <td class="adminData"><img src="@item.ProductImage" width="150" /></td>
+            <td class="adminData">@item.ProductName</td>
+            <td class="adminData"> <i class="fa fa-rmb"></i> @item.Price</td>
+            <td class="adminData"> @Html.Raw(item.Specifications)</td>
+            <td class="adminData">@item.Quantity</td>
+            <td class="adminData">@item.TotalPrice</td>
+        </tr>
+    }
+</table>

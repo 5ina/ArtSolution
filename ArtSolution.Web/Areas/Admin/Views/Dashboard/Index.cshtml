@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.ActiveMenu = "Home"; //The menu item will be active for this page.
+    ViewBag.Title = "控制台";
+}
+
+@section Styles
+{
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css")
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/jquery.dataTables.min.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/admin-lte/plugins/chartjs/Chart.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/fastclick/fastclick.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/jquery.dataTables.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/dataTables.bootstrap.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js")
+    @Html.IncludeScript("/Scripts/chartjs/Chart.min.js")
+}
+
+
+<section class="content-header">
+    <h1>
+        控制面板
+        <small>Version 1.0</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="test">测试</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+
+            <!--用户统计-->
+            @Html.Action("CustomerStatisticalOverview", "Customer")
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+
+            <!--用户统计-->
+            @Html.Action("OrderStatisticalOverview", "Order")
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+
+            <!--用户统计-->
+            @Html.Action("ProductStatisticalOverview", "Product")
+        </div>
+    </div>
+
+    @*<div class="row">
+
+        <div class="col-md-7 col-sm-6 col-xs-12">
+            @Html.Action("LineChart", "Order")
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+        </div>
+    </div>*@
+    <div class="row">
+
+        <div class="col-md-7 col-sm-6 col-xs-12">
+            @Html.Action("PendingOrder", "Order")
+        </div>
+
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            @Html.Action("NewCustomer", "Customer")
+        </div>
+    </div>
+
+</section>
+
+
+<script type="text/javascript">
+    $(function () {
+        $(".test").click(function () {
+
+            abp.event.on('abp.notifications.received', function (userNotification) {
+                console.log(userNotification);
+            });
+        });
+    });
+</script>

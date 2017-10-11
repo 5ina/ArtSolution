@@ -1,0 +1,155 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Orders.OrderListModel
+@using ArtSolution.Domain.Orders;
+@{
+    ViewBag.Title = "Orders";
+}
+
+@section Styles
+{
+    @Html.IncludeStyle("/Content/kendo/2014.1.318/kendo.common.min.css")
+    @Html.IncludeStyle("/Content/kendo/2014.1.318/kendo.default.min.css")
+}
+<section class="content-header">
+    <h1>订单列表</h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.EditorFor(model => model.OrderStatusIds, new { SelectList = Model.AvailableOrderStatuses })
+                <script>
+                    $(document).ready(function () {
+                        var rolesIdsInput = $('#@Html.FieldIdFor(model => model.OrderStatusIds)').data("kendoMultiSelect");
+                        rolesIdsInput.setOptions({
+                            autoClose: false
+                        });
+
+                        @if (Model.AvailableOrderStatuses.Count == 0)
+                                                {
+                                                    <text>
+                        rolesIdsInput.setOptions({
+                            enable: false,
+                            placeholder: '订单状态'
+                        });
+                        rolesIdsInput._placeholder();
+                        rolesIdsInput._enable();
+                        </text>
+                                                }
+                    });
+                </script>     
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.ArtEditorFor(model => model.StartDate,"开始时间")
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.ArtEditorFor(model => model.EndDate, "结束时间")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.Keywords, new { @placeholder = "关键字查询", @class = "form-control" })
+            </div>
+        </div>    
+
+        <div class="col-md-1">
+            <a href="#" class="reload btn btn-social-icon" id="search-orders"><i class="fa fa-search"></i></a>
+        </div>            
+        
+    </div>    
+    <div id="order-grid"></div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $("#order-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "Order"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: additionalData
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors"
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 20,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20, 50]
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "OrderSn",
+                    title: "订单编号",
+                    headerAttributes: { style: "text-align:center" },
+                }, {
+                    field: "OrderStatus",
+                    title: "订单状态",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Total",
+                    title: "订单价",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    template: "<span class=\"text-danger \" ><strong>#=Total#</strong></span>",
+                },  {
+                    field: "CreationTime",
+                    title: "创建时间",
+                    width: 200,
+                    type: "date",
+                    format: "{0:G}"
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 220,
+                    template: '<a class="btn btn-success" href="Detail?orderId=#=Id#">查看详情</a>'
+                }
+            ]
+        });
+
+        //search button
+        $('#search-orders').click(function () {
+            var grid = $('#order-grid').data('kendoGrid');
+            grid.dataSource.page(0);
+        });
+    });
+    function additionalData() {
+        var data = {
+            Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+            StartDate: $('#@Html.FieldIdFor(model => model.StartDate)').val(),
+            EndDate: $('#@Html.FieldIdFor(model => model.EndDate)').val(),
+            orderStatusIds: $('#@Html.FieldIdFor(model => model.OrderStatusIds)').val(),
+        };
+        return data;
+    }
+</script>

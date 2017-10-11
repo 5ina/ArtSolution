@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "配送方式";
+}
+
+@section Styles
+{
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css")
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/jquery.dataTables.min.css")
+}
+@section Scripts
+    {
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/jquery.dataTables.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/dataTables.bootstrap.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js")
+
+}
+
+<section class="content-header">
+    <h1>配送方式</h1>
+</section>
+<section class="content">
+    <section class="section-header">
+        <ol class="breadcrumbs pull-right">
+            <li><a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>新增配送方式</a></li>
+        </ol>
+    </section>
+    <div class="portlet-body">
+        <table id="table_delivery" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>名称</th>
+                    <th>是否启用</th>
+                    <th>权重</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    $(function () {
+        var table = $("#table_delivery").dataTable({
+            ajax: {
+                url: "List",
+                type: "POST",
+            },
+            columns: [
+                    { "data": "Id" },
+                    { "data": "Name" },
+                    {
+                        "data": null, "render": function (data, type, row) {
+                            return '<img src="/images/active-'+data["Active"]+'.gif" />';
+                        }
+                    },
+                    { "data": "DisplayOrder" },
+                   {
+                       "data": null, "render": function (data, type, row) {
+                           var result = '<a class="btn btn-primary" href="Edit?id=' + data["Id"] + '" >编辑</a>';
+                           result += '<a class="btn btn-success" id="del" href="#">删除</a>';
+                           return result;
+                       }
+                   }
+            ],
+            paging: false,
+            searching: false,//搜索
+            language: {
+                lengthMenu: '<select class="form-control select2" id="PageSize">' + '<option value="1">1</option>' + '<option value="10">10</option>' + '<option value="20">20</option>' + '<option value="30">30</option>' + '<option value="40">40</option>' + '<option value="50">50</option>' + '</select>条记录',
+                paginate: {//分页的样式内容。
+                    previous: "上一页",
+                    next: "下一页",
+                    first: "第一页",
+                    last: "最后"
+                },
+
+                zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+                //下面三者构成了总体的左下角的内容。
+                info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，共 _TOTAL_ 条",//左下角的信息显示，大写的词为关键字。
+                infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                infoFiltered: ""//筛选之后的左下角筛选提示，
+            },
+            pagingType: "full_numbers",//分页样式的类型
+
+        });
+
+        /**
+         * 删除
+         */
+        $('#table_delivery tbody').on('click', 'a#del', function (e) {
+            var data = $('#table_delivery').DataTable().row($(this).parents('tr')).data();            
+            $.ajax({
+                url: "Delete",
+                type: "POST",
+                data: {
+                    "deliveryId": data["Id"],
+                    "__RequestVerificationToken": $('@Html.AntiForgeryToken()').val(),
+                },
+                success: function (result) {
+                    window.location.reload();
+                }
+            });
+        });
+    });
+</script>

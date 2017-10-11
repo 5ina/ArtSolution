@@ -1,0 +1,80 @@
+﻿@model List<ArtSolution.Web.Models.Catalogs.SimpleProductModel>
+@{
+    ViewBag.Title = "关键词\"" + ViewData["Keywords"] + "\"搜索结果";
+    Layout = "~/Views/Shared/_CommonLayout.cshtml";
+}
+
+@Html.Action("Header", "Common")
+
+<div class="shop-product margin-bottom-30">
+
+    @Html.Action("HomeCategory", "Catalog", new { categoryId = 0 })
+
+    <div class="searh-box">
+        @using (Html.BeginForm("Search", "Product", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <input class="form-control" name="Keyword" placeholder="关键词搜索" type="text" value="@ViewData["Keywords"]">
+            <input type="submit" value="搜索" />
+        }
+    </div>
+
+    <div class="searh-title">
+
+        关键词 ： <strong>@ViewData["Keywords"]</strong> 的搜索结果 >>
+
+    </div>
+    <div class="search-page">
+
+        @if (Model.Count > 0)
+        {
+            foreach (var product in Model)
+            {
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="product-image" href="@Url.Action("Detail", "Product", new { productId = product.Id })" title="@product.Name">
+                        <img src="@product.ProductImage" class="product-image" />
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="product-name">
+                        <a href="@Url.Action("Detail", "Product", new { productId = product.Id })" title="@product.Name">
+                            <span> @product.Name</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row product-detail">
+                <div class="col-xs-12">
+                    <a class="product-price pull-left" href="@Url.Action("Detail", "Product", new { productId = product.Id })" title="@product.Name">
+                        <i class="fa fa-rmb"></i>@product.Price
+                    </a>
+                    <a class="cart pull-right" href="/Order/AddProductToOrder?productId=@product.Id" title="添加至购物车">
+                        <i class="fa fa-shopping-cart"></i>
+                        加入购物车
+                    </a>
+                </div>
+
+            </div>
+            }
+        }
+        else
+        {
+
+        <div class="result">
+            <div class="result-content">
+                没有找到相关的商品~
+            </div>
+            <div class="result-home">
+                <a class="btn btn-sm" href="/">去首页</a>
+            </div>
+        </div>
+        }
+
+    </div>
+
+</div>
+

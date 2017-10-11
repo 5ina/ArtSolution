@@ -1,0 +1,83 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+
+<table class="adminContent">
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.PreSell):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                @Html.EditorFor(model => model.PreSell, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PreSell)
+            </div>
+        </td>
+    </tr><tr>
+    <td class="adminTitle">
+        @Html.ArtLabelFor(model => model.Name):
+    </td>
+    <td class="adminData">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </td>
+</tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.ProductCode):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                @Html.TextBoxFor(model => model.ProductCode, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductCode)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.CategoryId):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                @Html.DropDownListFor(model => model.CategoryId, Model.AvailableCategories, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryId)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.BrandId):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                @Html.DropDownListFor(model => model.BrandId, Model.AvailableBrands,"请选择品牌" ,new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BrandId)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.ProductTagIds):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                @Html.EditorFor(model => model.ProductTagIds, new { SelectList = Model.AvailableProductTag, placeholder = "请选择标签" })
+                @Html.ValidationMessageFor(model => model.ProductTagIds)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.ShortDescription):
+        </td>
+        <td class="adminData">
+            @Html.TextAreaFor(model => model.ShortDescription, new { @class = "form-control", rows = "6" })
+            @Html.ValidationMessageFor(model => model.ShortDescription)
+        </td>
+    </tr>
+</table>

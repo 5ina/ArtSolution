@@ -1,0 +1,94 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryAttributeModel
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+
+
+<div id="attribute-edit">
+
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#attribute_info" data-toggle="tab">属性信息</a>
+            </li>
+
+            <li>
+                <a href="#attribute_value" data-toggle="tab">值信息</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="attribute_info">
+                <table class="adminContent">
+
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.Name):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.LabelFor(model => model.CategoryId):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                @Html.DropDownListFor(model => model.CategoryId, Model.AvailableCategories, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CategoryId)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.LabelFor(model => model.Description):
+                        </td>
+                        <td class="adminData">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "6" })
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.DisplayOrder):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                @Html.TextBoxFor(model => model.DisplayOrder, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DisplayOrder)
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="tab-pane" id="attribute_value">
+                @if (Model.Id == 0)
+                {
+                    <text>请先保存数据后在进行操作</text> 
+                }
+                @if (Model.Id > 0)
+                {
+
+                    @Html.Partial("_CreateOrUpdate.Value", Model.Id);
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#@Html.FieldIdFor(model => model.CategoryId)").select2();
+    });
+</script>

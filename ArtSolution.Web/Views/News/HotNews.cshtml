@@ -1,0 +1,11 @@
+﻿@model List<ArtSolution.Web.Models.News.SimpleNewItemModel>
+
+<ul class="list-unstyled checkbox-list">
+
+    @foreach (var item in Model)
+    {
+    <li>
+        <a href="@Url.Action("Detail",new { newsId = item.Id})" >@item.Title</a>
+    </li>
+    }
+</ul>

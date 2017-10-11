@@ -1,0 +1,74 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Setting.AliyunSettingModel
+@{
+    ViewBag.Title = "阿里云配置";
+}
+
+<section class="content-header">
+    <h1>阿里云配置</h1>
+    <ol class="function"></ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("Aliyun", "Setting", FormMethod.Post, new { id = "system-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                </div>
+            </div>
+
+            <div id="attribute-edit">
+                <div class="row">
+                    <div class="col-md-10">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.AccessKeyId):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.AccessKeyId, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AccessKeyId)
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.SecretAccessKey):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.SecretAccessKey, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SecretAccessKey)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Endpoint):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.Endpoint, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Endpoint)
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>
+
+

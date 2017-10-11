@@ -1,0 +1,55 @@
+﻿@model ArtSolution.Web.Models.Customers.EarningModel
+@{
+    ViewBag.Title = "推广收益";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Action("Header", "Common",new { header  = "我的推广收益"})
+
+<div class="earning-customer">
+    <div class="total-amount">
+        <div class="row">
+            <div class="col-xs-8">
+                <span class="title"> 总资产 （元）</span>
+                <span class="amount-value">@Model.Commission</span>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                @if (Model.Commission > 0)
+                {
+                    <a class="btn btn-warning" href="ApplyCash">申请提现</a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="total-list row">
+        <div class="col-xs-6">
+            <div class="title">
+                当月提款次数
+            </div>
+            <div class="value">
+                @Model.CurrentWithdrawals
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="title">
+                当月提款金额
+            </div>
+            <div class="value">
+                @Model.CurrentWithdrawalAmount
+            </div>
+        </div>
+    </div>
+
+    <div class="comms-list">
+
+        <div class="items row">
+            <div class="col-xs-6"><div class="title">当月返佣单数</div></div>
+            <div class="col-xs-6"><div class="value">@Model.CurrentCommissionCount</div></div>
+        </div>
+        <div class="items row">
+            <div class="col-xs-6"><div class="title">当月返佣金额</div></div>
+            <div class="col-xs-6"><div class="value">@Model.CurrentCommissionAmount</div></div>
+        </div>
+    </div>
+</div>

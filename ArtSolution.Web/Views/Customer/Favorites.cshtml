@@ -1,0 +1,27 @@
+﻿@model ArtSolution.Web.Models.Orders.FavoriteListModel
+@{
+    ViewBag.Title = "我的收藏夹";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_CenterHeader", "收藏夹")
+<div class="pate-title">
+    <a class="pull-left" href="@Url.Action("Center","Customer")"></a>
+</div>
+<div class="favorites-page">
+    @if (Model.Total > 0)
+    {
+    }
+    else
+    {
+        <div class="result">
+            <div class="result-content">
+                您还没有收藏商品~
+            </div>
+            <div class="result-home">
+                <a class="btn btn-sm" href="/">去首页</a>
+            </div>
+        </div>
+    }
+
+    </div>
+

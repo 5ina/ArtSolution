@@ -1,0 +1,101 @@
+﻿@model ArtSolution.Web.Models.Orders.OrderDtailModel
+@using ArtSolution.Domain.Orders;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_CenterHeader", "订单详情")
+<div class="order-detail">
+    <div class="order-info">
+        <div class="order-content">
+            <div class="row">
+                <span class="col-xs-3">订单状态 ：</span>
+                <span class="col-xs-9">@(Model.OrderStatus)</span>
+            </div>
+            <div class="row">
+                <span class="col-xs-3">订单号 ：</span>
+                <span class="col-xs-9">@(Model.OrderSn)</span>
+            </div>
+            <div class="row">
+                <span class="col-xs-3">下单时间 ：</span>
+                <span class="col-xs-9">@(Model.CreationTime)</span>
+            </div>
+            <div class="row">
+                <span class="col-xs-3">收货地址 ：</span>
+                <span class="col-xs-9">@(Model.BillingAddress)</span>
+            </div>
+            <div class="row">
+                <span class="col-xs-3">订单金额 ：</span>
+                <span class="col-xs-9 price"><i class="fa fa-rmb"></i>@(Model.OrderTotal) 含运费 (含运费)</span>
+            </div>
+            @if (Model.OrderStatusId > ((int)OrderStatus.Pending) && Model.OrderStatusId < ((int)OrderStatus.ReturnOrdering))
+            {
+                <div class="row">
+                    <span class="col-xs-3">操作：</span>
+                    <span class="col-xs-5 "><a class="btn btn-danger" href="@Url.Action("ReturnOrder","Order")">申请退款</a></span>
+                </div>
+            }
+            @if (Model.OrderStatusId == (int)OrderStatus.Pending)
+            {
+                <div class="row">
+                    <span class="col-xs-3">操作：</span>
+                    <span class="col-xs-4 "><a class="btn btn-danger" id="cancel-order">取消订单</a></span>
+                </div>
+            }
+        </div>
+
+        <div class="order-items">
+            @foreach (var item in Model.Products)
+            {
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img class="product-image" src="@item.ProductImage" />
+                    </div>
+
+                    <div class="col-xs-9">
+                        <div class="item-content">
+                            <div class="product-name">
+                                <span>@item.ProductName</span>
+                            </div>
+                            <div class="product-price">
+                                <div class="price pull-left">
+                                    <i class="fa fa-rmb"></i>@item.Price
+                                </div>
+                                <div class="qty pull-right">
+                                    @item.Quantity
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#cancel-order").click(function () {
+
+            swal({
+                title: "确认操作",
+                text: "确认取消订单？订单取消后无法恢复该订单的信息",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确定取消",
+                cancelButtonText: "返回",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+function (isConfirm) {
+    if (isConfirm) {
+        window.location.href = "/Order/CancelOrder?orderId=@(Model.Id)";
+    }
+});
+
+
+        });
+    });
+</script>

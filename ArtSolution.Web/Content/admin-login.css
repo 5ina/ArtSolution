@@ -1,0 +1,125 @@
+﻿body.login {
+    background-image: url('/images/login-bg.jpg');
+	background-size:cover;
+}
+
+.login-box .login-logo a {
+    color: #fff;
+}
+
+.login-box-body {
+    border-radius: 5px;
+    opacity: 1;
+}
+
+    .login-box-body .btn {
+        width: 100%;
+    }
+
+    .login-box-body .op label, .login-box-body .op input[type="checkbox"] {
+        padding: 7px 12px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857;
+    }
+
+
+.login-box-body {
+    animation: move 4s;
+    -moz-animation: move 4s; /* Firefox */
+    -webkit-animation: move 4s; /* Safari and Chrome */
+    -o-animation: move 4s; /* Opera */
+}
+@keyframes move {
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+@-moz-keyframes move /* Firefox */
+{
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes move /* Safari and Chrome */
+{
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+@-o-keyframes move /* Opera */
+{
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+
+.login-logo{
+    animation: left 2s;
+    -moz-animation: left 2s; /* Firefox */
+    -webkit-animation: left 2s; /* Safari and Chrome */
+    -o-animation: left 2s; /* Opera */
+}
+
+@keyframes left {
+    from {
+        text-indent:-9999px;
+    }
+
+    to {
+        text-indent:0;
+    }
+}
+
+@-moz-keyframes left /* Firefox */
+{
+    from {
+        text-indent:-9999px;
+    }
+
+    to {
+        text-indent:0;
+    }
+}
+
+@-webkit-keyframes left /* Safari and Chrome */
+{
+    from {
+        text-indent:-9999px;
+    }
+
+    to {
+        text-indent:0;
+    }
+}
+
+@-o-keyframes left /* Opera */
+{
+    from {
+        text-indent:-9999px;
+    }
+
+    to {
+        text-indent:0;
+    }
+}

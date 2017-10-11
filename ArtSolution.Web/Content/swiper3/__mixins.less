@@ -1,0 +1,82 @@
+﻿._swiper-pagination(@size, @color, @opacity, @color-active, @opacity-active) {
+	.swiper-pagination-bullet {
+		width: @size;
+		height: @size;
+		background-color: @color;
+		opacity: @opacity;
+	}
+
+	.swiper-pagination-bullet-active {
+		background-color: @color-active;
+		opacity: @opacity-active;
+	}
+}
+
+
+._swiper-button-reset(@height, @button_width, @color, @bg) {
+	.swiper-button-prev,
+	.swiper-button-next {
+		background: none;
+		position: absolute;
+		top: 50%;
+		margin: -@height * .5 0 0 0;
+		padding: 0;
+		width: @button_width;
+		height: @height;
+		line-height: @height;
+		text-align: center;
+		font-size: 1.4em;
+		color: @color;
+		z-index: 10;
+
+		> i {
+			vertical-align: middle;
+		}
+	}
+
+	.swiper-button-prev.swiper-button-disabled,
+	.swiper-button-next.swiper-button-disabled {
+		opacity: 0;
+		cursor: auto;
+		pointer-events: none;
+	}
+
+	.swiper-button-prev,
+	.swiper-container-rtl .swiper-button-next {
+		left: 0;
+		right: auto;
+		/*text-align: left;*/
+	}
+
+	.swiper-button-next,
+	.swiper-container-rtl .swiper-button-prev {
+		right: 0;
+		left: auto;
+		/*text-align: right;*/
+	}
+}
+
+
+._swiper-hor-menu(@height, @item-width, @button_width, @color, @bg) {
+	._swiper-button-reset(@height, @button_width, @color, @bg);
+
+	.swiper-slide {
+		display: block;
+		height: @height;
+		line-height: @height;
+		padding: 0 @button_width * .75;
+		text-align: center;
+		width: @item-width;
+
+		> span {
+			display: inline-block;
+			line-height: 1.4em;
+			vertical-align: middle;
+		}
+	}
+}
+
+
+._swiper-pagination() {
+	._swiper-pagination(12px, #fff, .3, #fff, .8);
+}

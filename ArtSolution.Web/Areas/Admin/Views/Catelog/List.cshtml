@@ -1,0 +1,116 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryListModel
+@{
+    ViewBag.Title = "商品管理";
+}
+
+<section class="content-header">
+    <h1>类别列表</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Keywords, new { @placeholder = "关键字查询", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="#" class="reload btn btn-social-icon" id="search-catalogs"><i class="fa fa-search"></i></a>
+            </div>
+            <div class="col-md-1 col-md-offset-6">
+                <a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>新增类别</a>
+            </div>
+        </div>
+        
+        <div id="catalog-grid"></div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $("#catalog-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "Catelog"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: additionalData
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors"
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 20,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20, 50]
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Name",
+                    title: "名称",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Parent",
+                    title: "父类",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Published",
+                    title: "是否发布",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "DisplayOrder",
+                    title: "权重",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "CreationTime",
+                    title: "创建时间",
+                    width: 200,
+                    type: "date",
+                    format: "{0:G}"
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 200,
+                    template: '<a class="btn btn-success" href="Edit/#=Id#">编辑</a><a class="btn btn-danger">删除</a>'
+                }
+            ]
+        });
+
+        //search button
+        $('#search-catalogs').click(function () {
+            var grid = $('#catalog-grid').data('kendoGrid');
+            grid.dataSource.page(0);
+        });
+    });
+    function additionalData() {
+        var data = {
+            Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+        };
+        return data;
+    }
+</script>

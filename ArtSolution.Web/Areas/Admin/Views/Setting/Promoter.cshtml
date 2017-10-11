@@ -1,0 +1,128 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Setting.PromotersSettingModel
+@using ArtSolution.Domain.Settings;
+@{
+    ViewBag.Title = "推广配置";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@Html.FieldIdFor(model => model.ApplyCondition)").click(activateApplyImmediately);
+        $("#@Html.FieldIdFor(model => model.Enabled)").click(activatePointsImmediately);
+        activateApplyImmediately();
+        activatePointsImmediately();
+    });
+
+    function activatePointsImmediately() {
+        if ($('#@Html.FieldIdFor(model => model.Enabled)').is(':checked'))
+            $('.panel-child').show();
+        else
+            $('.panel-child').hide();
+    }
+    function activateApplyImmediately() {
+        if ($('#@Html.FieldIdFor(model => model.ApplyCondition)').val() == 0)
+            $('.apply-child').hide();
+        else
+            $('.apply-child').show();
+    }
+</script>
+
+<section class="content-header">
+    <h1>推广配置</h1>
+    <ol class="function"></ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("Promoter", "Setting", FormMethod.Post, new { id = "system-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                </div>
+            </div>
+
+            <div id="attribute-edit">
+                <div class="row">
+                    <div class="col-md-10">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.Enabled):
+                                </td>
+                                <td class="adminData">
+                                    @Html.EditorFor(model => model.Enabled, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Enabled)
+                                </td>
+                            </tr>
+
+                            <tr class="panel-child">
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.RewardMode):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtDropDownListFor(model => model.RewardMode, (RewardMode.Date).ToSelectList(), new { @class = "form-control" }, "请选择方式")
+                                    @Html.ValidationMessageFor(model => model.RewardMode)
+                                </td>
+                            </tr>
+                            <tr class="panel-child">
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.ModeValue):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextBoxFor(model => model.ModeValue, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ModeValue)
+                                </td>
+                            </tr>
+
+                            <tr class="panel-child">
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.RewardRate):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        @Html.ArtEditorFor(model => model.RewardRate)
+                                        @Html.ValidationMessageFor(model => model.RewardRate)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="panel-child">
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.ApplyCondition):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        @Html.ArtDropDownListFor(model => model.ApplyCondition, PromoterApplyMode.Unlimited.ToSelectList(), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ApplyCondition)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="apply-child panel-child">
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.ApplyValue):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        @Html.ArtEditorFor(model => model.ApplyValue)
+                                        @Html.ValidationMessageFor(model => model.ApplyValue)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="apply-child panel-child">
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.IsAudit):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.IsAudit)
+                                        @Html.ValidationMessageFor(model => model.IsAudit)
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }        
+    </div>
+</section>

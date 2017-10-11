@@ -1,0 +1,32 @@
+﻿@model ArtSolution.Web.Models.Catalogs.CatalogListModel
+@{
+    ViewBag.Title = "商品类别";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("Header", "Common")
+
+<div class="catalog-page">
+    
+    <ul class="nav nav-tabs" role="tablist">
+        @for (int i = 0; i < Model.SubListCatalog.Count; i++)
+            {
+            <li role="presentation" @if (i == 0) { <text> class="active" </text>  }><a href="#splb-@(i)" aria-controls="splb-@(i)" role="tab" data-toggle="tab">@Model.SubListCatalog[i].Name</a></li>
+        }
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        @for (int i = 0; i < Model.SubListCatalog.Count; i++)
+        {
+            <div role="tabpanel" class="tab-pane @if (i == 0){<text> active</text>}" id="splb-@(i)">
+        @foreach (var child in Model.SubListCatalog[i].Childs)
+                {
+            <a href="@Url.Action("Detail", "Catalog", new { catalogId = child.Id })" class="cate-item">@child.Name</a>
+        }
+            </div>
+        }
+    </div>
+
+</div>
+
+

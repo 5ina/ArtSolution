@@ -1,0 +1,4 @@
+﻿Ansver.MVC.Swiper
+https://github.com/nolimits4web/Swiper
+Swiper-3.4.2
+2017-004-18

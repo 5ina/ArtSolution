@@ -1,0 +1,32 @@
+﻿@using System.Threading
+@using System.Web.Optimization
+@using Abp.Timing
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+    <title>Oss后台管理系统</title>
+    @Styles.Render("~/admin/login/css")
+    @Scripts.Render("~/admin/login/js")
+
+
+</head>
+<body class="login">
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!-- iCheck -->
+
+</body>
+</html>

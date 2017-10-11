@@ -1,0 +1,52 @@
+﻿@model List<ArtSolution.Web.Models.Catalogs.SimpleProductModel>
+
+<div class="product-boxs">
+    @foreach (var item in Model)
+    {
+        <div class="items">
+            <div class="product-img">
+                <a href="@Url.Action("Detail", "Product", new { productId = item.Id })" class="goods-image-link">
+                    @if (item.PreSell)
+                    {
+                        <div class="pre-sale">
+                            <img src="~/images/pre-sale.png" />
+                        </div>
+                    }
+                    <img class="full-width img-rounded lazy" src="@item.ProductImage" alt="@item.MetaTitle" width="100%">
+                    <span class="title">@item.Name</span>
+
+                    @if (item.StockQuantity <= 0)
+                {
+                        <div class="out-stock">
+                            <img src="~/images/qh.png" />
+                        </div>
+                    }
+                </a>
+
+                <!-- <div class="shop-rgba-dark-green rgba-banner">New</div> -->
+            </div>
+            <div class="product-description product-description-brd">
+                <div class="item-price">
+                    <span>
+                        @if (!item.SpecialPrice.HasValue)
+                        {
+                            <text>优惠价 <i class="fa fa-rmb"></i> @item.Price </text>
+                        }
+                        else
+                        {
+                            if (item.SpecialPrice.Value == 0)
+                            {
+                                <text>只付运费</text>
+                            }
+                            else
+                            {
+                                <text>限时促销 <i class="fa fa-rmb"></i> @item.SpecialPrice.Value </text>
+                            }
+
+                        }
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+</div>

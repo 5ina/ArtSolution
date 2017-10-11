@@ -1,0 +1,283 @@
+﻿@model ArtSolution.Web.Models.ShoppingCart.ShoppingCartModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Html.IncludeStyle("/Content/icheck/skins/all.css")
+    @Html.IncludeScript("/Scripts/icheck/icheck.js")
+    @Html.IncludeScript("/Scripts/icheck/custom.min.js")
+}
+@section styles
+{
+    @Html.IncludeStyle("~/Content/jquery.bootstrap-touchspin.css")
+}
+@section scripts
+    {
+    @Html.IncludeScript("~/Scripts/jquery.bootstrap-touchspin.js")
+}
+@Html.Partial("_CenterHeader", "我的购物车")
+<div class="mycart">
+    <div class="container margin-bottom-30">
+
+
+        @using (Html.BeginForm("GenerateOrder", "Order", FormMethod.Post, new { @class = "shopping-cart" }))
+        {
+            @Html.AntiForgeryToken()
+
+            if (Model.Items.Count > 0)
+            {
+                <div class="cart-content">
+                    <div class="container shopping-cart">
+                        @foreach (var item in Model.Items)
+                        {
+                            <div class="cart-item" id="item-@item.Id">
+                                <div class="cart-show-bar">
+
+                                    <div class="cart-item-check">
+                                        <input tabindex="@item.Id" class="icheckbox" type="checkbox" id="check-@item.Id" value="@item.Id" data-price="@item.UnitPrice" name="cartIds" data-total="@item.SubTotal" checked>
+                                    </div>
+                                    <div class="cart-picture">
+                                        <img src="@item.ProductImage" />
+                                    </div>
+                                    <div class="cart-item-description">
+                                        <h5>@item.ProductName</h5>
+                                        @if (!String.IsNullOrWhiteSpace(item.ProductAttributeName))
+                                        {
+                                            <p>规格：@item.ProductAttributeName</p>
+                                        }
+                                        <div class="number row">
+                                            <label class="price col-xs-5"><i class="fa fa-rmb"></i> @item.UnitPrice</label>
+                                            <input name="item_num" class="col-xs-7 form-control item_num" value="@item.Quantity" data-sci="@item.Id" type="tel" data-max="@item.MaxStockQuantity">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line-btn-delete">
+                                    <a class="delete-cart" href="#" data-cartId="@item.Id">删除</a></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="cart-footer">
+                    <ul class="cart-bottons">
+                        <li class="checkall " data-toggle="buttons">
+                            <input tabindex="0" class="icheckbox" type="checkbox" id="all-check" checked>
+                            <label for="all-check">全选</label>
+
+                        </li>
+                        <li class="cart-total">
+                            <div class="total">
+                                <span>合计：</span>
+                                <label class="total-price">￥@Model.Items.Sum(x => x.UnitPrice * x.Quantity)</label>
+                            </div>
+                            <div class="ship">
+                                不含运费
+                            </div>
+                        </li>
+                        <li class="cart-to-order">
+                            <input type="submit" class="btn btn-danger" value="提交订单" />
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="result">
+                    <div class="result-content">
+                        没有找到相关的商品~
+                    </div>
+                    <div class="result-home">
+                        <a class="btn btn-sm" href="/">去首页</a>
+                    </div>
+                </div>
+            }
+        }
+    </div><!--/end container-->
+
+    <script type="text/javascript">
+
+        function totalPrice() {
+            var result = 0;
+            $(".cart-item-check .icheckbox").each(function () {
+                if ($(this).is(":checked")) {
+                    var total = $(this).attr("data-total");
+                    result = parseFloat(result) + parseFloat(total);
+                }
+            });
+            $(".total-price").html("￥" + result);
+        }
+
+        $(function () {
+
+            //屏幕样式
+            $(".cart-item").width($(".shopping-cart").width() + $(".line-btn-delete").width());
+            $(".cart-show-bar").width($(".shopping-cart").width());
+
+            //滑动
+
+            // 获取所有行，对每一行设置监听
+            var lines = $(".cart-item");
+            var len = lines.length;
+            var lastX, lastXForMobile;
+
+            // 用于记录被按下的对象
+            var pressedObj;  // 当前左滑的对象
+            var lastLeftObj; // 上一个左滑的对象
+
+            // 用于记录按下的点
+            var start;
+
+            // 网页在移动端运行时的监听
+            for (var i = 0; i < len; ++i) {
+                lines[i].addEventListener('touchstart', function (e) {
+                    lastXForMobile = e.changedTouches[0].pageX;
+                    pressedObj = this; // 记录被按下的对象 
+
+                    // 记录开始按下时的点
+                    var touches = event.touches[0];
+                    start = {
+                        x: touches.pageX, // 横坐标
+                        y: touches.pageY  // 纵坐标
+                    };
+                });
+
+                lines[i].addEventListener('touchmove', function (e) {
+                    // 计算划动过程中x和y的变化量
+                    var touches = event.touches[0];
+                    delta = {
+                        x: touches.pageX - start.x,
+                        y: touches.pageY - start.y
+                    };
+
+                    // 横向位移大于纵向位移，阻止纵向滚动
+                    if (Math.abs(delta.x) > Math.abs(delta.y)) {
+                        event.preventDefault();
+                    }
+                });
+
+                lines[i].addEventListener('touchend', function (e) {
+                    if (lastLeftObj && pressedObj != lastLeftObj) { // 点击除当前左滑对象之外的任意其他位置
+                        $(lastLeftObj).animate({ marginLeft: "0" }, 500); // 右滑
+                        lastLeftObj = null; // 清空上一个左滑的对象
+                    }
+                    var diffX = e.changedTouches[0].pageX - lastXForMobile;
+                    if (diffX < -150) {
+                        $(pressedObj).animate({ marginLeft: "-62px" }, 500); // 左滑
+                        lastLeftObj && lastLeftObj != pressedObj &&
+                            $(lastLeftObj).animate({ marginLeft: "0" }, 500); // 已经左滑状态的按钮右滑
+                        lastLeftObj = pressedObj; // 记录上一个左滑的对象
+                    } else if (diffX > 150) {
+                        if (pressedObj == lastLeftObj) {
+                            $(pressedObj).animate({ marginLeft: "0" }, 500); // 右滑
+                            lastLeftObj = null; // 清空上一个左滑的对象
+                        }
+                    }
+                });
+            }
+
+            // 网页在PC浏览器中运行时的监听
+            for (var i = 0; i < len; ++i) {
+                $(lines[i]).bind('mousedown', function (e) {
+                    lastX = e.clientX;
+                    pressedObj = this; // 记录被按下的对象
+                });
+
+                $(lines[i]).bind('mouseup', function (e) {
+                    if (lastLeftObj && pressedObj != lastLeftObj) { // 点击除当前左滑对象之外的任意其他位置
+                        $(lastLeftObj).animate({ marginLeft: "0" }, 500); // 右滑
+                        lastLeftObj = null; // 清空上一个左滑的对象
+                    }
+                    var diffX = e.clientX - lastX;
+                    if (diffX < -150) {
+                        $(pressedObj).animate({ marginLeft: "-62px" }, 500); // 左滑
+                        lastLeftObj && lastLeftObj != pressedObj &&
+                            $(lastLeftObj).animate({ marginLeft: "0" }, 500); // 已经左滑状态的按钮右滑
+                        lastLeftObj = pressedObj; // 记录上一个左滑的对象
+                    } else if (diffX > 150) {
+                        if (pressedObj == lastLeftObj) {
+                            $(pressedObj).animate({ marginLeft: "0" }, 500); // 右滑
+                            lastLeftObj = null; // 清空上一个左滑的对象
+                        }
+                    }
+                });
+            }
+
+            //滑动结束
+
+            //check样式
+            $(".icheckbox").iCheck({
+                checkboxClass: 'icheckbox_square-red',
+                radioClass: 'iradio_square',
+                increaseArea: '20%' // optional
+            });
+
+            var checkAll = $('#all-check');  //全选的input
+            var checkboxs = $('.cart-item-check input.icheckbox'); //所有单选的input
+
+            checkAll.on('ifChecked ifUnchecked', function (event) {
+                if (event.type == 'ifChecked') {
+                    checkboxs.iCheck('check');
+                } else {
+                    checkboxs.iCheck('uncheck');
+                }
+                totalPrice();
+            });
+
+            checkboxs.on('ifChanged', function (event) {
+                if (checkboxs.filter(':checked').length == checkboxs.length) {
+                    checkAll.prop('checked', true);
+                } else {
+                    checkAll.prop('checked', false);
+                }
+                checkAll.iCheck('update');
+                totalPrice();
+            })
+
+
+            //数量插件
+            $(".item_num").TouchSpin({
+                min: 1,
+                max: $(this).attr("data-max"),
+                step: 1
+            });
+
+            //数量更改
+            $(".item_num").change(function () {
+                var qty = $(this).val();
+                var sci = $(this).attr("data-sci");
+                $.ajax({
+                    type: "POST",
+                    url: "UpdateQuantity",
+                    data: {
+                        CartId: sci,
+                        qty: qty,
+                    },
+                    success: function () {
+                        var total = qty * $("#check-" + sci).attr("data-price");
+                        $("#check-" + sci).attr("data-total", total);
+                        totalPrice();
+                    }
+                });
+
+            });
+
+            //移除购物车项
+            $(".delete-cart").click(function () {
+                var itemId = $(this).data("cartid");
+                $.ajax({
+                    type: "POST",
+                    url: "DeleteCartItem",
+                    data: {
+                        cartId: itemId,
+                    },
+                    success: function (result) {
+                        if (result == "success") {
+                            $("#item-" + itemId).remove();
+                            totalPrice();
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+</div>

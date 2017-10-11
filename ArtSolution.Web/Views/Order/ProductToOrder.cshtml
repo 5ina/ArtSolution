@@ -1,0 +1,204 @@
+﻿@model ArtSolution.Web.Models.Orders.ProductToOrderModel
+
+@using ArtSolution.Web.Framework.WeChat;
+@using Abp.Runtime.Caching;
+@using ArtSolution.Common;
+@{
+    var _cacheManager = Abp.Dependency.IocManager.Instance.Resolve<ICacheManager>();
+    var _settingService = Abp.Dependency.IocManager.Instance.Resolve<ISettingService>();
+    WeChatDefault wechat = new WeChatDefault();
+    var config = wechat.WxConfig(_settingService, _cacheManager, this.Request.Url.Host + this.Request.Url.PathAndQuery);
+
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Html.IncludeScript("http://res.wx.qq.com/open/js/jweixin-1.1.0.js")
+}
+@Html.Action("Header", "Common", new { header = "订单结算" })
+<div class="container">
+    <div class="create-order">
+        <div class="panel">
+            @Html.Partial("_SelectAddress", config)            
+        </div>
+        <div class="panel">
+            <span id="test-pac" style="word-break:normal; width:auto; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;"></span>
+            <span id="test-pac2" style="word-break:normal; width:auto; display:block; white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;"></span>
+        </div>
+        <!-- Address End -->
+        <div class="box product-detail">
+            <fieldset>
+                <legend>订单总汇</legend>
+                <!-- Product Info-->
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="order-product-image">
+                            <img src="@Model.ProductImage" />
+                        </div>
+                    </div>
+
+                    <div class="col-xs-8">
+                        <div class="order-product-detail ">
+                            <div class="order-product-name">
+                                <p>@Model.ProductName</p>
+                            </div>
+                            <div class="order-product-attribute">
+                                <p>@Model.ProductAttributeName</p>
+                            </div>
+                            <div class="order-product-total clearfix">
+                                <div class="pull-left"><span class="product-price"><i class="fa fa-rmb"></i>@Model.Price</span></div>
+
+                                <div class="pull-right"> x @Model.Quantity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!-- Order End -->
+
+        @using (Ajax.BeginForm("CreateOrder", "Order",
+                new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    OnSuccess = "SaveOrderSuccess",
+                }, new { @class = "form-horizontal", id = "order-form" }))
+        {
+            @Html.HiddenFor(model => model.ProductId)
+            @Html.HiddenFor(model => model.Quantity)
+            @Html.HiddenFor(model => model.Subtotal)
+            @Html.HiddenFor(model => model.Price)
+            @Html.HiddenFor(model => model.Freight)
+            @Html.HiddenFor(model => model.ProductAttributeName)
+            @Html.HiddenFor(model => model.ProductAttributeId)
+            @Html.HiddenFor(model => model.Billing)
+            @Html.HiddenFor(model => model.PreSell)
+
+        <!-- 备注 -->
+            <div class="box">
+                <fieldset>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderRemarks, new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            @Html.ArtEditorFor(model => model.OrderRemarks)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CouponId, new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            @Html.DropDownListFor(model => model.CouponId, Model.AvailableCoupons, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- Total -->
+            <div class="box subtotal">
+                <fieldset>
+                    <div class="form-group">
+                        @Html.Label("商品总计", new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            <i class="fa fa-rmb"></i>@Model.Subtotal
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("运费总计", new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            <i class="fa fa-rmb"></i>@Model.Freight
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("优惠金额", new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            - <i class="fa fa-rmb"></i><span id="coupon-total">0</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("订单总计", new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            <i class="fa fa-rmb"></i><span id="total-amount">@Model.OrderTotal</span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        <!-- Total End -->
+
+            <div class="panel payment">
+
+                <div class="wechat">
+                    @Html.AntiForgeryToken()
+                    <input type="submit" class="btn btn-block btn-success" value="微信支付" />
+                </div>
+
+            </div>
+        <!-- Payment End -->
+        }
+    </div>
+</div>
+
+<!-- 支付选择 -->
+<script type="text/javascript">
+
+    //调用微信JS api 支付
+    function jsApiCall(jsApiString) {
+        $("#test-pac").html('appId:' + "'" + jsApiString.appId + "' package" + jsApiString["package"]);
+
+        $("#test-pac2").html(jsApiString);
+        WeixinJSBridge.invoke('getBrandWCPayRequest',
+        jsApiString,
+            function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    window.location.href = "http://www.bb-girl.cn/order/PaySuccess";
+                } else {
+                    //返回跳转到订单详情页面
+                    alert("支付失败");
+                }
+            }
+        );
+    }
+
+    function callpay(jsApiString) {
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }
+            else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }
+        else {
+            jsApiCall(jsApiString);
+        }
+    }
+    function SaveOrderSuccess(jsApiString) {
+        callpay(jsApiString);
+    }
+
+
+    $(function () {
+        $("#@Html.FieldIdFor(model => model.CouponId)").change(function () {
+
+            var couponId = $(this).val();
+            if (couponId > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Order/GetCouponTotalById?couponId=" + couponId +"&total=@Model.OrderTotal",
+                    success: function (data) {
+                        $("#total-amount").html(data.Total);
+                        $("#coupon-total").html(data.Amount);
+                    }
+
+                });
+            }
+            else {
+                $("#total-amount").html(@Model.OrderTotal);
+                $("#coupon-total").html(0);
+
+            }
+
+        });
+    });
+</script>
+

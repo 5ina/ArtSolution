@@ -1,0 +1,47 @@
+﻿@model ArtSolution.Web.Models.Customers.CustomerRewardModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @Html.Action("Header", "Common")
+    <div class="reward-page">
+        <div class="reward-title">
+            <h5>@Model.Reward</h5>
+            <span>小积分，大用处</span>
+        </div>
+        <div class="reward-list">
+            <h5 class="reward-desc">只显示最近10条数据</h5>
+
+            @foreach (var item in Model.Histories)
+            {
+                <div class="reward-item">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <div class="reward-message">
+                                <span>@item.Message</span>
+                                <span>@item.CreationTime</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            @if (item.Points > 0)
+                            {
+                                <text>
+                                    <div class="reward-point">
+                                        <span class="red">+@item.Points </span>
+                                    </div></text>
+                            }
+                            else
+                            {<text>
+                                <div class="reward-point">
+                                    <span class="gray">-@item.Points </span>
+                                </div></text>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</div>

@@ -1,0 +1,54 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Orders.DeliveryModel
+
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="delivery-edit">
+            <div class="box">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Name):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.Name)
+                                    @Html.ValidationMessageFor(model => model.Name)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.DisplayOrder):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.DisplayOrder)
+                                    @Html.ValidationMessageFor(model => model.DisplayOrder)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Active):
+                                </td>
+                                <td class="adminData">
+                                    @Html.EditorFor(model => model.Active)
+                                    @Html.ValidationMessageFor(model => model.Active)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Description):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextAreaFor(model => model.Description, new { rows = "5", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Description)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+</div>

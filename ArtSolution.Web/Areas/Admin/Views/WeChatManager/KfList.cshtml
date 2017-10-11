@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Kf_List";
+}
+
+@section Styles
+{
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css")
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/jquery.dataTables.min.css")
+}
+@section Scripts
+    {
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/jquery.dataTables.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/dataTables.bootstrap.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js")
+}
+
+<section class="content-header">
+    <h1>微信客服列表</h1>
+    <ol class="function">
+        <li><a href="@Url.Action("KfCreate")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>新增客服</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="portlet-body">        
+        <table id="kf_tables" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>昵称</th>
+                    <th>账号</th>
+                    <th>头像</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+        $(function () {
+            $("#kf_tables").dataTable({
+                ajax: {
+                    url: "KfListData",
+                    type: "POST",
+                },
+                columns: [
+                        { "data": "kf_id" },
+                        { "data": "kf_nick" },
+                        { "data": "kf_account" },
+                        { "data": "kf_headimgurl", "render": function (data, type, row) { return '<img src="' + data + '" width="80" height="80" />' } },
+                        { "data": null, "class": "center", "defaultContent": "<button class=\"edit\" id=\"edit\">修改</button>" },
+                ],
+                paging: true,
+                searching: false,//搜索
+                language: {
+                    lengthMenu: '<select class="form-control select2" id="PageSize">' + '<option value="1">1</option>' + '<option value="10">10</option>' + '<option value="20">20</option>' + '<option value="30">30</option>' + '<option value="40">40</option>' + '<option value="50">50</option>' + '</select>条记录',
+                    paginate: {//分页的样式内容。
+                        previous: "上一页",
+                        next: "下一页",
+                        first: "第一页",
+                        last: "最后"
+                    },
+
+                    zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+                    //下面三者构成了总体的左下角的内容。
+                    info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，共 _TOTAL_ 条",//左下角的信息显示，大写的词为关键字。
+                    infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                    infoFiltered: ""//筛选之后的左下角筛选提示，
+                },
+                pagingType: "full_numbers",//分页样式的类型
+
+            });
+            $('#kf_tables tbody').on('click', 'button#edit', function () {
+                var data = $('#kf_tables').DataTable().row($(this).parents('tr')).data();
+                location.href = "Edit/" + data["Id"];
+            });
+
+
+            /**
+             * 删除
+             */
+            $('#kf_tables tbody').on('click', 'button#del', function () {
+                var data = $('#kf_tables').DataTable().row($(this).parents('tr')).data();
+                data["Id"];
+            });
+
+        });
+
+
+</script>

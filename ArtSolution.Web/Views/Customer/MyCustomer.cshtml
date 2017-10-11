@@ -1,0 +1,38 @@
+﻿@model ArtSolution.Web.Models.Customers.MyCustomerListModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "我的推广用户";
+
+}
+
+@Html.Partial("_CenterHeader", "我的推广用户")
+<div class="container">
+    <div class="customer-promoter">
+        <div class="total-count">
+            <h3>@Model.TotalCount</h3>
+            <span>推广总数量</span>
+        </div>
+        <div class="total-month">
+            <h3>@Model.MonthTotal</h3>
+            <span>当月推广</span>
+        </div>
+        <div class="total-week">
+            <h3>@Model.WeekTotal</h3>
+            <span>本周推广</span>
+        </div>
+
+        <div class="customers-items">
+            @foreach (var item in Model.Customers)
+            {
+                <div class="p-customer clearfix">
+                    <span class="pull-left">
+                        @item.NickName
+                    </span>
+                    <span class="pull-right">
+                        @item.CreationTime
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>

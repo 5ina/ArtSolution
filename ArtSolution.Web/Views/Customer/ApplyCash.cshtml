@@ -1,0 +1,59 @@
+﻿@model ArtSolution.Web.Models.Customers.ApplyCashModel
+@{
+    ViewBag.Title = "申请提现";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Action("Header", "Common", new { header = "申请提现" })
+
+<div class="cash-customer">
+
+
+    @using (Html.BeginForm("ApplyCash", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.CustomerId)
+        <div class="inputs">
+            @Html.LabelFor(model => model.Amount, new { @class = "control-label" })
+            <div class="input-group">
+
+                <span class="input-group-addon" id="basic-addon1">￥</span>
+                @Html.TextBoxFor(model => model.Amount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Amount)
+            </div>
+        </div>
+
+
+        <div class="inputs">
+            <span class="allow">可用余额 @Model.Allowance</span>
+        </div>
+
+        <div class="input-group sumbit">
+            <div class="col-sm-12 ">
+                <input type="submit" class="btn btn-danger" disabled="disabled" value="保存" />
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#@Html.FieldIdFor(model=>model.Amount)").change(function () {
+            var amount = $(this).val();
+            if(amount > @(Model.Allowance) )
+            {
+                $(this).val("@(Model.Allowance)");
+            $(".btn-danger").removeAttr("disabled");
+        }
+
+            if(amount >0 )
+        {
+            $(".btn-danger").removeAttr("disabled");}
+        
+        if(amount <0 )
+        {
+            $(this).val("0");
+            $(".btn-danger").attr("disabled","disabled");}
+    });
+    });
+</script>

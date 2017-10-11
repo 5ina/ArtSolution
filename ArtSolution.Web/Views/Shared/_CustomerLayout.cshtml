@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@RenderBody()
+
+<div class="footer-nav" id="footer-nav">
+    <ul class="footer-show">
+        <li class="items home">
+            <a href="@Url.Action("Index","Home")">
+                <i class="fa fa-home"></i>商城
+            </a>
+        </li>
+        <li class="items cart">
+
+            <a href="@Url.Action("MyCarts", "ShoppingCart")">
+               <i class="fa fa-shopping-cart"></i>购物车
+            </a>
+        </li>
+    </ul>
+</div>
+
+@*<script type="text/javascript">
+    // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
+    var useragent = navigator.userAgent;
+    if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+        // 这里警告框会阻塞当前页面继续加载
+        alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+        // 以下代码是用javascript强行关闭当前页面
+        var opened = window.open('about:blank', '_self');
+        opened.opener = null;
+        opened.close();
+    }
+</script>*@

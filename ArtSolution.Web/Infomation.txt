@@ -1,0 +1,25 @@
+﻿AppID     wx481e6678625ee05a
+
+AppSecret 62b99c6728d80821d5b91c7cbb527766
+
+token XMUiIViug9s-dO-mL4p9ivL-P4Ra8cPDwCmwMMgMjuXvmzUK6kTj8iJ2a0lYf6cLZB8fxTIxPvWPewvTTy4lNvl6spCq1wI597SqEhh1quPzczLDf_RLfGJju_QIDCJwHTWjACAMYB
+
+http://art.dyyufen.com/api/services/app/wechat/ValidToken
+
+
+
+
+wordpress   ：  admin   wo1568COM
+
+
+
+微信公众号：hbwwkjxx@163.com
+      密码：hbwwkjxx123 
+
+维网的公众号
+
+新微信：wcg1568com@163.com
+  密码：wochegang1568
+
+
+  http://blog.csdn.net/make1828/article/details/48240391 微信开发

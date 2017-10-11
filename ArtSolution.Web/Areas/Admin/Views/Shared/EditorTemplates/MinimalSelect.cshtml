@@ -1,0 +1,9 @@
+﻿@model int
+
+@Html.DropDownListFor(model => model, (IEnumerable<SelectListItem>)ViewData["SelectList"], ViewData["placeholder"].ToString(), new { @class = "form-control", placeholder = ViewData["placeholder"] })
+
+<script>
+    $(document).ready(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").select();
+    });
+</script>

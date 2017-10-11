@@ -1,0 +1,16 @@
+﻿@model ArtSolution.Web.Models.Catalogs.TopCatalogModel
+<ul class="dropdown-menu" aria-labelledby="topCatalog" >
+    @foreach (var item in Model.SubCategories)
+    {
+        <li>
+            <a href="@Url.Action("Detail", "Catalog", new { catalogId = item.Id })">
+                @item.Name
+            </a>
+        </li>
+    }
+    <li>
+        <a href="@Url.Action("All", "Catalog")">
+           全部
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,42 @@
+﻿@model  List<ArtSolution.Web.Models.Catalogs.CatalogModel>
+@{
+    ViewBag.Title = "商品类别";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("Header", "Common")
+
+<div class="catalog-page">
+
+    <ul id="myTab" class="nav nav-tabs">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            if (i == 0)
+            {
+                <li class="active">
+                    <a href="#splb@(i)" data-toggle="tab">
+                        @Model[i].Name
+                    </a>
+                </li> }
+            else
+            {
+                <li>
+                    <a href="#splb@(i)" data-toggle="tab">
+                        @Model[i].Name
+                    </a>
+                </li>}
+        }
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <div class="tab-pane fade @if (i == 0){<text>in active</text>}" id="splb@(i)">
+                @foreach (var child in Model[i].Childs)
+                {
+                    <a href="@Url.Action("Detail", "Catalog", new { catalogId = child.Id })" class="cate-item">@child.Name</a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+

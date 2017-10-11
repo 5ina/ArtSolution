@@ -1,0 +1,18 @@
+﻿@model DateTime?
+
+@{
+    @Html.IncludeStyle("~/admin-lte/plugins/datepicker/datepicker3.css");
+    @Html.IncludeScript("~/admin-lte/plugins/datepicker/bootstrap-datepicker.js");
+    @Html.IncludeScript("~/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js");
+
+}
+<input id="@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)" readonly="readonly" class="form-control" name="@ViewData.TemplateInfo.GetFullHtmlFieldName(string.Empty)" value="@(Model > DateTime.MinValue || Model.HasValue ? Model.Value.ToShortDateString() : null)" placeholder="@ViewData["placeholder"]"/>
+<script>
+    $(document).ready(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").datepicker({
+            language: 'zh-CN',
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>

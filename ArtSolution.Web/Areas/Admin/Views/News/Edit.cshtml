@@ -1,0 +1,28 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+@{
+    ViewBag.Title = "新闻编辑 - "+ Model.MetaTitle ;
+}
+
+<section class="content-header">
+    <h1>新闻编辑 - (@Model.Title)</h1>
+    <ol class="function">
+        <li><a href="@Url.Action("List")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>返回列表</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="portlet-body">
+
+        @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { id = "news-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                    <input type="submit" name="save-continue" class="btn btn-primary btn-success" value="保存并编辑" />
+                </div>
+            </div>
+            @Html.Partial("_CreateOrUpdate", Model)
+        }
+
+    </div>
+</section>

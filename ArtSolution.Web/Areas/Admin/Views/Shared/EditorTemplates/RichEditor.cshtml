@@ -1,0 +1,14 @@
+﻿@model String
+    @{ 
+        @Html.IncludeScript("~/Scripts/ckeditor/ckeditor.js")
+    }
+
+<script type="text/javascript">
+    $(function () {
+        CKEDITOR.replace('@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)');
+    });
+</script>
+
+@Html.TextArea(string.Empty, /* Name suffix */
+    ViewData.TemplateInfo.FormattedModelValue /* Initial value */
+)

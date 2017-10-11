@@ -1,0 +1,58 @@
+﻿@model List<ArtSolution.Web.Models.Customers.CustomerCouponModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @Html.Action("Header", "Common")
+    <div class="coupon-page">
+        <div class="coupon-title">
+            <div class="row">
+                <div class="col-xs-6">
+                    <a class="coupon-button" href="@Url.Action("Detail","Topic",new { systemname = "Coupon"})">优惠券规则</a>                    
+                </div>
+
+                <div class="col-xs-6">
+                    <a class="coupon-button" href="@Url.Action("Exchange","Customer")">我要领券</a>
+                </div>
+            </div>
+        </div>
+        <div class="coupon-list">
+            @foreach (var item in Model)
+            {
+                <div class="coupon-item">
+                    <div class="a_type_left">
+
+                    </div>
+                    <div class="amount">
+                        <p><i class="fa fa-rmb"></i><strong> @item.Amount</strong></p>
+                    </div>
+                    <div class="shot-explain">
+                        <p class="border_bottom">
+                            @item.Name
+                        </p>
+                        <p class="border_bottom">
+                            @if (item.Effective.HasValue)
+                        {<text> @item.Effective.Value.ToString("yyyy.MM.dd")</text> }
+                        </p>
+
+                        @if (item.Used)
+                    {
+                    <p><a class="use" href="@Url.Action("Detail", "Order", new { orderId = item.OrderId })">查看订单</a></p>
+                    }
+
+                    </div>
+                    @if (item.Effective.HasValue && item.Effective.Value.AddDays(-7) < DateTime.Now)
+                {
+                <div class="overdue-site"></div>
+                }
+                    @if (item.Used)
+                {
+                <div class="used-site"></div>
+                }
+                </div>
+            }
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</div>

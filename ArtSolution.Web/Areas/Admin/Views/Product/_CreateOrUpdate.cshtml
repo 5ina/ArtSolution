@@ -1,0 +1,195 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+@using ArtSolution;
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+
+
+<div id="product-edit">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#product_info" data-toggle="tab">基本信息</a>
+            </li>
+
+            <li>
+                <a href="#product_seo" data-toggle="tab">优化信息</a>
+            </li>
+            <li>
+                <a href="#product_full" data-toggle="tab">图文信息</a>
+            </li>
+            <li>
+                <a href="#product_attribute" data-toggle="tab">商品属性</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="product_info">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- 图片信息 -->
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <i class="fa fa-info"></i>
+                                        <h3 class="box-title">商品图片</h3>
+                                    </div>
+                                    <div class="box-header with-border">
+                                        @Html.Partial("_CreateOrUpdate.Pictures", Model)
+                                    </div>
+                                </div>
+
+                                <!-- 基本信息 -->
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <i class="fa fa-info"></i>
+                                        <h3 class="box-title">基本信息</h3>
+                                    </div>
+                                    <div class="box-header with-border">
+                                        @Html.Partial("_CreateOrUpdate.Info", Model)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <i class="fa fa-rub"></i>
+                                        <h3 class="box-title">销售信息</h3>
+                                    </div>
+                                    <div class="box-header with-border">
+                                        <table class="adminContent">
+
+                                            <tr>
+                                                <td class="adminTitle">
+                                                    @Html.ArtLabelFor(model => model.StockQuantity):
+                                                </td>
+                                                <td class="adminData">
+
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                                        @if (Model.Id > 0 && Model.AvailableAttributes.Count > 0)
+                                                        {
+                                                            @Html.TextBoxFor(model => model.StockQuantity, new { @class = "form-control", @readonly = "true" })
+                                                        }
+                                                        else
+                                                        {
+                                                            @Html.TextBoxFor(model => model.StockQuantity, new { @class = "form-control" })
+                                                        }
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="adminTitle">
+                                                    @Html.ArtLabelFor(model => model.DisplayOrder):
+                                                </td>
+                                                <td class="adminData">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                                        @Html.TextBoxFor(model => model.DisplayOrder, new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.DisplayOrder)
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="adminTitle">
+                                                    @Html.ArtLabelFor(model => model.Published):
+                                                </td>
+                                                <td class="adminData">
+                                                    @Html.EditorFor(model => model.Published)
+                                                    @Html.ValidationMessageFor(model => model.Published)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- 价格信息 -->
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
+                                        <i class="fa fa-money"></i>
+                                        <h3 class="box-title">价格信息</h3>
+                                    </div>
+                                    <div class="box-header with-border">
+                                        @Html.Partial("_CreateOrUpdate.Prices", Model)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="tab-pane" id="product_seo">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaTitle):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.MetaTitle)
+                                    @Html.ValidationMessageFor(model => model.MetaTitle)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaKeywords):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.MetaKeywords)
+                                    @Html.ValidationMessageFor(model => model.MetaKeywords)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaDescription):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextAreaFor(model => model.MetaDescription, new { rows = "5", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MetaDescription)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="product_full">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="adminContent">
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.FullDescription):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.FullDescription)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!--商品属性-->
+            
+            <div class="tab-pane" id="product_attribute">
+                <div class="row">
+                    <div class="col-md-12">
+                        @if (Model.Id == 0)
+                        {
+                            <span> 请先保存数据后再操作商品属性 </span>
+                        }
+                        else
+                        {
+                            @Html.Partial("_CreateOrUpdate.Attribute", Model);
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="advert-edit">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-default">
+                <table class="adminContent">
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.Name):
+                        </td>
+                        <td class="adminData">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.AdvertUrl):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.AdvertUrl, new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model => model.AdvertUrl)
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.AdvertImage):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                @Html.ArtEditorFor(model => model.AdvertImage)
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.StartTime):
+                        </td>
+                        <td class="adminData">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                @Html.EditorFor(model => model.StartTime)
+
+                                @Html.ValidationMessageFor(model => model.StartTime)
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.EndTime):
+                        </td>
+                        <td class="adminData">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                @Html.EditorFor(model => model.EndTime)
+
+                                @Html.ValidationMessageFor(model => model.EndTime)
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.DisplayOrder):
+                        </td>
+                        <td class="adminData">
+
+                            @Html.EditorFor(model => model.DisplayOrder)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

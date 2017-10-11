@@ -1,0 +1,134 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Layout.HeaderViewModel
+
+<header class="main-header">
+    <a href="@Url.Action("Index", "Dashboard", new { Area = "Admin" })" class="logo">
+        <span class="logo-mini"><b>后台</b>管理</span>
+        <span class="logo-lg"><b>Admin</b>管理平台</span>
+    </a>
+    <nav class="navbar navbar-static-top">        
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+                <!--消息模块-->
+                <!--通知模块-->
+                @Html.Action("Notice", "Common")
+                <!--登录用户信息-->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="~/images/avatar.png" class="user-image" alt="管理员">
+                        <span class="hidden-xs">@Model.Mobile</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user-password">
+                                <a href="#" class="btn btn-default btn-flat"
+                                   id="password-modify" data-target="#modal-password-modify" 
+                                   data-toggle="modal-password-modify">修改密码</a>
+                        </li>
+                        <li class="user-exit">
+                            <a href="@Url.Action("Logout","Account")" class="btn btn-default btn-flat">退出登录</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="modal fade" id="modal-password-modify" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="adminContent">
+
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.Label("当前密码"):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                    @Html.TextBox("OldPassword", null, new { @class = "form-control" })
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.Label("新密码"):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                    @Html.TextBox("NewPassword", null, new { @class = "form-control" })
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.Label("确认密码"):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                    @Html.TextBox("ConfirmNewPassword", null, new { @class = "form-control" })
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-block btn-primary btn-lg" id="current-password-modify">保存</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#password-modify").click(function () {
+            $('#modal-password-modify').modal()
+        });
+
+        $("#current-password-modify").click(function () {
+            $.ajax({
+                url: "/Customer/ModifyPassword",
+                type: "POST",
+                data: {
+                    OldPassword: $("#OldPassword").val(),
+                    NewPassword: $("#NewPassword").val(),
+                    ConfirmNewPassword: $("#ConfirmNewPassword").val(),
+                },
+                success: function (e) {
+                    var alerts = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>";
+                    alerts += "<h4><i class=\"icon fa fa-ban\"></i>" + e + "</h4>";
+                    alerts += "密码" + e+"</div>";
+
+                    if (e == "修改成功") {
+                        $('#modal-password-modify').modal('hide');
+                        $("#alert").removeClass("hidden");
+                        $("#alert").html(alerts);
+                    }
+                    else {
+                        $('#modal-password-modify').modal('hide');
+                        $("#alert").removeClass("hidden");
+                        $("#alert").html(alerts);
+                    }
+                },
+            });
+        });
+    });
+</script>

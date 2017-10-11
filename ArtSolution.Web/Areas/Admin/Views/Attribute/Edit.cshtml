@@ -1,0 +1,45 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.AttributeModel
+@{
+    //page title
+    ViewBag.Title = "编辑属性";
+}
+
+
+@section Styles
+{
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css")
+    @Html.IncludeStyle("~/admin-lte/plugins/datatables/jquery.dataTables.min.css")
+}
+@section Scripts
+    {
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/jquery.dataTables.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/dataTables.bootstrap.min.js")
+    @Html.IncludeScript("~/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js")
+
+}
+
+<section class="content-header">
+    <h1>编辑属性</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        @using (Html.BeginForm("Edit", "Attribute", FormMethod.Post, new { id = "attribute-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="section-header">
+                <div class="options pull-left">
+                    <input type="submit" name="save" class="btn btn-primary" value="保存" />
+                    <input type="submit" name="save-continue" class="btn btn-primary btn-success" value="保存并编辑" />
+                </div>
+
+                <ol class="function pull-right">
+                    <li><a href="@Url.Action("List")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>返回列表</a></li>
+                </ol>
+            </div>
+
+            @Html.Partial("_CreateOrUpdate", Model)
+        }
+
+
+    </div>
+</section>

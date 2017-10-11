@@ -1,0 +1,110 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Customers.CustomerListModel
+@using ArtSolution.Domain.Customers;
+@{
+    ViewBag.Title = "选择用户";
+    Layout = null;
+}
+
+<section class="content">
+    <div class="portlet-body">     
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Keywords, new { @placeholder = "关键字查询", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="reload btn btn-social-icon" id="search-catalogs"><i class="fa fa-search"></i></a>
+            </div>
+        </div>   
+        <div id="customer-grid"></div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $("#customer-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "Customer"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: additionalData
+                    },
+
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors",
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 20,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20, 50]
+            },
+            scrollable: false,
+
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Name",
+                    title: "用户昵称",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Mobile",
+                    title: "手机号",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Promoter",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    title: "推广人",
+                    width: 200,
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 200,
+                    template: '<a class="btn btn-success" onclick="changeCustomer(\'#=Id#\',\'#=Name#\');">选定</a>'
+                }
+            ]
+        });
+
+        //search button
+        $('#search-customers').click(function () {
+            var grid = $('#customer-grid').data('kendoGrid');
+            grid.dataSource.page(0);
+        });
+
+
+    });
+    function additionalData() {
+        var data = {
+            Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+            StartDate: $('#@Html.FieldIdFor(model => model.StartDate)').val(),
+            EndDate: $('#@Html.FieldIdFor(model => model.EndDate)').val(),
+            Sub: "true",
+            RoleId: @((int)CustomerRole.Buyer),
+        };
+        return data;
+    }
+</script>

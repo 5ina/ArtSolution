@@ -1,0 +1,101 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductListModel
+@{
+    ViewBag.Title = "选择商品";
+    Layout = null;
+}
+
+<section class="content">
+    <div class="portlet-body">
+        <table id="table_Product" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>商品名称</th>
+                    <th>价格</th>
+                    <th>发布状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+        $(function () {
+            var products = $("#table_Product").dataTable({
+                ajax: {
+                    url: "/Admin/Product/List",
+                    type: "POST",
+                    data: additionalData,
+                },
+                columns: [
+                        { "data": "Id" ,"width": "10px"},
+                        { "data": "Name" },
+                        {
+                            "data": "Price", "render": function (data, type, row) {
+                                return '<span class="price"><i class="fa fa-cny"></i>' + data + '</span>';
+                            }
+                        },
+                        {
+                            "data": "Published", "render": function (data, type, row) {
+                                if (data)
+                                    return '<i class="fa fa-check true-icon"></i> ';
+                                return '<i class="fa fa-close false-icon"></i>';
+                            }
+                        },
+                        {
+                            "data": "Id", "render": function (data, type, row) {
+                                var result = '<a class="btn btn-success btn-sm" onclick="changeproductId(' + data + ')"">选择</a>';
+                                return result;
+                            }
+                        },
+                ],
+                paging: true,
+                searching: true,//搜索
+                language: {
+                    lengthMenu: '<select class="form-control" id="PageSize">' + '<option value="1">1</option>' + '<option value="10">10</option>' + '<option value="30">30</option>' + '</select>条记录',
+                    paginate: {//分页的样式内容。
+                        previous: "上一页",
+                        next: "下一页",
+                        first: "第一页",
+                        last: "最后"
+                    },
+
+                    zeroRecords: "请添加商品",//table tbody内容为空时，tbody的内容。
+                    //下面三者构成了总体的左下角的内容。
+                    info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，共 _TOTAL_ 条",//左下角的信息显示，大写的词为关键字。
+                    infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                    infoFiltered: ""//筛选之后的左下角筛选提示，
+                },
+                pagingType: "full_numbers",//分页样式的类型
+
+            });
+
+            /**
+             * 删除
+             */
+            $('#table_Product tbody').on('click', 'a#del', function () {
+                var data = $('#table_Product').DataTable().row($(this).parents('tr')).data();
+                $.ajax({
+                    type: "POST",
+                    url: "Delete",
+                    data: { ProductId: data["Id"] },
+                    success: function (data)
+                    {
+                        if (data)
+                            products.api().ajax.reload();
+                    }
+                });
+            });
+
+        });
+
+        function additionalData()
+        {
+            var data = {
+                Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+            };
+            return data;
+        }
+</script>

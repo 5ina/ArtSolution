@@ -1,0 +1,20 @@
+﻿@model int?
+
+<div class="input-group displayorder">
+    @Html.TextBoxFor(model => model, new { @class = "form-control displayorder" })
+    @Html.ValidationMessageFor(model => model)
+    <div class="input-group-btn-vertical">
+        <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+        <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+    </div>
+    <script type="text/javascript">
+        (function ($) {
+            $('.displayorder .btn:first-of-type').on('click', function () {
+                $('.displayorder input').val(parseInt($('.displayorder input').val(), 10) + 1);
+            });
+            $('.displayorder .btn:last-of-type').on('click', function () {
+                $('.displayorder input').val(parseInt($('.displayorder input').val(), 10) - 1);
+            });
+        })(jQuery);
+    </script>
+</div>

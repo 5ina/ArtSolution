@@ -1,0 +1,302 @@
+﻿input[type="number"]{-moz-appearance:textfield;}
+
+
+.section-header::after,
+.section-header::before{
+	content: " ";
+	display: table;
+    clear: both;
+}
+
+.section-header ol,
+.section-header li{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.adminContent{
+    width:100%;
+    margin-bottom:80px;
+}
+.adminContent tbody tr td{
+    padding:9px;
+}
+.adminContent tbody tr:hover{
+    background:#c2d8f3
+}
+
+.adminContent .adminTitle,
+.adminContent .adminData{
+    padding-top:8px;
+}
+.adminContent .adminTitle{
+    text-align:right;
+    padding-right:12px;
+    width:30%;
+}
+.adminContent .adminData{
+    width:70%;
+}
+
+/* Data Tables */
+.dataTable {
+     vertical-align:middle;
+     background:#fff;
+}
+.dataTable .btn{
+    margin-right:12px;
+    padding:3px 7px;
+}
+.split{
+    height:40px;
+}
+/* Model */
+
+.modal-content .form-group{
+    display:inline-block;
+    width:100%;
+}
+.modal-content .form-group::after,
+.modal-content .form-group::before{
+	content: " ";
+	display: table;
+    clear: both;
+}
+.modal-content .form-group .form-title {
+    width: 20%;
+    float: left;
+    text-align: right;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 8px;
+}
+.modal-content .buttons{
+    text-align:center;
+}
+.modal-content .buttons .btn{
+    width:200px;
+}
+
+
+.modal-content .input-group .form-control{float:none;width:100%}
+
+.content .btn-social-icon{
+    background:#466482;
+    color:#fff;
+}
+#advert-form .modal-dialog{
+    width:1000px;
+}
+.adminContent .displayorder{
+    width:80px;
+}
+.adminContent .input-group .input-group-btn-vertical {  
+  position: relative;  
+  white-space: nowrap;  
+  width: 1%;  
+  vertical-align: middle;  
+  display: table-cell;  
+}  
+.adminContent .input-group .input-group-btn-vertical > .btn {  
+  display: block;  
+  float: none;  
+  width: 100%;  
+  max-width: 100%;  
+  padding: 8px;  
+  margin-left: -1px;  
+  position: relative;  
+  border-radius: 0;  
+}  
+.adminContent .input-group .input-group-btn-vertical > .btn:first-child {  
+  border-top-right-radius: 4px;  
+}  
+.adminContent .input-group .input-group-btn-vertical > .btn:last-child {  
+  margin-top: -2px;  
+  border-bottom-right-radius: 4px;  
+}  
+.adminContent .input-group .input-group-btn-vertical i{  
+  position: absolute;  
+  top: 0;  
+  left: 4px;  
+}  
+
+.adminView{
+    width:100%;
+    background:#fff;
+    border-left:1px solid #ccc;
+    border-top:1px solid #ccc;
+    margin-top:15px;
+}
+    .adminView thead tr td{
+    border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;    
+    text-align:center;
+    }
+.adminView .adminTitle,
+.adminView .adminData{
+    padding:3px 15px;
+    border-right:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.adminView .adminTitle label{
+    font-weight:normal;
+    margin:0;
+}
+
+/* Upload Image */
+.product-images .upload-img ,.picture-url.upload-img{
+    border: 1px dashed #ddd;
+    cursor: pointer;
+    font-size: 26px;
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    width: 80px;
+}
+.product-images .upload-img .img_add_a,.picture-url.upload-img .img_add_a{
+    height: 2px;
+    margin-left: -8px;
+    margin-top: -1px;
+    width: 16px;
+}
+.product-images .upload-img .img_add_b ,.picture-url.upload-img .img_add_b{
+    height: 16px;
+    margin-left: -1px;
+    margin-top: -8px;
+    width: 2px;
+}
+.product-images .upload-img .abs ,.picture-url.upload-img .abs{
+    background: #9a9a9a none repeat scroll 0 0;
+    display: inline-block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+}
+.product-images .upload-img .input-upload-img ,.picture-url.upload-img .input-upload-img{
+    cursor: pointer;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+}
+.picture-url.upload-img img.preview{
+    position:absolute;
+    top:0;
+    left:0;
+    width:80px;
+}
+.product-images .img-single {
+    cursor: move;
+    display: block;
+    float: left;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 80px;
+}
+.product-images .img-single img{width:100%;}
+    .product-images .img-single .opt {
+        position: absolute;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        padding: 15px 0;
+        line-height: 1.8em;
+    }
+    .product-images .img-single .opt a{
+        color:#fff;
+        display:block;
+    }
+     .product-images .img-single .img_action {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    font-size: 14px;
+    height: 80px;
+    line-height: 30px;
+    opacity: 0;
+    padding-top: 10px;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    z-index: 1;
+}
+      .product-images .img-single:hover .img_action{
+          opacity:1;
+          pointer-events:auto;
+      }
+
+table.product-attributes{
+    margin-bottom:12px;
+    padding:0;
+    border:1px solid #eee;
+}
+table.none{    
+    margin-bottom:12px;
+    padding:0;
+}
+table.product-attributes td.adminTitle{
+    width:30%;
+}
+table.product-attributes td.adminData{
+    width:40%;
+}
+table.product-attributes th{
+    background: #f7f7f7 none repeat scroll 0 0;
+    box-sizing: border-box;
+    color: #404040;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+table.product-attributes td {
+    border-top: 1px solid #ecedf0;
+    color: #666;
+    font-size: 14px;
+    height: 52px;
+    line-height: 22px;
+    overflow-wrap: break-word;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+table.product-attributes td.adminTitle{
+    text-align:center;
+}
+table.product-attributes a.btn{margin:5px;}
+
+.navbar-nav > .user-menu > .dropdown-menu{
+    width:140px;
+    min-width:140px;
+}
+
+.dataTables_wrapper #toolbar .btn-groups{
+    margin-right:12px;
+}
+.dataTables_wrapper #toolbar .btn-groups:hover{
+    background:#ccc
+}
+
+.data_table_checkbox{
+    display:block;
+    width:100%;
+    height:auto;
+}
+.k-grid td .btn{
+    margin-right:12px;
+}
+.k-grid td .btn:last-child{
+    margin-right:unset;
+}

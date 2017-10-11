@@ -1,0 +1,20 @@
+﻿@model DateTime
+
+@{
+    @Html.IncludeStyle("~/admin-lte/plugins/datepicker/datepicker3.css");
+    @Html.IncludeScript("~/admin-lte/plugins/datepicker/bootstrap-datepicker.js");
+    @Html.IncludeScript("~/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js");
+
+}
+<input id="@Html.IdForModel()" name="@Html.NameForModel()" class="form-control" readonly="readonly" value="@((Model > DateTime.MinValue ? Model : DateTime.Today).ToShortDateString())" />
+<script>
+    $(document).ready(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").datepicker({
+            language: 'zh-CN',
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+
+
+</script>

@@ -1,0 +1,76 @@
+﻿@section HeadSection {
+	<link href="~/Content/swiper3/_sample.min.css" rel="stylesheet" />
+}
+@section BodyInits {
+}
+@section BodyScripts {
+	<script src="~/Content/swiper3/_plug.min.js"></script>
+	<script src="~/Content/swiper3/_sample.min.js"></script>
+}
+
+
+<div class="swiper-container hor-menu">
+	<div class="swiper-wrapper">
+		<a class="swiper-slide" href="#un_about"><span>О вузе</span></a>
+		<a class="swiper-slide" href="#un_uchdepts"><span>Институты и&nbsp;факультеты</span></a>
+		<a class="swiper-slide" href="#un_02"><span>Органы управления</span></a>
+		<a class="swiper-slide" href="#un_structdepts"><span>Структурные подразделения</span></a>
+		<a class="swiper-slide" href="#un_socials"><span>Общественные организации</span></a>
+		<a class="swiper-slide" href="#un_docs"><span>Документы</span></a>
+		<a class="swiper-slide" href="#un_archives"><span>Достижения</span></a>
+		<a class="swiper-slide" href="#un_books"><span>Издания</span></a>
+		<a class="swiper-slide" href="#un_infrastructure"><span>Инфраструктура</span></a>
+		<a class="swiper-slide" href="#un_persons"><span>Персоналии</span></a>
+		<a class="swiper-slide" href="#un_contacts"><span>Контактная информация</span></a>
+	</div>
+	<div class="swiper-button-prev"><i class="fa fa-chevron-left"></i></div>
+	<div class="swiper-button-next"><i class="fa fa-chevron-right"></i></div>
+</div>
+<hr />
+
+
+<div class="swiper-container main-slider" data-effect="fade" style="height:450px;">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-image:url(/Files/01.jpg)">
+			<h1>Header 1</h1>
+			<p>Test description 1</p>
+		</div>
+		<div class="swiper-slide" style="background-image:url(/Files/02.jpg)">
+			<h1>Header 2</h1>
+			<p>Test description 2</p>
+		</div>
+		<div class="swiper-slide" style="background-image:url(/Files/03.jpg)">
+			<h1>Header 3</h1>
+			<p>Test description 3</p>
+		</div>
+		<div class="swiper-slide" style="background-image:url(/Files/04.jpg)">
+			<h1>Header 4</h1>
+			<p>Test description 4</p>
+		</div>
+		<div class="swiper-slide" style="background-image:url(/Files/05.jpg)">
+			<h1>Header 5</h1>
+			<p>Test description 5</p>
+		</div>
+	</div>
+	<div class="swiper-pagination"></div>
+</div>
+<hr />
+
+
+<div class="swiper-container vert-slider" style="width:350px;">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<img class="img-responsive" src="/Files/v01.jpg" />
+		</div>
+		<div class="swiper-slide">
+			<img class="img-responsive" src="/Files/v02.jpg" />
+		</div>
+		<div class="swiper-slide">
+			<img class="img-responsive" src="/Files/v03.jpg" />
+		</div>
+		<div class="swiper-slide">
+			<img class="img-responsive" src="/Files/v04.jpg" />
+		</div>
+	</div>
+	<div class="swiper-pagination"></div>
+</div>

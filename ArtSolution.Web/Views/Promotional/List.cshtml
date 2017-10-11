@@ -1,0 +1,36 @@
+﻿@model ArtSolution.Web.Models.News.PromotionalListModel
+@{
+    ViewBag.Title = "专题集合";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Action("Header", "Common")
+
+<div class="promotional-page">
+    @foreach (var item in Model.Items)
+    {
+        <div class="promotional-item">
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="promotion-title">
+                        <a href="/promotion/@item.PromotionalPath">
+                            <h6>@item.Name</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="time" href="/promotion/@item.PromotionalPath">
+                            @item.StartDate.ToString("yyyy/MM/dd") - @item.EndDate.ToString("yyyy/MM/dd")
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <a href="/promotion/@item.PromotionalPath">
+                        <img src="@item.PromotionalImage" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

@@ -1,0 +1,49 @@
+﻿@model String
+
+@{ 
+
+    var random = ArtSolution.CommonHelper.GenerateRandomInteger();
+    var clientId = "picture" + random;
+}
+<input type="hidden" id="@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)" name="@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)" value="" />
+<input type="file" accept="image/*" capture="camera" id="@(clientId)">
+<img src="" class="preview-camera" />
+
+    @*<div class="camera-loading">
+        <img src="~/images/loading.gif" />
+    </div>*@
+<script type="text/javascript">
+    $(function () {
+        $("#@(clientId)").change(function () {
+
+            var formData = new FormData();
+            formData.append("image", $("#@(clientId)")[0].files[0]);
+            formData.append("imageName", "@(clientId)")
+            $.ajax({
+                type: "POST",
+                url: "@(Url.Content("/Picture/AsyncUploadImage"))",
+                data: formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                enctype: "multipart/form-data",
+                beforeSend: function () {
+                    $(".sub>input").attr("disabled",true);
+                },
+                success: function (data) {
+                    $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").val(data.url);
+                    $(".preview-camera").attr("src", data.url);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("上传失败，请检查网络后重试");
+                },
+                complete:function()
+                {
+                    $(".sub>input").attr("disabled", false);
+                }
+            });
+        });
+
+    })
+</script>

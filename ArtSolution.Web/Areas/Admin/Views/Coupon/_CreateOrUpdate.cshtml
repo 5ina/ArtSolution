@@ -1,0 +1,134 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+@using ArtSolution.Web.Extensions;
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+
+<div id="brand-edit">
+    <div class="box">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="adminContent">
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.Name):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                @Html.ArtEditorFor(model => model.Name)
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.Amount):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                @Html.ArtEditorFor(model => model.Amount)
+                                @Html.ValidationMessageFor(model => model.Amount)
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.Effective):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                @Html.ArtEditorFor(model => model.Effective)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle">
+                            @Html.ArtLabelFor(model => model.CustomerId):
+                        </td>
+                        <td class="adminData">
+                            <div class="input-group">                                
+                                <div class="input-group">
+
+                                    @if (!Model.Used)
+                                    {
+                                        <span class="input-group-addon" id="change-customer" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></span>
+                                    }
+                                    @Html.ValidationMessageFor(model => model.CustomerId)
+                                    @Html.HiddenFor(model => model.CustomerId)
+                                    <input type="text" id="customer-name" readonly="readonly"  class="form-control"/>
+                                    @Html.ValidationMessageFor(model => model.CustomerId)
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    @if (Model.Id > 0)
+                    {
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.ArtLabelFor(model => model.DiscountCode):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(model => model.DiscountCode,new { @readonly= true })
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@if (!Model.Used)
+{
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    请选择用户
+                </h4>
+            </div>
+            <div class="modal-body">
+                @Html.Action("BoxCustomerList", "Customer")
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+}
+
+
+<script type="text/javascript">
+    function changeCustomer(customerId,name) {
+        $('#@Html.FieldIdFor(model => model.CustomerId)').val(customerId);
+        $('#customer-name').val(name);
+        $('#myModal').modal('hide');
+    }
+</script>
+
+@if (Model.CustomerId > 0)
+{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "@Url.Action("GetCustomerNameById", "Customer", new { customerId = Model.CustomerId})",
+            type:"Post",
+            success:function(customerName){
+                $("#customer-name").val(customerName);
+            }
+        });
+    });
+</script>
+}

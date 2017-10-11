@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "新闻";
+}
+
+<section class="content-header">
+    <h1>新闻列表</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">   
+        <div class="row">           
+           
+            <div class="col-md-1 col-md-offset-11">
+                <a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>新增内容</a>
+            </div>
+        </div>     
+        <div id="news-grid"></div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        $("#news-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "News"))",
+                        type: "POST",
+                        dataType: "json",
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors"
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 20,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20, 50]
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Title",
+                    title: "标题",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                },{
+                    field: "CreationTime",
+                    title: "发布时间",
+                    width: 200,
+                    type: "date",
+                    format: "{0:G}"
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 200,
+                    template: '<a class="btn btn-success" href="Edit/#=Id#">查看详情</a>'
+                }
+            ]
+        });
+
+    });
+</script>

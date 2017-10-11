@@ -1,0 +1,206 @@
+﻿@model ArtSolution.Web.Models.Orders.OrderItemModel
+@using ArtSolution.Web.Models.WeChat;
+@using ArtSolution.Web.Models.Customer;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Html.IncludeScript("http://res.wx.qq.com/open/js/jweixin-1.1.0.js")
+
+    WxConfigModel config = (WxConfigModel)ViewData["Config"];
+
+    var address = new CustomerAddressModel();
+    if (ViewData["address"] != null)
+    {
+        address = (CustomerAddressModel)ViewData["address"];
+    }
+}
+<div class="checkout-steps">
+
+    <span> api : </span>@ViewData["wxJsApiParam"]
+    <br />
+    <div class="consignee-addr clearfix ">
+        <div class="row addr-title">
+            <div class="col-xs-12">
+                <h4>收货地址</h4>
+            </div>
+        </div>
+        <div class="row addr-content">
+            <div class="col-xs-1  localtion">
+                <i class="fa  fa-map-marker" id="addr"></i>
+            </div>
+            <div class="col-xs-10">
+                <p class="clearfix">
+                    <div id="Consignee">
+                        @address.userName  @address.telNumber
+                    </div>
+                </p>
+                <p>
+                    <div id="Address">
+                        @address.provinceName @address.countryName @address.detailInfo
+                    </div>
+                </p>
+            </div>
+            <div class="col-xs-1 more">
+                <i class="fa fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+    <div class="products-list">
+        <ul class="">
+                <li class="product-item row">
+                    <div class="product-image col-xs-4">
+                        <img src="@Model.ProductImage" />
+                    </div>
+                    <div class="product-info col-xs-8">
+                        <div class="product-title">
+                            <span>@Model.ProductName</span>
+                        </div>
+                        <div class="product-option">
+                            <span class="product-price pull-left"><i class="fa fa-rmb"></i>@Model.Price</span>
+                            <span class="product-quantity pull-right">x @(Model.Quantity)</span>
+                        </div>
+                    </div>
+                </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li class="clearfix">
+                <span class="tip">买家留言：</span>
+                <input type="text" class="multiline" name="Remark" placeholder="140个字以内" />
+            </li>
+        </ul>
+    </div>
+    <div class="order-summary">
+        <ul>
+            <li class="clearfix">
+                <span class="pull-left tip">产品：</span>
+                <span class="pull-right price"><i class="fa fa-rmb"></i> @Model.Quantity</span>
+            </li>
+            <li class="clearfix">
+                <span class="pull-left tip">总计：</span>
+                <span class="pull-right price"><i class="fa fa-rmb"></i>@(Model.Quantity * Model.Price)</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="payment">
+        @Html.HiddenFor(model => model.ProductId)        
+            <input type="submit" class="btn btn-block btn-success" onclick="callpay()" value="微信支付" />
+
+
+        <script type="text/javascript">
+
+            //调用微信JS api 支付
+            function jsApiCall()
+            {
+                WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                @Html.Raw(ViewData["wxJsApiParam"]),
+
+                    function (res)
+                    {
+                        WeixinJSBridge.log(res.err_msg);
+                        if(res.err_msg == "get_brand_wcpay_request:ok"){
+                            window.location.href="http://www.dyyufen.com/order/PaySuccess";
+                        }else{
+                            //返回跳转到订单详情页面
+                            alert(支付失败);
+
+                        }
+                    }
+                )
+            }
+
+            function callpay()
+            {
+
+                if (typeof WeixinJSBridge == "undefined")
+                {
+                    if (document.addEventListener)
+                    {
+                        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                    }
+                    else if (document.attachEvent)
+                    {
+                        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                    }
+                }
+                else
+                {
+                    jsApiCall();
+                }
+            }
+
+        </script>
+    </div>     
+</div>
+
+@if (config != null)
+{
+    <script type="text/javascript">
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: '@config.appId', // 必填，公众号的唯一标识
+            timestamp: @config.timestamp, // 必填，生成签名的时间戳
+            nonceStr: '@config.noncestr', // 必填，生成签名的随机串
+            signature: '@config.signature',// 必填，签名，见附录1
+            jsApiList: [  'checkJsApi',
+                        'editAddress',
+                        'chooseWXPay',
+                        'getLatestAddress',
+                        'openCard',
+                        'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+        });
+
+
+        wx.ready(function(){
+            @if (ViewData["address"] == null)
+                {
+                    <text>selectAddress();</text>
+                }
+        });
+
+        $(function(){
+            $("#addr").click(function()
+            {
+                selectAddress();
+            });
+        });
+
+        function selectAddress()
+        { wx.checkJsApi({
+            jsApiList: ['openAddress'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+            success: function(res) {
+                wx.openAddress({
+                    success: function (res) {
+                        $("#Consignee").html(res.userName+" "+res.telNumber);
+                        $("#Address").html(res.provinceName + res.cityName + res.countryName + res.detailInfo);
+                        $.ajax({
+                            type:"POST",
+                            url:"/Order/SaveAddress",
+                            data:{
+                                userName    :res.userName,
+                                telNumber   :res.telNumber,
+                                provinceName:res.provinceName,
+                                countryName :res.countryName,
+                                detailInfo  :res.detailInfo
+                            },
+                            success :function(e)
+                            {
+                                alert("ok");
+                            }
+                        });
+                    },
+                    cancel: function () {
+                        // 用户取消拉出地址
+                    }});
+            }
+
+        });
+        }
+    </script>
+
+}

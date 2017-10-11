@@ -1,0 +1,51 @@
+﻿@import "__styles.less";
+
+
+
+.swiper-container.main-slider {
+	._swiper-pagination(8pt, #fff, .2, #fff, .8);
+
+	.swiper-slide {
+		background-position: center;
+		background-size: cover;
+	}
+}
+
+
+.swiper-container.vert-slider {
+	._swiper-pagination(8pt, #fff, .2, #fff, .8);
+
+	.swiper-slide {
+		background-position: center;
+		background-size: cover;
+	}
+}
+
+
+.swiper-container.hor-menu {
+	._swiper-hor-menu(5em, 12em, 2.5em, #000, #fff);
+
+	.swiper-slide {
+
+		> span {
+		}
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		> i {
+		}
+	}
+
+	.swiper-button-prev.swiper-button-disabled,
+	.swiper-button-next.swiper-button-disabled {
+	}
+
+	.swiper-button-prev,
+	.swiper-container-rtl .swiper-button-next {
+	}
+
+	.swiper-button-next,
+	.swiper-container-rtl .swiper-button-prev {
+	}
+}

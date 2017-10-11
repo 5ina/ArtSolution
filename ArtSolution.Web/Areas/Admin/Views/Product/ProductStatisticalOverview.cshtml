@@ -1,0 +1,12 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductStatisticalOverviewModel
+
+<div class="info-box">
+    <span class="info-box-icon bg-aqua"><i class="fa fa-linkedin-square"></i></span>
+
+    <div class="info-box-content">
+        <span class="info-box-number"><a href="@Url.Action("List","Product")">商品信息</a></span>
+        <span class="info-box-text">商品总量：@Model.ProductTotal</span>
+        <span class="info-box-text">上架数量：@Model.PulishedTotal</span>
+    </div>
+    <!-- /.info-box-content -->
+</div>

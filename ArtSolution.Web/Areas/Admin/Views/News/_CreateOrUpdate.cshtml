@@ -1,0 +1,114 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="new-edit">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#news_info" data-toggle="tab">基本信息</a>
+            </li>
+
+            <li>
+                <a href="#news_seo" data-toggle="tab">优化信息</a>
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="news_info">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-default">
+                            <table class="adminContent">
+
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Title):
+                                    </td>
+                                    <td class="adminData">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+
+                                            @Html.ValidationMessageFor(model => model.Title)
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.ShortDescription):
+                                    </td>
+                                    <td class="adminData">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                            @Html.TextAreaFor(model => model.ShortDescription, new { @class = "form-control", rows = "3" })
+                                            @Html.ValidationMessageFor(model => model.ShortDescription)
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.PublishDateTime):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.EditorFor(model => model.PublishDateTime)
+                                        @Html.ValidationMessageFor(model => model.PublishDateTime)
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.FullDescription):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.EditorFor(model => model.FullDescription)
+                                        @Html.ValidationMessageFor(model => model.FullDescription)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="news_seo">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaTitle):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.MetaTitle)
+                                    @Html.ValidationMessageFor(model => model.MetaTitle)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaKeywords):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.MetaKeywords)
+                                    @Html.ValidationMessageFor(model => model.MetaKeywords)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaDescription):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextAreaFor(model => model.MetaDescription, new { rows = "5", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MetaDescription)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

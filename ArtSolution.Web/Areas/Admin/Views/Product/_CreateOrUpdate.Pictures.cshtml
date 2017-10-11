@@ -1,0 +1,110 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+
+
+<table class="adminContent"><tr>
+    <td class="adminTitle">
+        <label> 商品图片</label>
+    </td>
+    <td class="adminData product-images-content">
+        @if (Model.Id > 0)
+        {
+        <div class="product-images">
+            <div class="upload-img ">
+                <input id="input-upload-img" name="uploadImg" class="input-upload-img" type="file" multiple="multiple" accept="image/png,image/jpeg">
+                <em class="img_add_a abs over_hidden"> </em>
+                <em class="img_add_b abs over_hidden"> </em>                
+            </div>
+            @foreach (var item in Model.AvailablePictures)
+                {
+                <div class="img-single ng-scope">
+                    <img src="@item.PictureUrl">
+                    <div class="opt img_action">
+                        <a href="#" data-imageId="@item.Id" onclick="remove(this);">删除</a>
+                        <a href="#" data-imageId="@item.Id" onclick="setdetaul(this);">设为默认</a>
+                    </div>
+                </div>
+            }
+        </div>
+        }
+        else
+        { <span>请先保存商品</span>}
+    </td>
+</tr>
+    </table>
+
+
+    <script type="text/javascript">
+
+        function remove(obj)
+        {
+            $.ajax({
+                url:"/Admin/Product/ProductPictureDelete",
+                type:"POST",
+                data:{id:$(obj).attr("data-imageId")},
+                success:function(e)
+                {
+                    if(e=="true")
+                    {
+                        $(obj).parent().parent().remove();
+                    }
+                    
+                    if($(".img-single").length <5)
+                    {
+                        $(".upload-img").show();
+                    }
+                }
+            });
+        }
+        function setdetaul(obj)
+        {
+            var id = $(obj).attr("data-imageId");
+            $.ajax({
+                url :"/Admin/Product/SetDefaultImage",
+                type:"POST",
+                data:{Id :@(Model.Id),imageId:id},
+                success:function ()
+                {
+                    alert("ok");
+                }
+            });
+
+        }
+        $(function () {
+            $("#input-upload-img").change(function () {
+
+                var formData = new FormData();
+                formData.append("image", $("#input-upload-img")[0].files[0]);
+                formData.append("productId",@(Model.Id));
+                $.ajax({
+                type: "POST",
+                    url: "@(Url.Content("~/Admin/Product/AsyncUploadImage"))",
+                    data: formData ,
+                    // 告诉jQuery不要去处理发送的数据
+                    processData: false,
+                    // 告诉jQuery不要去设置Content-Type请求头
+                    contentType: false,
+                    enctype: "multipart/form-data",
+                    beforeSend: function () {
+                        console.log("正在进行，请稍候");
+                    },
+                    success: function (data) {
+                        var item = '<div class="img-single ng-scope"><img src="' + data.url + '"/>';
+                        item +='<div class="opt img_action"><a href="#" onclick="remove(this);">删除</a><a href="#" data-imageid="20" onclick="setdetaul(this);">设为默认</a>';
+                        item+='</div></div>';
+                        $(".product-images").append(item);
+
+                        if($(".img-single").length >=5)
+                        {
+                            $(".upload-img").hide();
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("上传失败，请检查网络后重试");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+

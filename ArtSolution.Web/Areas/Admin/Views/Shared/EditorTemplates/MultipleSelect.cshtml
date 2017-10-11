@@ -1,0 +1,8 @@
+﻿@model List<int>
+
+@Html.DropDownListFor(model => model, (IEnumerable<SelectListItem>)ViewData["SelectList"], new { @class = "form-control", placeholder = ViewData["placeholder"], multiple = "multiple" , @readonly = "readonly"})
+<script>
+    $(document).ready(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").select2();
+    });
+</script>

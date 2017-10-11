@@ -1,0 +1,30 @@
+﻿@model List<ArtSolution.Web.Models.Catalogs.ProductModel>
+
+<div class="related">
+    <div class="related-title">
+        <h4>猜你喜欢</h4>
+    </div>
+    <div class="related-content clearfix">
+        @foreach (var item in Model)
+        {
+            <div class="items">
+                <div class="product-image">
+
+                    <a href="@Url.Action("Detail",new {productId = item.Id })">                        
+                        <img class="full-width img-rounded lazy" src="@item.ProductImage" alt="@item.MetaTitle" width="100%">
+                    </a>
+                </div>
+                <div class="product-title">
+                    <a href="@Url.Action("Detail",new {productId = item.Id })">
+                        @item.Name
+                    </a>
+                    <div class="product-price">
+                        <a href="@Url.Action("Detail",new {productId = item.Id })">
+                            <i class="fa fa-rmb"></i> @item.Price
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

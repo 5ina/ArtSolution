@@ -1,0 +1,110 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+@using ArtSolution.Domain.Catalog;
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        @if (!Model.SpecialPrice.HasValue)
+        {
+            <text>$(".special").hide();</text>
+        }
+        @if (Model.SaleMode == SaleMode.Auction)
+        {
+            <text>$("#sale-@Convert.ToInt32(SaleMode.Auction)").show();</text>
+        }
+         @if (Model.SaleMode == SaleMode.Pricing)
+        {
+            <text>$("#sale-@Convert.ToInt32(SaleMode.Pricing)").show();</text>
+        }
+
+        $("#Specia").click(toggleShowSpecial);
+        toggleShowSpecial();
+
+    });
+
+    function toggleShowSpecial() {
+        if ($('#Specia').is(':checked')) {
+            $('.special').show();
+        } else {
+            $('.special').hide();
+        }
+    }
+
+</script>*@
+
+
+<table class="adminContent">
+
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.Price):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                <span class="input-group-addon">.00</span>
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.Cost):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+                @Html.TextBoxFor(model => model.Cost, new { @class = "form-control" })
+                <span class="input-group-addon">.00</span>
+                @Html.ValidationMessageFor(model => model.Cost)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.Label("促销"):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                @Html.CheckBox("Specia")
+            </div>
+        </td>
+    </tr>
+    <tr class="special">
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.SpecialPrice):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+                @Html.TextBoxFor(model => model.SpecialPrice, new { @class = "form-control" })
+                <span class="input-group-addon">.00</span>
+                @Html.ValidationMessageFor(model => model.SpecialPrice)
+            </div>
+        </td>
+    </tr>
+    <tr class="special">
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.SpecialPriceStartDateTime):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                @Html.ArtEditorFor(model => model.SpecialPriceStartDateTime)
+                @Html.ValidationMessageFor(model => model.SpecialPriceStartDateTime)
+            </div>
+        </td>
+    </tr>
+    <tr class="special">
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.SpecialPriceEndDateTime):
+        </td>
+        <td class="adminData">
+
+            <div class="input-group">
+                @Html.ArtEditorFor(model => model.SpecialPriceEndDateTime)
+                @Html.ValidationMessageFor(model => model.SpecialPriceEndDateTime)
+            </div>
+        </td>
+    </tr>
+
+</table>

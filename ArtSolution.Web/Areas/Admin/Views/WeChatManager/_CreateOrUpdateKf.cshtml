@@ -1,0 +1,57 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.WeChat.KfModel
+
+@Html.ValidationSummary(false)
+
+<div id="customer-edit">
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.ArtLabelFor(model => model.kf_account):
+            </td>
+            <td class="adminData">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                    @Html.TextBoxFor(model => model.kf_account, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.kf_account)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="adminTitle">
+                @Html.ArtLabelFor(model => model.nickname):
+            </td>
+            <td class="adminData">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                    @Html.TextBoxFor(model => model.nickname, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.nickname)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.ArtLabelFor(model => model.password):
+            </td>
+            <td class="adminData">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                    @Html.TextBoxFor(model => model.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.password)
+                </div>
+            </td>
+        </tr>
+        @if (ViewData["error"] != null)
+        {
+            <tr>
+                <td class="adminTitle">
+                    <label>错误信息：</label>
+                </td>
+                <td class="adminData">
+                   @ViewData["error"]
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

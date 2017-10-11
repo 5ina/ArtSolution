@@ -1,0 +1,12 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Orders.OrderStatisticalOverviewModel
+
+<div class="info-box">
+    <span class="info-box-icon bg-aqua"><i class="fa fa-braille"></i></span>
+
+    <div class="info-box-content">
+        <span class="info-box-number"><a href="@Url.Action("List","Order")"> 全部订单 </a>(订单量：@Model.OrderTotalCount,订单额：@Model.OrderTotalPrice)</span>
+        <span class="info-box-text">本周订单(订单量： @Model.OrderWeekTotalCount,订单额：@Model.OrderWeekTotalPrice)</span>
+        <span class="info-box-text">本月新增(订单量： @Model.OrderMonthTotalCount,订单额：@Model.OrderMonthTotalPrice)</span>
+    </div>
+    <!-- /.info-box-content -->
+</div>

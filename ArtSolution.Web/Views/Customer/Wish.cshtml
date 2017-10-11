@@ -1,0 +1,44 @@
+﻿@model ArtSolution.Web.Models.Customers.WishOrderModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.AddTitleParts("填写需求,我们拿货");
+}
+
+
+@Html.Partial("_CenterHeader", "需求")
+<div class="container">
+    <div class="customer-wish">
+        @using (Html.BeginForm("Wish", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.CustomerId)
+            <div class="form-group">
+                @Html.LabelFor(model => model.BrandName, new { @class = "col-xs-3 control-label" })
+                <div class="col-xs-9">
+                    @Html.TextBoxFor(model => model.BrandName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BrandName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductName, new { @class = "col-xs-3 control-label" })
+                <div class="col-xs-9">
+                    @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductImages, new { @class = "col-xs-3 control-label" })
+                <div class="col-xs-9">
+                    @Html.EditorFor(model => model.ProductImages, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductImages)
+                </div>
+            </div>
+
+            <div class="form-group sub">
+                <input type="submit" class="btn btn-success" value="提交" />
+            </div>
+
+        }
+    </div>
+
+</div>

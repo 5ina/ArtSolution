@@ -1,0 +1,53 @@
+﻿@model ArtSolution.Web.Models.Customers.ApplyPromoterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_CenterHeader", "申请推广人")
+<div class="container">
+    <div class="customers">
+        <div class="form-group customer-info">
+            <div class="row inputs">
+                @Html.LabelFor(modle => Model.Mobile, new { @class = "col-xs-4" })
+                @if (String.IsNullOrWhiteSpace(Model.Mobile))
+                {
+                    <a class="col-xs-8" href="@Url.Action("Mobile","Customer")">绑定手机</a>
+                }
+                else
+                {
+                    <span class="col-xs-8 text-right">@Model.Mobile</span>
+                }
+
+            </div>
+            <div class="row inputs">
+                @Html.LabelFor(modle => Model.OrderCount, new { @class = "col-xs-4" })
+                <span class="col-xs-8 text-right">@Model.OrderCount</span>
+            </div>
+
+            <div class="row inputs">
+                @Html.LabelFor(modle => Model.CostTotal, new { @class = "col-xs-4" })
+                <span class="col-xs-8 text-right">@Model.CostTotal</span>
+            </div>
+            <div class="row inputs">
+                <span>申请推广者请先点击“绑定手机”，绑定手机号码后再申请推广者</span>
+            </div>
+        </div>
+
+        <div class="form-horizontal">
+            <fieldset>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken();
+                    @Html.HiddenFor(model => model.CustomerId)
+                    @Html.HiddenFor(model=>model.NickName)
+                    @Html.HiddenFor(model => model.Mobile)
+                    <div class="control-group result">
+                        <div class="result-home">
+                            <button class="btn btn-sm @if (!Model.MayBe) { <text> disable </text>  }" type="submit" @if (!Model.MayBe) { <text> disabled="disabled" </text>   }>申请</button>
+                        </div>
+                    </div>
+                }
+            </fieldset>
+        </div>
+    </div>
+</div>

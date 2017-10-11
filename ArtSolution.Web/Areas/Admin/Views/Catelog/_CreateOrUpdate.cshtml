@@ -1,0 +1,125 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="category-edit">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#category_info" data-toggle="tab">基本信息</a>
+            </li>
+
+            <li>
+                <a href="#category_seo" data-toggle="tab">优化信息</a>
+            </li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="category_info">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-default">
+                            <table class="adminContent">
+
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Name):
+                                    </td>
+                                    <td class="adminData">
+
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+
+                                            @Html.ValidationMessageFor(model => model.Name)
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.ParentId):
+                                    </td>
+                                    <td class="adminData">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                            @Html.DropDownListFor(model => model.ParentId,Model.AvailableParentCategories, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ParentId)
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Published):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.EditorFor(model => model.Published)
+                                        @Html.ValidationMessageFor(model => model.Published)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.DisplayOrder):
+                                    </td>
+                                    <td class="adminData">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                            @Html.TextBoxFor(model => model.DisplayOrder, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.DisplayOrder)
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Description):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.TextAreaFor(model => model.Description,new { rows="6", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Description)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="category_seo">
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaTitle):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.MetaTitle)
+                                    @Html.ValidationMessageFor(model => model.MetaTitle)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaKeywords):
+                                </td>
+                                <td class="adminData">
+                                    @Html.ArtEditorFor(model => model.MetaKeywords)
+                                    @Html.ValidationMessageFor(model => model.MetaKeywords)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.MetaDescription):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextAreaFor(model => model.MetaDescription, new { rows = "5", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MetaDescription)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Common.AdvertListModel
+@{
+    ViewBag.Title = "焦点图";
+}
+<section class="content-header">
+    <h1>首页焦点图</h1>
+</section>
+<section class="content">
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Keywords, new { @placeholder = "关键字查询", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.ShowFrom)
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.ShowTo)
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <a href="#" class="reload btn btn-social-icon" id="adverts"><i class="fa fa-search"></i></a>
+            </div>  
+            <div class="col-md-1 col-md-offset-3">
+                <a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa fa-fw fa-plus-square"></i>新增广告</a>
+            </div> 
+        </div>        
+        <div id="advert-grid"></div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $("#advert-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "Advert"))",
+                        type: "POST",
+                        dataType: "json",
+                        data: additionalData
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors"
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 20,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20, 50]
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 100,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Name",
+                    title: "名称",
+                    headerAttributes: { style: "text-align:center" },
+                }, {
+                    field: "ShowFrom",
+                    title: "开始时间",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    width: 200,
+                    type: "date",
+                    format: "{0:G}"
+                }, {
+                    field: "ShowTo",
+                    title: "结束时间",
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    width: 200,
+                    type: "date",
+                    format: "{0:G}"
+                }, {
+                    field: "Url",
+                    title: "连接地址",
+                    headerAttributes: { style: "text-align:center" },
+                }, {
+                    field: "CreationTime",
+                    title: "创建时间",
+                    width: 200,
+                    type: "date",
+                    format: "{0:G}"
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 200,
+                    template: '<a class="btn btn-success" href="Edit/#=Id#">编辑</a><a class="btn btn-danger">删除</a>'
+                }
+            ]
+        });
+
+        //search button
+        $('#search-adverts').click(function () {
+            var grid = $('#advert-grid').data('kendoGrid');
+            grid.dataSource.page(0);
+        });
+    });
+    function additionalData() {
+        var data = {
+            Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+            ShowFrom: $('#@Html.FieldIdFor(model => model.ShowFrom)').val(),
+            ShowTo: $('#@Html.FieldIdFor(model => model.ShowTo)').val(),
+        };
+        return data;
+    }
+</script>
+

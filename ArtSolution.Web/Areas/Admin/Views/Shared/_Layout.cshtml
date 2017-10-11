@@ -1,0 +1,74 @@
+﻿@using System.Threading
+@using System.Web.Optimization
+@using Abp.Timing
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+    <title>@ViewBag.Title - Oss管理中心</title>
+    <!-- View specific styles -->
+    @RenderSection("styles", required: false)
+    @Styles.Render("~/admin/css")
+    @Styles.Render("~/admin/main")
+    @Html.IncludeStyle("/Content/kendo/2014.1.318/kendo.common.min.css")
+    @Html.IncludeStyle("/Content/kendo/2014.1.318/kendo.default.min.css")
+
+
+    <script type="text/javascript">
+        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("~/Scripts/others/html5shiv.js")"></script>
+        <script src="@Url.Content("~/Scripts/others/respond.min.js")"></script>
+    <![endif]-->
+
+    @Scripts.Render("~/admin/js/top")
+    @Scripts.Render("~/admin/js")
+    <script src="@Url.Content("~/Scripts/kendo/2014.1.318/kendo.web.min.js")"></script>
+
+</head>
+<body class="hold-transition skin-blue">
+    <div class="wrapper">
+        @Html.Action("Header", "Layout")
+        @Html.Action("Navigation", "Layout")
+
+        <div class="content-wrapper">
+
+            <div class="alert alert-danger alert-dismissible hidden" id="alert">
+
+            </div>
+            @RenderBody()
+        </div>
+        @Html.Action("Footer", "Layout")
+        @Scripts.Render("~/admin/script")
+
+        <script>
+
+            kendo.culture("zh-CN");
+        </script>
+    </div>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+    <!-- SignalR scripts -->
+    <script src="~/signalr/hubs"></script>
+    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
+
+    <!-- View specific scripts -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

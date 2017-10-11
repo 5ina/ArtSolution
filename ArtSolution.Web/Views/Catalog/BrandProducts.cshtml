@@ -1,0 +1,31 @@
+﻿@model ArtSolution.Web.Models.Catalogs.BrandDetailModel
+@{
+    ViewBag.Title = Model.Name;
+}
+@Html.Action("Header", "Common")
+
+<div class="brands-box">
+    <div class="brand-title clearfix">
+        <span class="pull-left">品牌专区<strong class="orange"> @Model.Name</strong> </span> 
+        
+        <span class="pull-right">商品总数量：<strong>@Model.TotalProductCount</strong></span>
+    </div>
+
+        @if (Model.SubProducts.Count > 0)
+        {
+            @Html.Partial("_ProductBoxs", Model.SubProducts)
+        }
+        else
+        {
+            <div class="product-boxs">
+                <div class="result">
+                    <div class="result-content">
+                        没有找到相关的商品~
+                    </div>
+                    <div class="result-home">
+                        <a class="btn btn-sm" href="/">去首页</a>
+                    </div>
+                </div>
+            </div>
+        }
+</div><!--/end row-->

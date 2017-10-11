@@ -1,0 +1,12 @@
+﻿@model ArtSolution.Web.Models.Catalogs.TopCatalogModel
+
+<div class="hot-category">
+    <ul class="categories-box clearfix">
+
+        <li><a href="@Url.Action("Detail", "Catalog", new { catalogId = 0 })">全部商品</a></li>
+        @foreach (var item in Model.SubCategories)
+        {
+            <li @if (Model.ActiveId == item.Id) { <text> class="active" </text> }><a href="@Url.Action("Detail", "Catalog", new { catalogId = item.Id })" title="@item.Name">@item.Name</a></li>
+        }
+    </ul>
+</div>

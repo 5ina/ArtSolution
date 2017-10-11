@@ -1,0 +1,42 @@
+﻿@model ArtSolution.Web.Models.Customers.CustomerExchangeModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @Html.Action("Header", "Common")
+    <div class="coupon-page">
+
+        <div class="coupon-exchange">
+            @using (Html.BeginForm("Exchange", "Customer", FormMethod.Post, new { id = "coupon-form", @class = "form-horizontal coupon-form" }))
+            {
+                @Html.AntiForgeryToken();
+                <div class="form-group">
+                    @Html.LabelFor(modle => Model.Code, new { @class = "control-label col-xs-4" })
+                    <div class="controls col-xs-8">
+                        @Html.TextBoxFor(model => model.Code, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(modle => Model.VerifyCode, new { @class = "control-label col-xs-4" })
+                    <div class="controls col-xs-5">
+                        @Html.TextBoxFor(model => model.VerifyCode, new { @class = "verify form-control" })
+                    </div>
+                    <div class="controls col-xs-3">
+                        <img src="@Url.Action("GetValidateCode","Common")" />
+                    </div>
+                </div>
+                <div class="form-group center">
+                    <a class="btn btn-danger">马上领取</a>
+                </div>
+            }
+            <div class="exchange-helper">
+                <p>
+                    <a class="coupon-button" href="@Url.Action("Detail","Topic",new { systemname = "Coupon"})">优惠券规则</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    @Html.Partial("_Footer")
+</div>

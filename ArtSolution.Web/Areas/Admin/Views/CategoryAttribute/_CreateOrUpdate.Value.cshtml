@@ -1,0 +1,135 @@
+﻿@model int
+
+
+<div id="value-edit">
+    <div class="modal fade" id="modal-create"  role="dialog" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">新增属性值</h4>
+                </div>
+                @Html.Hidden("AttributeId", Model)
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="adminContent">
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.Label("属性值"):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBox("Value_AttributeValue", null, new { @class = "form-control" })
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.Label("权重"):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-text-height"></i></span>
+                                        @Html.TextBox("Value_DisplayOrder", null, new { @class = "form-control" })
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-block btn-primary btn-lg" id="attribute-value-save">保存</a>
+
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    <div class="portlet-filter">
+        <a class="btn btn-lg btn-primary" id="create-attribute-value" data-target="#modal-create" data-toggle="modal-create">新增属性值</a>
+    </div>
+    <div class="portlet-body">
+        <table id="value_local" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>值名称</th>
+                    <th>权重</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var table = $("#value_local").dataTable({
+            ajax: {
+                url: "/CategoryAttribute/ValueList?attributeId=@Model",
+                type: "POST",
+            },
+            columns: [
+                    { "data": "Id" },
+                    { "data": "AttributeValue" },
+                    { "data": "DisplayOrder" },
+                    {
+                        "data": null, "class": "center",
+                        "defaultContent": "<button class=\"btn btn-info btn-xs\" id=\"edit\">详细</button>"
+
+                    },
+            ],
+            paging: false,
+            searching: false,//搜索
+            language: {
+                lengthMenu: '<select class="form-control select2" id="PageSize">' + '<option value="1">1</option>' + '<option value="10">10</option>' + '<option value="20">20</option>' + '<option value="30">30</option>' + '<option value="40">40</option>' + '<option value="50">50</option>' + '</select>条记录',
+                zeroRecords: "没有数据",//table tbody内容为空时，tbody的内容。
+                //下面三者构成了总体的左下角的内容。
+                info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，共 _TOTAL_ 条",//左下角的信息显示，大写的词为关键字。
+                infoEmpty: "0条记录",//筛选为空时左下角的显示。
+            },
+        });
+        $('#table_local tbody').on('click', 'button#edit', function () {
+            var data = $('#value_local').DataTable().row($(this).parents('tr')).data();
+            location.href = "Edit/" + data["Id"];
+        });
+
+
+        /**
+         * 删除
+         */
+        $('#table_local tbody').on('click', 'button#del', function () {
+            var data = $('#table_local').DataTable().row($(this).parents('tr')).data();
+            data["Id"];
+        });
+
+        $("#create-attribute-value").click(function () {
+            $('#modal-create').modal()
+        });
+
+        $("#attribute-value-save").click(function () {
+            $.ajax({
+                url: "/Admin/Attribute/CreateValue",
+                type: "POST",
+                data: {
+                    AttributeValue: $("#Value_AttributeValue").val(),
+                    AttributeId:@(Model),
+                    DisplayOrder:$("#Value_DisplayOrder").val(),
+                },
+                success:function(e){
+                    if(e=="ok")
+                    {
+                        $('#modal-create').modal('hide');
+                        table.api().ajax.reload();
+                    }
+                },
+            });
+        });
+    });
+
+</script>

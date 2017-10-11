@@ -1,0 +1,30 @@
+﻿@model ArtSolution.Web.Models.Orders.ProductReviewListModel
+
+@{
+    ViewBag.Title = "我的评论";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_CenterHeader", "我的评论")
+<div class="review-page">
+    @foreach (var item in Model.Reviews)
+    {
+        <div class="review-item">
+
+            <div class="review-title">
+                <span class="review-customer pull-left">@item.CustomerName</span>
+                <span class="review-time pull-right">@item.CreationTime.ToString("mm-dd")</span>
+            </div>
+            <div class="review-image">
+                @foreach (var image in item.Images)
+                {
+                    <img src="@image" />
+                }
+            </div>
+            <div class="review-content">
+                @item.Content
+            </div>
+        </div>
+    }
+</div>
+
+
