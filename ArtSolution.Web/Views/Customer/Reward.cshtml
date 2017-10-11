@@ -3,6 +3,8 @@
 <div class="customer-reward col-xs-4">
     <a href="@Url.Action("RewardHistory","Customer")">
         <p class="reward-value">@Model.Reward</p>
-        <p class="reward-title">积分</p>
+        <p class="reward-title">@if (Model.IsSign)
+        { <text>积分</text>}
+        else { <text>立即签到</text>}</p>
     </a>
 </div>

@@ -132,6 +132,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
@@ -190,6 +191,8 @@
     <Compile Include="Customers\ICustomerAttributeService.cs" />
     <Compile Include="Customers\ICustomerRewardService.cs" />
     <Compile Include="Customers\ICustomerService.cs" />
+    <Compile Include="Customers\ISignLogService.cs" />
+    <Compile Include="Customers\SignLogService.cs" />
     <Compile Include="Discount\CouponService.cs" />
     <Compile Include="Discount\ICouponService.cs" />
     <Compile Include="Layout\IPageHeadBuilder.cs" />

@@ -57,6 +57,7 @@ namespace ArtSolution.Web.Controllers
         private readonly ILoanService _loanService;
         private readonly ICommissionService _commissionServicer;
         private readonly IWishOrderService _wishService;
+        private readonly ISignLogService _signService;
 
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         public CustomerController(IOrderService orderService,
@@ -75,6 +76,7 @@ namespace ArtSolution.Web.Controllers
                                 IApplyCashService applyCashService,
                                 ICommissionService commissionServicer,
                                 IWishOrderService wishService,
+                                ISignLogService signService,
                                 IUnitOfWorkManager unitOfWorkManager)
         {
             this._orderService = orderService;
@@ -93,6 +95,7 @@ namespace ArtSolution.Web.Controllers
             this._applyCashService = applyCashService;
             this._commissionServicer = commissionServicer;
             this._wishService = wishService;
+            this._signService = signService;
             this._unitOfWorkManager = unitOfWorkManager;
         }
         #endregion
@@ -262,6 +265,7 @@ namespace ArtSolution.Web.Controllers
             var customer = _customerService.GetCustomerId(this.CustomerId);
             var reward = customer.GetCustomerAttributeValue<int>(CustomerAttributeNames.Reward);
             var model = new CustomerRewardModel();
+            model.IsSign = _signService.IsSign(this.CustomerId);
             model.Reward = reward;
             model.CustomerId = customer.Id;
             return PartialView(model);
@@ -274,10 +278,9 @@ namespace ArtSolution.Web.Controllers
             var model = new CustomerRewardModel();
             model.Reward = reward;
             model.CustomerId = customer.Id;
-
             var histories = _rewardService.GetAllCustomerRewards(customer: this.CustomerId, pageSize: 10);
-
             model.Histories = histories.Items.Select(h => h.MapTo<RewardHistoryModel>()).ToList();
+            _signService.SignIn(this.CustomerId);
             return PartialView(model);
         }
 

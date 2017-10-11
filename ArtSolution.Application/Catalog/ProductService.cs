@@ -14,7 +14,8 @@ namespace ArtSolution.Catalog
 
         private readonly IRepository<Product> _productRepository;
         private readonly IUnitOfWorkManager _unitOfWorkManage;
-        public ProductService(IRepository<Product> productRepository, IUnitOfWorkManager unitOfWorkManage)
+        public ProductService(IRepository<Product> productRepository,
+            IUnitOfWorkManager unitOfWorkManage)
         {
             this._productRepository = productRepository;
             this._unitOfWorkManage = unitOfWorkManage;

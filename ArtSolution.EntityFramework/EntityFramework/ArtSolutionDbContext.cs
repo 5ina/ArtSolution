@@ -42,6 +42,7 @@ namespace ArtSolution.EntityFramework
 
         public virtual IDbSet<ApplyPromoter> ApplyPromoter { get; set; }
         public virtual IDbSet<ApplyCash> ApplyCash { get; set; }
+        public virtual IDbSet<SignLog> SignLog { get; set; }
 
 
         public virtual IDbSet<Notice> Notice { get; set; }

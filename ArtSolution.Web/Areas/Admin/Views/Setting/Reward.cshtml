@@ -4,17 +4,37 @@
 }
 
 <script type="text/javascript">
-                        $(document).ready(function () {
-                            $("#@Html.FieldIdFor(model => model.Enabled)").click(activatePointsImmediately);
-                            activatePointsImmediately();
-                        });
+    $(document).ready(function () {
+        $("#@Html.FieldIdFor(model => model.Enabled)").click(activatePointsImmediately);
+        $("#@Html.FieldIdFor(model => model.RewardPaymentEnabled)").click(activateRewardImmediately);
+        $("#@Html.FieldIdFor(model => model.SignRewardEnabled)").click(activateSignImmediately);
+        activatePointsImmediately();
+        activateRewardImmediately();
+        activateSignImmediately();
+    });
 
-                        function activatePointsImmediately() {
-                            if ($('#@Html.FieldIdFor(model => model.Enabled)').is(':checked'))
-                                $('.panel-child').show();
-                            else
-                                $('.panel-child').hide();
-                        }
+    function activatePointsImmediately() {
+        if ($('#@Html.FieldIdFor(model => model.Enabled)').is(':checked'))
+            $('.panel-child').show();
+        else
+            $('.panel-child').hide();
+    }
+
+    function activateRewardImmediately() {
+        if ($('#@Html.FieldIdFor(model => model.RewardPaymentEnabled)').is(':checked'))
+            $('.panel-reward').show();
+        else
+            $('.panel-reward').hide();
+    }
+
+
+    function activateSignImmediately() {
+        if ($('#@Html.FieldIdFor(model => model.SignRewardEnabled)').is(':checked'))
+            $('.panel-sign').show();
+        else
+            $('.panel-sign').hide();
+    }
+
 </script>
 
 <section class="content-header">
@@ -41,9 +61,9 @@
                                 <td class="adminTitle">
                                     @Html.LabelFor(model => model.Enabled):
                                 </td>
-                                <td class="adminData">                                        
-                                        @Html.EditorFor(model => model.Enabled, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Enabled)
+                                <td class="adminData">
+                                    @Html.EditorFor(model => model.Enabled, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Enabled)
                                 </td>
                             </tr>
 
@@ -52,8 +72,8 @@
                                     @Html.LabelFor(model => model.ExchangeRate):
                                 </td>
                                 <td class="adminData">
-                                        @Html.ArtEditorFor(model => model.ExchangeRate)
-                                        @Html.ValidationMessageFor(model => model.ExchangeRate)
+                                    @Html.ArtEditorFor(model => model.ExchangeRate)
+                                    @Html.ValidationMessageFor(model => model.ExchangeRate)
                                 </td>
                             </tr>
                             <tr class="panel-child">
@@ -77,6 +97,68 @@
                                     @Html.ValidationMessageFor(model => model.PointsForFirstOrder)
                                 </td>
                             </tr>
+
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.RewardPaymentEnabled):
+                                </td>
+                                <td class="adminData">
+                                    @Html.EditorFor(model => model.RewardPaymentEnabled, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.RewardPaymentEnabled)
+                                </td>
+                            </tr>
+
+
+                            <tr class="panel-reward">
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.PaymentRate):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextBoxFor(model => model.PaymentRate, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.PaymentRate)
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.SignRewardEnabled):
+                                </td>
+                                <td class="adminData">
+                                    @Html.EditorFor(model => model.SignRewardEnabled, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.SignRewardEnabled)
+                                </td>
+                            </tr>
+
+                            <tr class="panel-sign">
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.FirstRewardPoint):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextBoxFor(model => model.FirstRewardPoint, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.FirstRewardPoint)
+                                </td>
+                            </tr>
+                            <tr class="panel-sign">
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.AdditionalReward):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextBoxFor(model => model.AdditionalReward, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.AdditionalReward)
+                                </td>
+                            </tr>
+                            <tr class="panel-sign">
+                                <td class="adminTitle">
+                                    @Html.LabelFor(model => model.MaxRewardPoint):
+                                </td>
+                                <td class="adminData">
+                                    @Html.TextBoxFor(model => model.MaxRewardPoint, new { @class = "form-control", rows = "6" })
+                                    @Html.ValidationMessageFor(model => model.MaxRewardPoint)
+                                </td>
+                            </tr>
+
                         </table>
                     </div>
                 </div>

@@ -184,7 +184,10 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// 积分配置
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Reward()
         {
             var model = _cacheManager.GetCache(CacheNames.Settings.REWARD_SETTINGS).Get(CacheNames.Settings.REWARD_SETTINGS, () =>
@@ -194,7 +197,15 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
                     Enabled = _settingService.GetSettingByKey<bool>(RewardSettingNames.Enabled),
                     ExchangeRate = _settingService.GetSettingByKey<decimal>(RewardSettingNames.ExchangeRate),
                     PointsForRegistration = _settingService.GetSettingByKey<int>(RewardSettingNames.PointsForRegistration),
-                    PointsForFirstOrder = _settingService.GetSettingByKey<int>(RewardSettingNames.PointsForFirstOrder)
+                    PointsForFirstOrder = _settingService.GetSettingByKey<int>(RewardSettingNames.PointsForFirstOrder),
+                    PaymentRate = _settingService.GetSettingByKey<int>(RewardSettingNames.PaymentRate),
+                    RewardPaymentEnabled = _settingService.GetSettingByKey<bool>(RewardSettingNames.RewardPaymentEnabled),
+
+                    SignRewardEnabled = _settingService.GetSettingByKey<bool>(RewardSettingNames.SignRewardEnabled),
+                    AdditionalReward = _settingService.GetSettingByKey<int>(RewardSettingNames.AdditionalReward),
+                    FirstRewardPoint = _settingService.GetSettingByKey<int>(RewardSettingNames.FirstRewardPoint),
+                    MaxRewardPoint = _settingService.GetSettingByKey<int>(RewardSettingNames.MaxRewardPoint),
+
                 };
             });
             return View(model);
@@ -208,6 +219,14 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             _settingService.SaveSetting(RewardSettingNames.ExchangeRate, model.ExchangeRate);
             _settingService.SaveSetting(RewardSettingNames.PointsForRegistration, model.PointsForRegistration);
             _settingService.SaveSetting(RewardSettingNames.PointsForFirstOrder, model.PointsForFirstOrder);
+
+            _settingService.SaveSetting(RewardSettingNames.RewardPaymentEnabled, model.RewardPaymentEnabled);
+            _settingService.SaveSetting(RewardSettingNames.PaymentRate, model.PaymentRate);
+            
+            _settingService.SaveSetting(RewardSettingNames.SignRewardEnabled, model.SignRewardEnabled);
+            _settingService.SaveSetting(RewardSettingNames.MaxRewardPoint, model.MaxRewardPoint);
+            _settingService.SaveSetting(RewardSettingNames.FirstRewardPoint, model.FirstRewardPoint);
+            _settingService.SaveSetting(RewardSettingNames.AdditionalReward, model.AdditionalReward);
 
             model.Result = true;
             _cacheManager.GetCache(CacheNames.Settings.REWARD_SETTINGS).Remove(CacheNames.Settings.REWARD_SETTINGS);

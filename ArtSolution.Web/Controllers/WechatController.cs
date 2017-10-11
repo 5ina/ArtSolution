@@ -168,7 +168,7 @@ namespace ArtSolution.Web.Controllers
                                         LastModificationTime = DateTime.Now,
                                         VerificationCode = ""
                                     };
-                                    customer.Id = _customerService.CreateCustomer(customer);                                   
+                                    customer.Id = _customerService.CreateCustomer(customer);
                                     Logger.Debug("id" + customer.Id);
                                     //优惠券处理
                                     AddNewCustomerConpon(customer);
@@ -186,15 +186,16 @@ namespace ArtSolution.Web.Controllers
                                 }
                                 var dto = customer.MapTo<CustomerDto>();
                                 var identity = _loginManager.CreateUserIdentity(dto);
+
                                 //用户登录
                                 AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
-                        }
+                            }
                             catch (Exception e)
-            {
-                Logger.Debug("错误信息:" + e.Message);
-                Logger.Debug("错误内容：" + userInfo.openid + userInfo.nickname);
-            }
-        }
+                            {
+                                Logger.Debug("错误信息:" + e.Message);
+                                Logger.Debug("错误内容：" + userInfo.openid + userInfo.nickname);
+                            }
+                        }
                     }
                 }
             }
@@ -277,7 +278,6 @@ namespace ArtSolution.Web.Controllers
         /// </summary>
         private void Handle(string postStr)
         {
-            Logger.Debug(postStr);
             Framework.WeChat.WechatRequest wr = new Framework.WeChat.WechatRequest(postStr);
             var eventStr = wr.LoadEvent(Logger);
             Hashtable parameters;

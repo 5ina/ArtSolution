@@ -174,6 +174,42 @@
         /// 首次下单赠送的积分（额外）
         /// </summary>
         public static string PointsForFirstOrder { get { return "Setting.Reward.PointsForFirstOrder"; } }
+
+
+        /// <summary>
+        /// 是否开启积分支付
+        /// </summary>
+        public static string RewardPaymentEnabled { get { return "Setting.Reward.RewardPaymentEnabled"; } }
+
+        /// <summary>
+        /// 金额需要积分的多少倍
+        /// </summary>
+        public static string PaymentRate { get { return "Setting.Reward.PaymentRate"; } }
+
+        /// <summary>
+        /// 是否开启签到奖励
+        /// </summary>
+        public static string SignRewardEnabled { get { return "Setting.Reward.SignRewardEnabled"; } }
+
+
+        /// <summary>
+        /// 首次签到奖励
+        /// </summary>
+        public static string FirstRewardPoint { get { return "Setting.Reward.FirstRewardPoint"; } }
+
+
+        /// <summary>
+        /// 最高奖励
+        /// </summary>
+        public static string MaxRewardPoint { get { return "Setting.Reward.MaxRewardPoint"; } }
+
+        /// <summary>
+        /// 附加奖励
+        /// </summary>
+        public static string AdditionalReward { get { return "Setting.Reward.AdditionalReward"; } }
+
+        
+
     }
 
 
@@ -215,7 +251,6 @@
         /// </summary>
         public static string ApplyValue { get { return "Setting.Promoters.ApplyForValue"; } }
         public static string IsAudit { get { return "Setting.Promoters.IsAudit"; } }
-
 
     }
 }

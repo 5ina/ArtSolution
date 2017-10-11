@@ -40,6 +40,32 @@ namespace ArtSolution.Web.Areas.Admin.Models.Setting
         public int PointsForFirstOrder { get; set; }
 
 
+        [DisplayName("积分支付")]
+        [Description("是否开启积分支付")]
+        public bool RewardPaymentEnabled { get; set; }
+
+        [DisplayName("金额倍率")]
+        [Description("支付金额需要多少倍的积分")]
+        public int PaymentRate { get; set; }
+
+
+
+        [DisplayName("签到奖励")]
+        [Description("是否开启签到奖励")]
+        public bool SignRewardEnabled { get; set; }
+
+        [DisplayName("首次奖励")]
+        [Description("首次签到奖励")]
+        public int FirstRewardPoint { get; set; }
+
+
+        [DisplayName("最高奖励")]
+        [Description("最高奖励积分")]
+        public int MaxRewardPoint { get; set; }
+
+        [DisplayName("连续登录奖励")]
+        [Description("连续登录后追加上次附加的奖励")]
+        public int AdditionalReward{ get; set; }
         public bool Result { get; set; }
     }
 }

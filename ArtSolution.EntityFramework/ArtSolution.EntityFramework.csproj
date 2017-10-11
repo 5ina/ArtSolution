@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201709081042413_Update_Order_Pre_Scripts.Designer.cs">
       <DependentUpon>201709081042413_Update_Order_Pre_Scripts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710110807247_Create_SignLog_Scripts.cs" />
+    <Compile Include="Migrations\201710110807247_Create_SignLog_Scripts.Designer.cs">
+      <DependentUpon>201710110807247_Create_SignLog_Scripts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ArtSolutionDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultCatalogData.cs" />
@@ -252,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709081042413_Update_Order_Pre_Scripts.resx">
       <DependentUpon>201709081042413_Update_Order_Pre_Scripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710110807247_Create_SignLog_Scripts.resx">
+      <DependentUpon>201710110807247_Create_SignLog_Scripts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,6 +22,8 @@ namespace ArtSolution.Web.Models.Customers
         /// </summary>
         public int Reward { get; set; }
 
+        public bool IsSign { get; set; }
+
         public IList<RewardHistoryModel> Histories { get; set; }
 
         [AutoMap(typeof(CustomerReward))]
