@@ -33,6 +33,9 @@ namespace ArtSolution.Web.Models.Catalogs
 
         public decimal Price { get; set; }
         public bool PreSell { get; set; }
+        public bool AllowReward { get; set; }
+
+        public int RewardExchange { get; set; }
         public decimal Market { get; set; }
         public decimal Cost { get; set; }
 

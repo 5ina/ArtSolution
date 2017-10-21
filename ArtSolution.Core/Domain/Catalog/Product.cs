@@ -70,6 +70,11 @@ namespace ArtSolution.Domain.Catalog
         /// </summary>
         public bool PreSell { get; set; }
 
+        /// <summary>
+        /// 允许使用积分兑换
+        /// </summary>
+        public bool AllowReward { get; set; }
+
         public int DisplayOrder { get; set; }
         public bool Published { get; set; }
 

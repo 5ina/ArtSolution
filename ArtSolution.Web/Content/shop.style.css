@@ -3199,3 +3199,82 @@ nav.product-footer li {
     width:100%;
 }
 .margin-bottom-40{margin-bottom:40px;}
+
+.reward-product .product-content{background:#fff;padding:15px 5px;}
+.reward-product .product-content img{width:100%;}
+.reward-product .product-content .product-name,
+.reward-product .product-content .product-price,
+.reward-product .product-content .product-reward
+{
+    display:block;
+}
+.reward-product .product-content .product-name,
+.reward-product .product-content .product-price{font-size:16px;color:#c9253c;font-weight:500;}
+
+
+.reward-product .customer-address{    
+    background:#fff;
+    margin:15px 0;
+    padding:3px 10px;
+}
+.reward-product .customer-address .address{
+    padding:0;
+    margin:0;
+}
+
+.reward-product .customer-address .address li{
+    float:left;
+    line-height:40px;
+}
+
+.reward-product .customer-address .address li.position,
+.reward-product .customer-address .address li.choise{
+    width:10%;
+    text-align:center;    
+}
+
+.reward-product .customer-address .address li.info{
+    width:80%;
+}
+    .reward-product .form-group{
+        margin-bottom:0;
+    }
+
+.reward-product .product-attributes,
+.reward-product .product-number,
+.reward-product .liquidation{
+    background:#fff;
+    padding:15px 5px;
+    margin-bottom:5px;
+}
+
+.reward-product .product-attributes .attribute{    
+        padding: 0 2px;
+        margin-bottom: 8px;
+        display: none;
+}
+    .reward-product .product-attributes .attribute-label {
+        font-weight: normal;
+        display: inline-block;
+        border: 1px solid #ccc;
+        padding: 0 5px;
+        font-size:1.3rem;
+    }    
+    
+.reward-product .product-number .control-label{
+    line-height:34px;
+}
+    .reward-product .product-attributes .attribute:checked + label {
+        color: #fe0000;
+        border-color: #fe0000;
+    }
+    
+    .reward-product .liquidation .form-group{
+        line-height:1.9;
+    }
+
+    .reward-product .liquidation .form-group .product-price {
+        color: #c9253c;
+        font-size: 14px;
+        font-weight:800
+    }

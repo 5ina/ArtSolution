@@ -1667,6 +1667,7 @@
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PromotionalController.cs" />
+    <Compile Include="Controllers\RewardController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="Controllers\WechatController.cs" />
@@ -1761,6 +1762,8 @@
     <Compile Include="Models\Orders\ProductToOrderModel.cs" />
     <Compile Include="Models\Orders\ReturnOrderModel.cs" />
     <Compile Include="Models\Orders\SendMessageToAdminModel.cs" />
+    <Compile Include="Models\Reward\RewardOrderModel.cs" />
+    <Compile Include="Models\Reward\RewardProductModel.cs" />
     <Compile Include="Models\ShoppingCart\OrderTotalsModel.cs" />
     <Compile Include="Models\ShoppingCart\ShoppingCartModel.cs" />
     <Compile Include="Models\WeChat\AccessToken.cs" />
@@ -1941,6 +1944,9 @@
     <Content Include="Views\Customer\RewardHistory.cshtml" />
     <Content Include="Views\Customer\Commission.cshtml" />
     <Content Include="Views\Customer\Wish.cshtml" />
+    <Content Include="Views\Reward\Exchange.cshtml" />
+    <Content Include="Views\Reward\_SelectAddress.cshtml" />
+    <Content Include="Views\Reward\Payment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

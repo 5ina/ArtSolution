@@ -203,6 +203,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             PreparProductTags(model);
             model.DisplayOrder = 999;
             model.Published = true;
+            model.AllowReward = true;
             return View(model);
         }
         [ValidateInput(false)]

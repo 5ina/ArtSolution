@@ -1,0 +1,152 @@
+﻿@model ArtSolution.Web.Models.Reward.RewardProductModel
+@using ArtSolution.Web.Framework.WeChat;
+@using Abp.Runtime.Caching;
+@using ArtSolution.Common;
+@{
+
+    ViewBag.Title = "商品积分兑换";
+    Layout = "~/Views/Shared/_DetailLayout.cshtml";
+    var _cacheManager = Abp.Dependency.IocManager.Instance.Resolve<ICacheManager>();
+    var _settingService = Abp.Dependency.IocManager.Instance.Resolve<ISettingService>();
+    WeChatDefault wechat = new WeChatDefault();
+    var config = wechat.WxConfig(_settingService, _cacheManager, this.Request.Url.Host + this.Request.Url.PathAndQuery);
+
+}
+
+@section styles
+{
+    @Html.IncludeStyle("~/Content/jquery.bootstrap-touchspin.css")
+    @Html.IncludeStyle("~/Content/swiper3/css/swiper.min.css")
+}
+@section scripts
+    {
+    @Html.IncludeScript("~/Scripts/jquery.bootstrap-touchspin.js")
+    @Html.IncludeScript("~/Content/swiper3/js/swiper.min.js")
+}
+<!--=== Reward Product ===-->
+<div class="reward-product">
+
+    <div class="container">
+        @Html.Action("Header", "Common")
+
+        <div class="product-content">
+            <div class="row vertical">
+                <div class="col-xs-5">
+                    <img src="@Model.ProductImage" />
+                </div>
+                <div class="col-xs-7">
+                    <span class="product-name">@Model.Name</span>
+                    <span class="product-price">销售价：@Model.Price</span>
+                    <span class="product-reward">兑换积分：@Model.RewardExchange</span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="customer-address clearfix">
+            @Html.Partial("_SelectAddress", config)
+        </div>
+
+        @using (Html.BeginForm("RewardToOrder", "Reward", FormMethod.Post, new { @Id = "orderFrom" }))
+            {
+            @Html.AntiForgeryToken();
+            @Html.Hidden("ProductId",Model.Id)
+
+            <div class="product-attributes">
+                @if (Model.SubProductAttributes.Count > 0)
+                {
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 control-label">商品规格</label>
+                        <div class="col-xs-9">
+                            @foreach (var attr in Model.SubProductAttributes)
+                    {
+                                <input type="radio" class="attribute" id="attribute-@attr.Id" data-attId="@attr.Id" name="ProductAttributeId" value="@attr.Id" />
+                                <label class="attribute-label" for="attribute-@attr.Id">@attr.ValueName</label>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="hidden">
+                        <input type="radio" class="attribute" id="attribute-0" data-attId="0" name="ProductAttributeId" checked="checked" value="0" />
+                    </div>
+                }
+            </div>
+
+            <div class="product-number">
+                <div class="form-group clearfix">
+
+                    <label class="col-xs-3 control-label">兑换数量</label>
+                    <div class="col-xs-9">
+                        <input name="item_num" id="cart_num" class="center block item_num" value="1" type="tel">
+                    </div>
+                </div>
+            </div>
+
+            <div class="liquidation">
+                <div class="form-group clearfix">
+                    <label class="col-xs-3 control-label">当前积分</label>
+                    <div class="col-xs-9">@Model.CustomerReward</div>
+                </div>
+
+                <div class="form-group clearfix">
+                    <label class="col-xs-3 control-label">所需积分</label>
+                    <div class="col-xs-9"><span id="reward">@Model.RewardExchange</span></div>
+                </div>
+                <div class="form-group clearfix">
+                    <label class="col-xs-3 control-label">配送费</label>
+                    <div class="col-xs-9"><span class="product-price"><i class="fa fa-rmb"></i>@Model.ShipFree</span></div>
+                </div>
+
+                
+            </div>
+
+
+            <div class="nav navbar-default">
+                <nav class="navbar navbar-default navbar-fixed-bottom">
+                    <div class="wd-nav">
+                        <input type="submit" class="btn btn-block btn-success" value="生成订单" />
+                    </div>
+                </nav>
+
+            </div>
+        }
+
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("input[name='item_num']").TouchSpin({
+            min: 1,
+            max: @(Model.StockQuantity),
+            step: 1
+        });
+
+        $("#cart_num").change(function(){
+            var reward = $(this).val() * @(Model.RewardExchange);
+            $("#reward").html(reward);
+            checkPayment();
+        })
+        checkPayment();
+
+    })
+
+    function checkPayment()
+    {
+        var paymentReward = $("#cart_num").val() * @(Model.RewardExchange);
+        if((@Model.RewardExchange)<paymentReward)
+        {
+            $(".btn-success").attr("disabled","disabled");
+        }
+        else{
+            $(".btn-success").removeAttr("disabled");
+        }
+    }
+
+</script>

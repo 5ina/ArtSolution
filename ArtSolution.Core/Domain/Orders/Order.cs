@@ -47,6 +47,10 @@ namespace ArtSolution.Domain.Orders
         /// 优惠金额
         /// </summary>
         public decimal Preferential { get; set; }
+        /// <summary>
+        /// 是否积分订单
+        /// </summary>
+        public bool IsRewardOrder { get; set; }
 
         public long? LastModifierUserId { get; set; }
 

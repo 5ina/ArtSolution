@@ -28,6 +28,9 @@ namespace ArtSolution.Web.Areas.Admin.Models.Orders
         [DisplayName("订单状态")]
         [UIHint("KendoMultipleSelect")]
         public List<int> OrderStatusIds { get; set; }
+
+        [DisplayName("是否积分订单")]
+        public bool? IsRewardOrder { get; set; }
         
         public IList<SelectListItem> AvailableOrderStatuses { get; set; }
     }

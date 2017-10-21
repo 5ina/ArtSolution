@@ -39,7 +39,8 @@
         <div class="shop-product-heading">
             <h2>@Model.Name</h2>
             <span class="product-price">￥@Model.Price</span>
-            <p> 聚美价：<span class="price">￥@Model.Market</span>  库存：@Model.StockQuantity</p>
+            <p class="pull-left"> 聚美价：<span class="price">￥@Model.Market</span>  库存：@Model.StockQuantity</p>
+            <p class="pull-right">@if (Model.AllowReward) { <text><a href="@Url.Action("Exchange", "Reward", new { productId = Model.Id })">积分兑换:@Model.RewardExchange 积分</a></text>}</p>
 
         </div><!--/end shop product social-->
         @if (!Model.PreSell)

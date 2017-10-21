@@ -59,6 +59,8 @@ namespace ArtSolution.Web.Areas.Admin.Models.Catalog
 
         [DisplayName("是否预售")]
         public bool PreSell { get; set; }
+        [DisplayName("积分兑换")]
+        public bool AllowReward { get; set; }
         /// <summary>
         /// 特殊价格
         /// </summary>

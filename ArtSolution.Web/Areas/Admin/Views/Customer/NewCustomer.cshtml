@@ -38,8 +38,7 @@
         var csCurrentPeriod;
 
         $('#@(prefix)-box').on('click', 'button[data-widget="collapse"]', function () {
-            var collapsed = !$('#@(prefix)-box').hasClass('collapsed-box');
-            saveUserPreferences('@(Url.Action("SavePreference", "Preferences"))', '@hidePanelAttributeName', collapsed);
+            var collapsed = !$('#@(prefix)-box').hasClass('collapsed-box');            
             if (!collapsed) {
                 $('#@(prefix)-box button[data-chart-role="toggle-chart"]').removeAttr('disabled');
                 if (!csCurrentPeriod) {

@@ -5,10 +5,12 @@ using ArtSolution.Common;
 using ArtSolution.CommonSettings;
 using ArtSolution.Customers;
 using ArtSolution.Media;
+using ArtSolution.Names;
 using ArtSolution.Orders;
 using ArtSolution.Web.Framework.WeChat;
 using ArtSolution.Web.Models.Catalogs;
 using ArtSolution.Web.Models.Orders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -113,6 +115,12 @@ namespace ArtSolution.Web.Controllers
             else {
                 var favorites = _favoriteService.GetAllFavorites(customerId: this.CustomerId);
                 model.IsFavorites = favorites.Items.FirstOrDefault(f => f.ProductId == productId) != null;
+            }
+
+            if (model.AllowReward)
+            {
+                var rate = _settingService.GetSettingByKey<int>(RewardSettingNames.PaymentRate);
+                model.RewardExchange = Convert.ToInt32(model.Price * rate);
             }
 
             ViewData["CustomerId"] = AbpSession.UserId;

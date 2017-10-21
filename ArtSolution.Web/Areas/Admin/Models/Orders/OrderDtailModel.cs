@@ -49,6 +49,8 @@ namespace ArtSolution.Web.Areas.Admin.Models.Orders
 
         [DisplayName("下单时间")]
         public DateTime CreationTime { get; set; }
+        [DisplayName("是否积分订单")]
+        public bool? IsRewardOrder { get; set; }
 
         public long? LastModifierUserId { get; set; }
 

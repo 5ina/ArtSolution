@@ -1,0 +1,89 @@
+﻿@model ArtSolution.Web.Models.WeChat.WxConfigModel
+@using ArtSolution.Web.Models.Customers
+<ul class="address">
+    <li class="position" onclick="selectAddress()">
+        <i class="fa fa-map-marker"></i>
+    </li>
+    <li class="info">
+        <div class="row">
+            <div class="col-xs-4"><span class="Consignee"></span></div>
+            <div class="col-xs-8"><span class="Phone"></span></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12"><span class="Address"></span></div>
+        </div>
+    </li>
+    <li class="choise" onclick="selectAddress()">
+        <i class="fa fa-angle-double-right"></i>
+    </li>
+</ul>
+
+<!-- 选择地址 -->
+<script type="text/javascript">
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '@Model.appId', // 必填，公众号的唯一标识
+        timestamp: @Model.timestamp, // 必填，生成签名的时间戳
+        nonceStr: '@Model.noncestr', // 必填，生成签名的随机串
+        signature: '@Model.signature',// 必填，签名，见附录1
+        jsApiList: ['checkJsApi',
+                    'editAddress',
+                    'chooseWXPay',
+                    'getLatestAddress',
+                    'openCard',
+                    'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+    });
+
+
+    wx.ready(function(){
+        @if (ViewData["address"] == null)
+        {
+                    <text>selectAddress();</text>
+        }
+        else
+        {
+            CustomerAddressModel address = (CustomerAddressModel)ViewData["address"];
+            <text>setAddress('@(address.userName)','@(address.telNumber)','@(address.provinceName + address.cityName + address.countryName+address.detailInfo)');</text>
+        }
+    });
+    function setAddress( userName,telNumber,detail )
+    {
+        $(".Consignee").html(userName);
+        $(".Phone").html(telNumber);
+        $(".Address").html(detail);
+    }
+
+        function selectAddress()
+        { wx.checkJsApi({
+            jsApiList: ['openAddress'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+            success: function(res) {
+                wx.openAddress({
+                    success: function (res) {
+                        $(".Consignee").html(res.userName);
+                        $(".Phone").html(res.telNumber);
+                        $(".Address").html(res.provinceName + res.cityName + res.countryName + res.detailInfo);
+                        $.ajax({
+                            type:"POST",
+                            url:"/Order/SaveAddress",
+                            data:{
+                                userName    :res.userName,
+                                cityName    :res.cityName,
+                                telNumber   :res.telNumber,
+                                provinceName:res.provinceName,
+                                countryName :res.countryName,
+                                detailInfo  :res.detailInfo
+                            },
+                            success :function(e)
+                            {
+                            }
+                        });
+                    },
+                    cancel: function () {
+                        // 用户取消拉出地址
+                    }});
+            }
+
+        });
+        }
+</script>

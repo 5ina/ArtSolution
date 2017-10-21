@@ -6,7 +6,6 @@
 @Html.Partial("_CenterHeader", "用户信息")
 <div class="container">
     <div class="customer-mobile">
-
         @using (Html.BeginForm("Mobile", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             var validationSummary = Html.ValidationSummary(true, "登录成功");
@@ -47,9 +46,11 @@
             var nums = 30;
             var btn;
             function sendCode(thisBtn) {
-                if ($("#Mobile").val())
+                var result = formatInputValue($("#Mobile").val());
+
+                if (result)
                 {
-                    alert("请输入手机号");
+                    alert("请输入正确的手机号");
                     return;
                 }
                 getCaptcha($("#Mobile").val());
@@ -79,6 +80,17 @@
                         alert(result);
                     }
                 });
+            }
+
+
+            function formatInputValue(mobile)
+            {
+                var regBox = {
+                    regMobile: /^0?1[3|4|5|8][0-9]\d{8}$/,//手机
+                    regTel: /^0[\d]{2,3}-[\d]{7,8}$/
+                };
+                var mflag = regBox.regMobile.test(mobile);
+                return !mflag;
             }
         </script>
     </div>
