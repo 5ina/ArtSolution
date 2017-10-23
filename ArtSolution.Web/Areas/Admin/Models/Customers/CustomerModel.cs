@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using ArtSolution.Domain.Customers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -46,6 +47,10 @@ namespace ArtSolution.Web.Areas.Admin.Models.Customers
         /// </summary>
         [DisplayName("是否关注")]
         public bool IsSubscribe { get; set; }
+        [DisplayName("是否推广人")]
+        public bool IsPromoter { get; set; }
+        [DisplayName("关注时间")]
+        public DateTime CreationTime { get; set; }
 
 
         public List<SelectListItem> AvailableCustomerRoles { get; set; }

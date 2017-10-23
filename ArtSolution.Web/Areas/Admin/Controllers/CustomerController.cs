@@ -53,12 +53,16 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         }
 
         [NonAction]
-        protected void PrepareCustomerModel(CustomerModel model)
+        protected void PrepareCustomerModel(CustomerModel model, Customer customer)
         {
             if (model == null)
                 throw new UserFriendlyException("model");
 
             model.AvailableCustomerRoles = CustomerRole.Buyer.EnumToDictionary(e => e.GetDescription()).ToList();
+            if (customer != null)
+            {
+                model.IsPromoter = customer.GetCustomerAttributeValue<bool>(CustomerAttributeNames.IsPromoter);
+            }
         }
         #endregion
 
@@ -125,7 +129,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             var model = new CustomerModel();
-            PrepareCustomerModel(model);
+            PrepareCustomerModel(model, null);
             return View(model);
         }
 
@@ -144,7 +148,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
                 _customerService.CreateCustomer(customer);
                 return RedirectToAction("List");
             }
-            PrepareCustomerModel(model);
+            PrepareCustomerModel(model, null);
             return View(model);
         }
 
@@ -153,7 +157,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         {
             var customer = _customerService.GetCustomerId(id);
             var model = customer.MapTo<CustomerModel>();
-            PrepareCustomerModel(model);
+            PrepareCustomerModel(model, customer);
             return View(model);
         }
 
@@ -167,7 +171,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
                 _customerService.UpdateCustomer(customer);
                 return RedirectToAction("List");
             }
-            PrepareCustomerModel(model);
+            PrepareCustomerModel(model, null);
             return View(model);
         }
 

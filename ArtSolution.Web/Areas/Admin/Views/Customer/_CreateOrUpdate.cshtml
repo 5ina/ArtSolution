@@ -4,59 +4,136 @@
 @Html.HiddenFor(model => model.Id)
 
 <div id="customer-edit">
-    <table class="adminContent">
-        <tr>
-            <td class="adminTitle">
-                @Html.ArtLabelFor(model => model.Mobile):
-            </td>
-            <td class="adminData">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                    @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Mobile)
-                </div>
-            </td>
-        </tr>
-        
-        <tr>
-            <td class="adminTitle">
-                @Html.ArtLabelFor(model => model.CustomerRoleId):
-            </td>
-            <td class="adminData">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                    @Html.DropDownListFor(model => model.CustomerRoleId,Model.AvailableCustomerRoles,new { @class = "form-control",disabled = "disabled" })
-                    @Html.ValidationMessageFor(model => model.CustomerRoleId)
-                </div>
-            </td>
-        </tr>
-        @if (Model.Id > 0)
-        {
-            <tr>
-                <td class="adminTitle">
-                    @Html.ArtLabelFor(model => model.Password):
-                </td>
-                <td class="adminData">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                        @Html.ArtEditorFor(model => model.Password)
-                        @Html.ValidationMessageFor(model => model.Password)
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="adminTitle">
-                    @Html.ArtLabelFor(model => model.PasswordSalt):
-                </td>
-                <td class="adminData">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                        @Html.TextBoxFor(model => model.PasswordSalt, new { @class = "form-control", disabled = "disabled" })
-                        @Html.ValidationMessageFor(model => model.PasswordSalt)
-                    </div>
-                </td>
-            </tr>
-        }
-    </table>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="box box-default">
 
+                <div class="box-header with-border">
+                    <i class="fa fa-info"></i>
+                    <h3 class="box-title">基本信息</h3>
+                </div>
+                <div class="box-header with-border">
+                    <table class="adminContent">
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.ArtLabelFor(model => model.Mobile):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                    @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Mobile)
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.ArtLabelFor(model => model.CustomerRoleId):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                    @Html.DropDownListFor(model => model.CustomerRoleId, Model.AvailableCustomerRoles, new { @class = "form-control", disabled = "disabled" })
+                                    @Html.ValidationMessageFor(model => model.CustomerRoleId)
+                                </div>
+                            </td>
+                        </tr>
+                        @if (Model.Id > 0)
+            {
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Password):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.ArtEditorFor(model => model.Password)
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.PasswordSalt):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.PasswordSalt, new { @class = "form-control", disabled = "disabled" })
+                                        @Html.ValidationMessageFor(model => model.PasswordSalt)
+                                    </div>
+                                </td>
+                            </tr>
+                }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="box box-default">
+
+                <div class="box-header with-border">
+                    <i class="fa fa-info"></i>
+                    <h3 class="box-title">推广信息</h3>
+                </div>
+                <div class="box-header with-border">
+                    <table class="adminContent">
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.ArtLabelFor(model => model.IsPromoter):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    @Html.EditorFor(model => model.IsPromoter)
+                                    @Html.ValidationMessageFor(model => model.IsPromoter)
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="adminTitle">
+                                @Html.ArtLabelFor(model => model.CreationTime):
+                            </td>
+                            <td class="adminData">
+                                <div class="input-group">
+                                    @Html.Raw(Model.CreationTime)
+                                </div>
+                            </td>
+                        </tr>
+                        @if (Model.Id > 0)
+            {
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.Password):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.ArtEditorFor(model => model.Password)
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="adminTitle">
+                                    @Html.ArtLabelFor(model => model.PasswordSalt):
+                                </td>
+                                <td class="adminData">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
+                                        @Html.TextBoxFor(model => model.PasswordSalt, new { @class = "form-control", disabled = "disabled" })
+                                        @Html.ValidationMessageFor(model => model.PasswordSalt)
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -28,7 +28,6 @@ namespace ArtSolution.Web.Framework.WeChat
         {
             xmlDoc.LoadXml(this._xml);
             var msgType = xmlDoc.SelectSingleNode("/xml/MsgType").InnerText;
-            logger.Debug("msgType:" + msgType);
             if (!String.IsNullOrWhiteSpace(msgType) && msgType == "event")
             {
                 logger.Debug("Event:" + xmlDoc.SelectSingleNode("/xml/Event").InnerText);

@@ -22,7 +22,7 @@ namespace ArtSolution
         {
             int total = source.Count();
             this.TotalCount = total;
-            this.Items = source.Skip(pageIndex).Take(pageSize).ToList();
+            this.Items = source.Skip(pageIndex * pageSize).Take(pageSize).ToList();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace ArtSolution
         {
             int total = source.Count();
             this.TotalCount = total;
-            this.Items = source.Skip(pageIndex).Take(pageSize).ToList();
+            this.Items = source.Skip(pageIndex * pageSize).Take(pageSize).ToList();
         }
         /// <summary>
         /// 数据集

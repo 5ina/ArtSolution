@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <a href="#" class="reload btn btn-social-icon" id="search-catalogs"><i class="fa fa-search"></i></a>
+                <a href="#" class="reload btn btn-social-icon" id="search-customers"><i class="fa fa-search"></i></a>
             </div>
         </div>
         <div id="customer-grid"></div>
@@ -148,8 +148,8 @@
         });
 
         //search button
-        $('#search-catalogs').click(function () {
-            var grid = $('#catalog-grid').data('kendoGrid');
+        $('#search-customers').click(function () {
+            var grid = $('#customer-grid').data('kendoGrid');
             grid.dataSource.page(0);
         });
     });

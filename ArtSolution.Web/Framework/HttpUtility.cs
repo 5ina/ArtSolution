@@ -19,7 +19,7 @@ namespace ArtSolution.Web.Framework
 
             string result = sr.ReadToEnd();
             if (Logger != null)
-                Logger.Debug("测试" + result);
+                Logger.Debug("result 返回值：" + result);
             return JsonConvert.DeserializeObject<T>(result);
         }
 

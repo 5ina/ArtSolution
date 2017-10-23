@@ -135,17 +135,18 @@ namespace ArtSolution.Web.Controllers
 
                     if (oauthToken != null && !string.IsNullOrEmpty(oauthToken.openid))
                     {
-
-                        OAuthUserInfo userInfo = HttpUtility.Get<OAuthUserInfo>(string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN", token, oauthToken.openid));
+                        OAuthUserInfo userInfo = Framework.HttpUtility.Get<OAuthUserInfo>(string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN", token, oauthToken.openid), Logger);
+                        //OAuthUserInfo userInfo = HttpUtility.Get<OAuthUserInfo>(string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN", token, oauthToken.openid));
                         if (userInfo != null)
                         {
                             var jsonData = JsonConvert.SerializeObject(userInfo);
                             Logger.Debug("jsonData : " + jsonData);
+                            Logger.Debug("token : " + token);
+
                             try
                             {
                                 var customer = _customerService.GetCustomerByOpenId(userInfo.openid);
-
-
+                                
                                 #region 假设用户不存在
                                 if (customer == null || customer.Id == 0) // 判定用户是否存在
                                 {
@@ -153,7 +154,7 @@ namespace ArtSolution.Web.Controllers
                                     var salt = CommonHelper.GenerateCode(6);
                                     var _encryptionService = Abp.Dependency.IocManager.Instance.Resolve<IEncryptionService>();
                                     var password = _encryptionService.CreatePasswordHash("123456", salt);
-                                    Logger.Debug("code : " + code);
+                                    
                                     customer = new Customer
                                     {
                                         Mobile = "",
@@ -172,8 +173,10 @@ namespace ArtSolution.Web.Controllers
                                     Logger.Debug("id" + customer.Id);
                                     //优惠券处理
                                     AddNewCustomerConpon(customer);
-
                                     //积分处理
+
+                                    //订阅
+                                    SendMessageToUserFirstSub(customer);
                                 }
                                 #endregion
                                 else
@@ -454,6 +457,7 @@ namespace ArtSolution.Web.Controllers
         /// <param name="customer"></param>
         private void SendMessageToUserFirstSub(Customer customer)
         {
+            Logger.Debug("首次订阅开始");
             var model = new WeChatMessageModel();
             model.msgtype = "news";
             model.touser = customer.OpenId;
@@ -486,7 +490,7 @@ namespace ArtSolution.Web.Controllers
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "get";
-            request.Timeout = 2000;
+            request.Timeout = 4000;
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             StreamReader sr = new StreamReader(response.GetResponseStream(), System.Text.Encoding.UTF8);
 
