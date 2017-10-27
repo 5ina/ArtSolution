@@ -1,0 +1,103 @@
+﻿@model List<ArtSolution.Web.Models.Catalogs.SimpleProductModel>
+
+<div class="list-product-boxs scroller">
+    @Html.Hidden("pageIndex", 1)
+    <ul class="product-boxs">
+        @foreach (var item in Model)
+        {
+            <li class="items clearfix">
+                    <div class="product-img pull-left">
+                        <a href="@Url.Action("Detail", "Product", new { productId = item.Id })" class="goods-image-link">
+                            @if (item.PreSell)
+                            {
+                                <div class="pre-sale">
+                                    <img src="~/images/pre-sale.png" />
+                                </div>
+                            }
+                            <img class="full-width lazy" src="@item.ProductImage" alt="@item.MetaTitle" width="100%">
+
+
+                            @if (item.StockQuantity <= 0)
+                {
+                                <div class="out-stock">
+                                    <img src="~/images/qh.png" />
+                                </div>
+                            }
+                        </a>
+
+                        <!-- <div class="shop-rgba-dark-green rgba-banner">New</div> -->
+                    </div>
+                    <div class="product-description pull-right">
+                        <div class="product-full-description">
+                            <span class="title">@item.Name</span>
+                            <div class="item-price">
+                                <span>
+                                    @if (!item.SpecialPrice.HasValue)
+                                    {
+                                        <text>优惠价 <i class="fa fa-rmb"></i> @item.Price </text>
+                                    }
+                                    else
+                                    {
+                                        if (item.SpecialPrice.Value == 0)
+                                        {
+                                            <text>只付运费</text>
+                                        }
+                                        else
+                                        {
+                                            <text>限时促销 <i class="fa fa-rmb"></i> @item.SpecialPrice.Value </text>
+                                        }
+
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+        }
+    </ul>
+
+    <div class="more"><i class="pull_icon"></i><span>点击加载</span></div>
+</div>
+
+
+
+<script>
+
+    $(function () {
+
+        var boxs = $(".product-boxs");
+        $(".more").click(function () {
+            $.ajax({
+                url: '/Product/GetProducts',
+                data: { pageIndex: $("#pageIndex").val(), pageSize: "20" },
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    $.each(data, function (idx, obj) {
+                        boxs.append(productBoxAppend(obj));
+                    });
+                    
+                },
+                error: function () {
+                    console.log('error');
+                },
+            })
+        });
+    });
+
+
+    function productBoxAppend(obj) {
+        var result = '<li class="items clearfix">';
+        result += '<div class="product-img pull-left">';
+        result += '<a href="/Product/Detail?productId=' + obj.Id + '" class="goods-image-link">';
+        result += '<img class="full-width lazy" src="' + obj.ProductImage + '" width="100%"></a></div>';
+
+        result += '<div class="product-description pull-right">';
+        result += '<div class="product-full-description">';
+        result += '<span class="title">' + obj.Name + '</span>';
+        result += '<div class="item-price"><span>优惠价<i class="fa fa-rmb"></i>' + obj.Price + '</span>';
+        result += '</div></div>'
+        result += "</li>";
+        return result;
+    }
+</script>

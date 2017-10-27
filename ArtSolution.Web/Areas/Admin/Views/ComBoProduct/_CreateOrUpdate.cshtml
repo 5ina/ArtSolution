@@ -1,0 +1,166 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+
+
+@Html.ValidationSummary(false)
+@Html.HiddenFor(model => model.Id)
+<div id="combo-edit">
+    <div class="box">
+
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#combo_info" data-toggle="tab">基本信息</a>
+                </li>
+
+                <li>
+                    <a href="#combo_list" data-toggle="tab">商品信息</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="combo_info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <table class="adminContent">
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Name):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.ArtEditorFor(model => model.Name)
+                                        @Html.ValidationMessageFor(model => model.Name)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.ComBoProductImage):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.ArtEditorFor(model => model.ComBoProductImage)
+                                        @Html.ValidationMessageFor(model => model.ComBoProductImage)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Price):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Price)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Market):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.TextBoxFor(model => model.Market, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Market)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="adminTitle">
+                                        @Html.ArtLabelFor(model => model.Published):
+                                    </td>
+                                    <td class="adminData">
+                                        @Html.EditorFor(model => model.Published, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Published)
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane" id="combo_list">
+
+
+                    @if (Model.Id == 0)
+                    {
+                        Html.Raw("请保存套餐后再操作商品信息");
+                    }
+                    else
+                    {
+
+                        <div class="row">
+                            <div class="col-md-2 col-lg-offset-10 text-center">
+                                <a class="btn btn-primary" href="@Url.Action("BoxProduct","Product")" data-target="#products-modal" data-toggle="modal">
+                                    新增商品
+                                </a> 
+                            </div>
+                        </div>
+                        <table class="mapping_list">
+                            <tr>
+                                <th>商品Id</th>
+                                <th>名称</th>
+                                <th>价格</th>
+                                <th>操作</th>
+                            </tr>
+                            @foreach (var product in Model.ComBoProducts)
+                            {
+                                <tr id="product-@product.Id" class="mapping_items">
+                                    <td class="center">@product.Id</td>
+                                    <td>@product.Name</td>
+                                    <td class="center">@product.Price</td>
+                                    <td class="center"><a class="del" onclick="deleteMapping('@product.Id')">删除</a></td>
+                                </tr>
+                            }
+                        </table>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="products-modal" role="basic" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>  
+</div>
+
+<script type="text/javascript">
+    function deleteMapping(obj) {
+        $.ajax({
+            url: "/ComBoProduct/DeleteComBoProductMapping",
+            type: "Post",
+            data: { comBoId: '@(Model.Id)', productId: obj },
+            success: function (result) {
+                if (result = "ok")
+                    $("#product-" + obj).remove();
+            }
+
+        });
+    }
+
+    function changeproductId(productId,productName,productPrice)
+    {
+        if (productId > 0)
+        {
+            $.ajax({
+                url: "/ComBoProduct/AddComBoProductMapping",
+                type: "Post",
+                data: { comBoId: '@(Model.Id)', productId: productId },
+                success: function (result) {
+                    if (result = "ok")
+                    {
+                        var item = ' <tr id="product-' + productId + '" class="mapping_items">';
+                        item += '<td class="center">' + productId + '</td>';
+                        item += '<td>' + productName + '</td>';
+                        item += '<td class="center">' + productPrice + '</td>';
+                        item += '<td class="center"><a class="del" onclick="deleteMapping(' + productId + ')">删除</a></td>';
+                        item += '</tr>';
+                        $(".mapping_list").append(item);
+                        $('#products-modal').modal('toggle');
+                    }
+                }
+
+            });
+        }
+    }
+</script>

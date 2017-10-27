@@ -47,6 +47,7 @@ namespace ArtSolution.Web.Controllers
         private readonly IProductAttributeService _attributeService;
         private readonly IPaymentRecordService _recordService;
         private readonly ICustomerRewardService _rewardService;
+        private readonly IComBoProductService _comboProductService;
 
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         public OrderController(IOrderService orderService,
@@ -61,6 +62,7 @@ namespace ArtSolution.Web.Controllers
                                  IProductAttributeService attributeService, 
                                  IPaymentRecordService recordService, 
                                  ICustomerRewardService rewardService,
+                                 IComBoProductService comboProductService,
                                 IUnitOfWorkManager unitOfWorkManager)
         {
             this._orderService = orderService;
@@ -75,6 +77,7 @@ namespace ArtSolution.Web.Controllers
             this._attributeService = attributeService;
             this._recordService = recordService;
             this._rewardService = rewardService;
+            this._comboProductService = comboProductService;
             this._unitOfWorkManager = unitOfWorkManager;
         }
         #endregion
@@ -1255,6 +1258,112 @@ namespace ArtSolution.Web.Controllers
 
             var returnValue = orderTotal * 100;
             return Convert.ToInt32(returnValue);
+        }
+        #endregion
+
+        #region ComboProduct-Order
+        public ActionResult ComBoProductOrder(int comboProductId)
+        {
+            var comboProduct = _comboProductService.GetComBoProductById(comboProductId);
+            var model = comboProduct.MapTo<ComBoProductOrderModel>();
+
+            var productIds = _comboProductService.GetComBoProductMappings(comboProduct.Id);
+            var produsts = _productService.GetProductByIds(productIds);
+            model.Items = produsts.Select(p => new ComBoProductOrderModel.ProductModel
+            {
+                Id = p.Id,
+                Price = p.Price,
+                ProductImage = p.ProductImage,
+                ProductName = p.Name,
+                Quantity = 1
+            }).ToList();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult ComBoProductOrderSave(int comboProductId)
+        {
+            var comboProduct = _comboProductService.GetComBoProductById(comboProductId);
+
+            #region  收货地址
+                //用户地址
+                var customer = _customerService.GetCustomerId(this.CustomerId);
+                var billing = _addressService.InsertAddress(new CustomerAddress
+                {
+                    UserName = customer.GetCustomerAttributeValue<string>(CustomerAttributeNames.UserName),
+                    CountryName = customer.GetCustomerAttributeValue<string>(CustomerAttributeNames.CountryName),
+                    CityName = customer.GetCustomerAttributeValue<string>(CustomerAttributeNames.CityName),
+                    DetailInfo = customer.GetCustomerAttributeValue<string>(CustomerAttributeNames.DetailInfo),
+                    ProvinceName = customer.GetCustomerAttributeValue<string>(CustomerAttributeNames.ProvinceName),
+                    TelNumber = customer.GetCustomerAttributeValue<string>(CustomerAttributeNames.TelNumber),
+                    CustomerId = this.CustomerId,
+                });
+            #endregion
+            
+            var order = new Order
+            {
+                CouponId = 0,
+                CreationTime = DateTime.Now,
+                CustomerId = this.CustomerId,
+                Freight = 0,
+                IsDeleted = false,
+                IsRewardOrder = false,
+                Billing = billing,
+                OrderRemarks = "",
+                OrderSn = CommonHelper.GenerateOrderSN(),
+                OrderStatusId = (int)OrderStatus.Pending,
+                OrderTotal = comboProduct.Price,
+                Preferential = 0,
+                Subtotal = comboProduct.Price
+            };
+
+            using (var unitOfWork = _unitOfWorkManager.Begin())
+            {
+                order.Id = _orderService.InsertOrder(order);
+
+
+                var productIds = _comboProductService.GetComBoProductMappings(comboProduct.Id);
+                var produsts = _productService.GetProductByIds(productIds);
+                produsts.ForEach(p => _orderService.InsertOrderItems(new OrderItem
+                {
+                    OrderId = order.Id,
+                    OrderItemGuid = Guid.NewGuid(),
+                    PreSell = p.PreSell,
+                    Price = p.Price,
+                    ProductAttributeId = 0,
+                    ProductId = p.Id,
+                    ProductImage = p.ProductImage,
+                    ProductName = p.Name,
+                    Quantity = 1,
+                    Review = false,
+                    TotalPrice = p.Price
+                }));
+
+                unitOfWork.Complete();
+
+                var orderSettigns = GetOrderSettings();
+                var nonceStr = CommonHelper.GenerateNonceStr();
+
+                var total = FormatTotal(order.OrderTotal - order.Preferential);
+                //调用统一下单  
+                var result = UnifiedOrder(nonceStr, "备注", order.OrderSn, total);
+                var jsApiString = GetJsApiParameters(result, orderSettigns.Key);
+                var handler = GetJsApiParametersRequest(result, orderSettigns.Key);
+
+                var jsonData = new
+                {
+                    appId = handler.GetParameter("appId"),
+                    timeStamp = handler.GetParameter("timeStamp"),
+                    nonceStr = handler.GetParameter("nonceStr"),
+                    package = handler.GetParameter("package"),
+                    signType = handler.GetParameter("signType"),
+                    paySign = handler.GetParameter("paySign"),
+                };
+
+                return AbpJson(jsonData);
+            }
+            
         }
         #endregion
     }

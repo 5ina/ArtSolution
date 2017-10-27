@@ -252,7 +252,9 @@ input, select, textarea {
     content: "...";
     padding-left: 2.74667rem;
 }
-
+.decoration-through{
+    text-decoration:line-through;
+}
 .fix {
     position: fixed;
 }
@@ -927,7 +929,7 @@ nav.product-footer li {
     position:absolute;
     width:35px;
     height:35px;
-    right:5px;
+    left:5px;
     top:5px;
 }
 .product-boxs .items .pre-sale img{
@@ -2341,13 +2343,13 @@ nav.product-footer li {
     }
 
         .create-order .product-detail legend {
-            padding: 0 15px;
             font-size: 1.4em;
         }
         .create-order .product-detail fieldset .row {
             
             margin-bottom:12px;
         }
+        
 
     .create-order .address li.info {
         width: 80%;
@@ -3278,3 +3280,71 @@ nav.product-footer li {
         font-size: 14px;
         font-weight:800
     }
+
+
+    /*商品列表 横向*/
+    .list-product-boxs{
+        margin-bottom:60px;
+    }
+    .list-product-boxs ul{
+    margin:0;
+    padding:0;
+
+    }
+.list-product-boxs .items{
+    width:100%;
+    margin:0;
+    margin-top:12px;
+    background:#fff;
+}
+.list-product-boxs .more{
+    width:80%;
+    text-align:center;
+    margin:12px auto;
+    border:1px solid #ccc;
+    line-height:1.9em;
+    background:#fff;
+    padding:8px 0;
+}
+
+
+.list-product-boxs .items .pre-sale{
+    position:absolute;
+    width:35px;
+    height:35px;
+    right:19px;
+    top:5px;
+}
+.list-product-boxs .items .pre-sale img{
+    width:100%;
+}
+.list-product-boxs .items .product-img{
+    width:33.33%;
+}
+.list-product-boxs .items .product-description{  
+    box-sizing: border-box ;
+    position: relative;
+    width:66.66%;
+    padding:5px 0 10px 10px; 
+}
+.list-product-boxs .items .product-description .product-full-description{  
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+
+.list-product-boxs .items .product-description .item-price{   
+    color:#fbba46;
+    bottom:0px;
+    text-align:left;
+}
+.list-product-boxs .items .product-description .title{
+    display:block;
+    padding:5px 12px 0 0;
+    height:6em;
+}
+
+.margin-bottom-45{
+    margin-bottom:60px;
+}

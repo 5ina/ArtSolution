@@ -13,6 +13,7 @@ namespace ArtSolution.Web.Models.WeChat
         public string headimgurl { get; set; }
         public List<string> privilege { get; set; }
         public string unionid { get; set; }
+        public int subscribe { get; set; }
 
     }
 }

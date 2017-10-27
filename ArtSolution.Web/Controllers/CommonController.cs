@@ -67,8 +67,7 @@ namespace ArtSolution.Web.Controllers
         [ChildActionOnly]
         public ActionResult Header(string header = "")
         {
-            var model = _cacheManager.GetCache(COMMONMODELNAME).Get(COMMONMODELNAME, GetCommonModel);
-            Logger.Debug("Common Header 的 CustomerID:" + AbpSession.UserId);
+            var model = _cacheManager.GetCache(COMMONMODELNAME).Get(COMMONMODELNAME, GetCommonModel);            
             model.HasLoginCustomer = AbpSession.UserId.HasValue; //(this.CustomerId > 0);
             ViewData["Title"] = header;
             return PartialView(model);

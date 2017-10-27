@@ -31,8 +31,10 @@ namespace ArtSolution.EntityFramework
         public virtual IDbSet<ProductReview> ProductReview { get; set; }
         public virtual IDbSet<ProductTag> ProductTag { get; set; }
         public virtual IDbSet<ProductTagMapping> ProductTagMapping { get; set; }
-        
+        public virtual IDbSet<ComBoProduct> ComBoProduct { get; set; }
+        public virtual IDbSet<ComBoProductMapping> ComBoProductMapping { get; set; }
 
+        
 
         /* 用户模块 */
         public virtual IDbSet<Customer> Customer { get; set; }

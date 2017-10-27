@@ -1,0 +1,132 @@
+﻿@model ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+
+@using ArtSolution.Web.Framework.WeChat;
+@using Abp.Runtime.Caching;
+@using ArtSolution.Common;
+@using ArtSolution.Domain.Discounts;
+@{
+    var _cacheManager = Abp.Dependency.IocManager.Instance.Resolve<ICacheManager>();
+    var _settingService = Abp.Dependency.IocManager.Instance.Resolve<ISettingService>();
+    WeChatDefault wechat = new WeChatDefault();
+    var config = wechat.WxConfig(_settingService, _cacheManager, this.Request.Url.Host + this.Request.Url.PathAndQuery);
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Html.IncludeScript("http://res.wx.qq.com/open/js/jweixin-1.1.0.js")
+}
+@Html.Action("Header", "Common", new { header = "订单结算" })
+<div class="container">
+    <div class="create-order">
+        <div class="panel">
+            @Html.Partial("_SelectAddress", config)
+        </div>
+        <!-- Address End -->
+        <div class="box product-detail">
+            <fieldset>
+                <legend>套餐详情</legend>
+                <!-- Product Info-->
+                @foreach (var item in Model.Items)
+                {
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="order-product-image">
+                                <img src="@item.ProductImage" />
+                            </div>
+                        </div>
+
+                        <div class="col-xs-8">
+                            <div class="order-product-detail ">
+                                <div class="order-product-name">
+                                    <p>@item.ProductName</p>
+                                </div>
+                                <div class="order-product-total clearfix margin-top-20">
+                                    <div class="pull-right"><span class="product-price decoration-through"><i class="fa fa-rmb"></i>@item.Price</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </fieldset>
+        </div>
+        <!-- Order End -->
+
+        @using (Ajax.BeginForm("ComBoProductOrderSave", "Order",
+                                                                    new AjaxOptions
+                                                                    {
+                                                                        HttpMethod = "POST",
+                                                                        OnSuccess = "SaveOrderSuccess",
+                                                                    }, new { @class = "form-horizontal", id = "order-form" }))
+        {
+            @Html.Hidden("comboProductId", Model.Id)
+
+            <div class="box subtotal margin-bottom-45">
+                <fieldset>
+                    <div class="form-group">
+                        @Html.Label("套餐总价", new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9">
+                            <i class="fa fa-rmb"></i>@Model.Price
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("套餐原价", new { @class = "control-label col-xs-3" })
+                        <div class="controls col-xs-9 decoration-through">
+                            <i class="fa fa-rmb"></i>@Model.Market
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+               <div class="nav navbar-default">
+                   
+                <nav class="navbar navbar-default navbar-fixed-bottom">
+                    <div class="wd-nav">
+                        @Html.AntiForgeryToken()
+                        <input type="submit" class="btn btn-block btn-success" value="微信支付" />
+                    </div>
+                </nav>
+
+            </div>
+        }
+    </div>
+</div>
+
+<!-- 支付选择 -->
+<script type="text/javascript">
+
+    //调用微信JS api 支付
+    function jsApiCall(jsApiString) {
+        WeixinJSBridge.invoke('getBrandWCPayRequest',
+        jsApiString,
+            function (res) {
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    window.location.href = "http://www.bb-girl.cn/order/PaySuccess";
+                } else {
+                    //返回跳转到订单详情页面
+                    alert("支付失败");
+                }
+            }
+        );
+    }
+
+    function callpay(jsApiString) {
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }
+            else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }
+        else {
+            jsApiCall(jsApiString);
+        }
+    }
+    function SaveOrderSuccess(jsApiString) {
+        callpay(jsApiString);
+    }
+
+</script>
+

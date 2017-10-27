@@ -67,7 +67,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         public ActionResult List(DataSourceRequest command , BrandListModel model)
         {
             var brands = _brandService.GetAllBrands(keywords: model.Keywords,
-                                        pageIndex: command.Page,
+                                        pageIndex: command.Page -1,
                                         pageSize: command.PageSize);
 
             var jsonData = new DataSourceResult
@@ -95,7 +95,6 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         public ActionResult Create(BrandModel model)
         {
             if (ModelState.IsValid)
-
             {
                 var entity = model.MapTo<Brand>();
                 _brandService.InsertBrand(entity);

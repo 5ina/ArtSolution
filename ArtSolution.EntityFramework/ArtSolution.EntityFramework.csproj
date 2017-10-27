@@ -193,6 +193,14 @@
     <Compile Include="Migrations\201710130824245_Update_Order_Reward_Scripts.Designer.cs">
       <DependentUpon>201710130824245_Update_Order_Reward_Scripts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710250054358_Create_ProductComBo_Scripts.cs" />
+    <Compile Include="Migrations\201710250054358_Create_ProductComBo_Scripts.Designer.cs">
+      <DependentUpon>201710250054358_Create_ProductComBo_Scripts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710250134375_Update_ComBoProduct_Scripts.cs" />
+    <Compile Include="Migrations\201710250134375_Update_ComBoProduct_Scripts.Designer.cs">
+      <DependentUpon>201710250134375_Update_ComBoProduct_Scripts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ArtSolutionDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultCatalogData.cs" />
@@ -273,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710130824245_Update_Order_Reward_Scripts.resx">
       <DependentUpon>201710130824245_Update_Order_Reward_Scripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710250054358_Create_ProductComBo_Scripts.resx">
+      <DependentUpon>201710250054358_Create_ProductComBo_Scripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710250134375_Update_ComBoProduct_Scripts.resx">
+      <DependentUpon>201710250134375_Update_ComBoProduct_Scripts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

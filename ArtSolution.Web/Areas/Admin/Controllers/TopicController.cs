@@ -1,10 +1,12 @@
 ﻿using Abp.AutoMapper;
+using Abp.Runtime.Caching;
 using ArtSolution.Domain.News;
 using ArtSolution.News;
 using ArtSolution.Web.Areas.Admin.Models.News;
 using ArtSolution.Web.Framework.DataGrids;
 using System.Linq;
 using System.Web.Mvc;
+using static ArtSolution.Web.Framework.CacheNames;
 
 namespace ArtSolution.Web.Areas.Admin.Controllers
 {
@@ -15,11 +17,11 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
     {
         #region ctor && Fields
         private readonly ITopicService _topicService;
-
-
-        public TopicController(ITopicService topicService)
+        private readonly ICacheManager _cacheManager;
+        public TopicController(ITopicService topicService, ICacheManager cacheManager)
         {
             this._topicService = topicService;
+            this._cacheManager = cacheManager;
         }
         #endregion
 
@@ -81,6 +83,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                _cacheManager.GetCache(string.Format(Topics.TOPIC_SYSTEM, model.SystemName)).Remove(model.SystemName);
                 var entity = _topicService.GetTopicById(model.Id);
                 entity = model.MapTo<TopicModel, Topic>(entity);
                 _topicService.UpdateTopic(entity);

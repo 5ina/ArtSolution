@@ -56,5 +56,12 @@ namespace ArtSolution.Catalog
             bool? isPre= null,
             int pageIndex = 0,
             int pageSize = int.MaxValue);
+
+        /// <summary>
+        /// 根据Id集合获取商品信息
+        /// </summary>
+        /// <param name="productIds"></param>
+        /// <returns></returns>
+        List<Product> GetProductByIds(List<int> productIds);
     }
 }

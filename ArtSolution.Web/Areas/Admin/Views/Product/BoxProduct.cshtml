@@ -6,96 +6,164 @@
 
 <section class="content">
     <div class="portlet-body">
-        <table id="table_Product" class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>商品名称</th>
-                    <th>价格</th>
-                    <th>发布状态</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-        </table>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Keywords, new { @placeholder = "关键字查询", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.CategoryIds, new { SelectList = Model.AvailableCategories })
+                    <script>
+                        $(document).ready(function () {
+                            var rolesIdsInput = $('#@Html.FieldIdFor(model => model.CategoryIds)').data("kendoMultiSelect");
+                            rolesIdsInput.setOptions({
+                                autoClose: false
+                            });
+
+                            @if (Model.AvailableCategories.Count == 0)
+                                                {
+                                                    <text>
+                            rolesIdsInput.setOptions({
+                                enable: false,
+                                placeholder: '全部类别'
+                            });
+                            rolesIdsInput._placeholder();
+                            rolesIdsInput._enable();
+                            </text>
+                                                }
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    @Html.DropDownListFor(model => model.IsPreSell,
+                     new List<SelectListItem> {
+                                    new SelectListItem() { Text = "商品预售", Value = (null as bool?).ToString() }, new SelectListItem() { Text = "预售", Value = "true" },
+                                    new SelectListItem() { Text = "非预售", Value = "false" }
+                     }, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-1">
+                <a href="#" class="btn btn-social-icon" id="search-products"><i class="fa fa-search"></i></a>
+            </div>
+        </div>
+        <div id="product-grid"></div>
     </div>
 </section>
 
-
-<script type="text/javascript">
-        $(function () {
-            var products = $("#table_Product").dataTable({
-                ajax: {
-                    url: "/Admin/Product/List",
-                    type: "POST",
-                    data: additionalData,
-                },
-                columns: [
-                        { "data": "Id" ,"width": "10px"},
-                        { "data": "Name" },
-                        {
-                            "data": "Price", "render": function (data, type, row) {
-                                return '<span class="price"><i class="fa fa-cny"></i>' + data + '</span>';
-                            }
-                        },
-                        {
-                            "data": "Published", "render": function (data, type, row) {
-                                if (data)
-                                    return '<i class="fa fa-check true-icon"></i> ';
-                                return '<i class="fa fa-close false-icon"></i>';
-                            }
-                        },
-                        {
-                            "data": "Id", "render": function (data, type, row) {
-                                var result = '<a class="btn btn-success btn-sm" onclick="changeproductId(' + data + ')"">选择</a>';
-                                return result;
-                            }
-                        },
-                ],
-                paging: true,
-                searching: true,//搜索
-                language: {
-                    lengthMenu: '<select class="form-control" id="PageSize">' + '<option value="1">1</option>' + '<option value="10">10</option>' + '<option value="30">30</option>' + '</select>条记录',
-                    paginate: {//分页的样式内容。
-                        previous: "上一页",
-                        next: "下一页",
-                        first: "第一页",
-                        last: "最后"
+<script>
+    $(document).ready(function () {
+        $("#product-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "@Html.Raw(Url.Action("List", "Product"))",
+                        type: "POST",
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: additionalData
                     },
-
-                    zeroRecords: "请添加商品",//table tbody内容为空时，tbody的内容。
-                    //下面三者构成了总体的左下角的内容。
-                    info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，共 _TOTAL_ 条",//左下角的信息显示，大写的词为关键字。
-                    infoEmpty: "0条记录",//筛选为空时左下角的显示。
-                    infoFiltered: ""//筛选之后的左下角筛选提示，
-                },
-                pagingType: "full_numbers",//分页样式的类型
-
-            });
-
-            /**
-             * 删除
-             */
-            $('#table_Product tbody').on('click', 'a#del', function () {
-                var data = $('#table_Product').DataTable().row($(this).parents('tr')).data();
-                $.ajax({
-                    type: "POST",
-                    url: "Delete",
-                    data: { ProductId: data["Id"] },
-                    success: function (data)
-                    {
-                        if (data)
-                            products.api().ajax.reload();
+                    parameterMap: function (data, operation) {
+                        if (operation != "read") {
+                            return data;
+                        } else {
+                            //for some reasons only such "Filter" data be parsed
+                            return JSON.stringify(data);
+                        }
                     }
-                });
-            });
-
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors",
+                },
+                requestEnd: function (e) {
+                    if (e.type == "create" || e.type == "update") {
+                        this.read();
+                    }
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: 10,
+                serverPaging: true,
+                serverFiltering: false,
+                serverSorting: false
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: [10, 20]
+            },
+            scrollable: false,
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: 50,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                }, {
+                    field: "Name",
+                    title: "名称",
+                    headerAttributes: { style: "text-align:center" },
+                }, {
+                    field: "ProductImage",
+                    title: "商品图片",
+                    width: 70,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    template: "<img src='#=ProductImage#' width='60' />",
+                }, {
+                    field: "PreSell",
+                    title: "是否预售商品",
+                    width: 60,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    template: '# if(PreSell) {# <i class="fa fa-check true-icon"></i> #} else {# <i class="fa fa-close false-icon"></i> #} #'
+                }, {
+                    field: "Price",
+                    title: "销售价",
+                    width: 60,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    template: "<span class=\"text-danger \" ><strong>#=Price#</strong></span>",
+                }, {
+                    field: "Market",
+                    title: "市场价",
+                    width: 60,
+                    headerAttributes: { style: "text-align:center" },
+                    attributes: { style: "text-align:center" },
+                    template: "<span class=\"text-danger \" style=\" text-decoration: line-through;\" ><strong>#=Market#</strong></span>",
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 80,
+                    template: '<a class="btn btn-success btn-sm" onclick=\'changeproductId(#=Id#,"#=Name#",#=Price#);\'>选择</a>'
+                }
+            ]
         });
 
-        function additionalData()
-        {
-            var data = {
-                Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
-            };
-            return data;
-        }
+        //search button
+        $('#search-products').click(function () {
+            var grid = $('#product-grid').data('kendoGrid');
+            grid.dataSource.page(0);
+        });
+
+
+    });
+    function additionalData() {
+        var data = {
+            Keywords: $('#@Html.FieldIdFor(model => model.Keywords)').val(),
+            CategoryIds: $('#@Html.FieldIdFor(model => model.CategoryIds)').val(),
+            IsPreSell: $('#@Html.FieldIdFor(model => model.IsPreSell)').val(),
+        };
+        return data;
+    }
 </script>

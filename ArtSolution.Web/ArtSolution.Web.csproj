@@ -1301,6 +1301,10 @@
     <Content Include="Areas\Admin\Views\WishOrder\List.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\CustomerPromoter.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\BoxCustomerList.cshtml" />
+    <Content Include="Areas\Admin\Views\ComBoProduct\List.cshtml" />
+    <Content Include="Areas\Admin\Views\ComBoProduct\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ComBoProduct\_CreateOrUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\ComBoProduct\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\art.pubxml" />
     <Content Include="Scripts\admin.common.js" />
     <Content Include="Scripts\admin.navigation.js" />
@@ -1309,11 +1313,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chartjs\Chart.js" />
     <Content Include="Scripts\chartjs\Chart.min.js" />
-    <Content Include="Scripts\iscrolls\iscroll-infinite.js" />
-    <Content Include="Scripts\iscrolls\iscroll-lite.js" />
-    <Content Include="Scripts\iscrolls\iscroll-probe.js" />
-    <Content Include="Scripts\iscrolls\iscroll-zoom.js" />
-    <Content Include="Scripts\iscrolls\iscroll.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -1457,7 +1456,7 @@
     <Content Include="Scripts\icheck\custom.min.js" />
     <Content Include="Scripts\icheck\icheck.js" />
     <Content Include="Scripts\icheck\icheck.min.js" />
-    <Content Include="Scripts\iscrolls\iscrollUtils.js" />
+    <Content Include="Scripts\iscrolls\iscroll.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
@@ -1605,6 +1604,7 @@
     <Compile Include="Areas\Admin\Controllers\ArtSolutionControllerAdminBase.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\CatelogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ComBoProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommonController.cs" />
     <Compile Include="Areas\Admin\Controllers\CouponController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
@@ -1625,6 +1625,7 @@
     <Compile Include="Areas\Admin\Controllers\WeChatManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\WishOrderController.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\BrandListModel.cs" />
+    <Compile Include="Areas\Admin\Models\Catalog\ComBoProductModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\ProductTagModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\BrandModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\ProductAttributeModel.cs" />
@@ -1745,6 +1746,7 @@
     <Compile Include="Models\News\PromotionalListModel.cs" />
     <Compile Include="Models\News\PromotionalModel.cs" />
     <Compile Include="Models\News\TopicModel.cs" />
+    <Compile Include="Models\Orders\ComBoProductOrderModel.cs" />
     <Compile Include="Models\Orders\CreateOrderModel.cs" />
     <Compile Include="Areas\Admin\Models\Orders\OrderDeliveryModel.cs" />
     <Compile Include="Models\Orders\FavoriteListModel.cs" />
@@ -1947,6 +1949,8 @@
     <Content Include="Views\Reward\Exchange.cshtml" />
     <Content Include="Views\Reward\_SelectAddress.cshtml" />
     <Content Include="Views\Reward\Payment.cshtml" />
+    <Content Include="Views\Shared\_ListProductBox.cshtml" />
+    <Content Include="Views\Order\ComBoProductOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

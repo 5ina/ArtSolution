@@ -95,6 +95,8 @@
     <Compile Include="CommonSettings\SystemSetting.cs" />
     <Compile Include="CommonSettings\WechatSetting.cs" />
     <Compile Include="Domain\Catalog\Brand.cs" />
+    <Compile Include="Domain\Catalog\ComBoProduct.cs" />
+    <Compile Include="Domain\Catalog\ComBoProductMapping.cs" />
     <Compile Include="Domain\Catalog\ProductAttribute.cs" />
     <Compile Include="Domain\Catalog\ProductReview.cs" />
     <Compile Include="Domain\Catalog\ProductTag.cs" />

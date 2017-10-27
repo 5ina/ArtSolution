@@ -9,10 +9,13 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
 
         #region Ctor && Field
         private readonly IUserNotificationManager _notificationManager;
+        private readonly ICacheManager _cacheManager;
 
-        public CommonController(IUserNotificationManager notificationManager, ICacheManager cacheManager)
+        public CommonController(IUserNotificationManager notificationManager,
+            ICacheManager cacheManager)
         {
             this._notificationManager = notificationManager;
+            this._cacheManager = cacheManager;
         }
         #endregion
 
@@ -24,7 +27,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             return PartialView(notices);
         }
 
-
+        
         #endregion
     }
 }

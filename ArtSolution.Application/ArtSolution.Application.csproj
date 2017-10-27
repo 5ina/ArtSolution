@@ -159,7 +159,9 @@
     <Compile Include="Authentication\Dto\LoginResults.cs" />
     <Compile Include="Authentication\LoginManager.cs" />
     <Compile Include="Catalog\BrandService.cs" />
+    <Compile Include="Catalog\ComBoProductService.cs" />
     <Compile Include="Catalog\IBrandService.cs" />
+    <Compile Include="Catalog\IComBoProductService.cs" />
     <Compile Include="Catalog\IProductAttributeService.cs" />
     <Compile Include="Catalog\IProductImagesService.cs" />
     <Compile Include="Catalog\IProductReviewService.cs" />

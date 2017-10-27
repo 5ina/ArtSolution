@@ -4,7 +4,6 @@ using ArtSolution.Authentication.Dto;
 using ArtSolution.Customers;
 using ArtSolution.Security;
 using Abp.AutoMapper;
-using System;
 
 namespace ArtSolution.Api.Account
 {

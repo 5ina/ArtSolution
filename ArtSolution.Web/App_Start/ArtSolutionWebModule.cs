@@ -55,7 +55,7 @@ namespace ArtSolution.Web
             //为特定的缓存配置有效期
             Configuration.Caching.Configure(ArtSolutionConsts.CACHE_TOKEN, cache =>
             {
-                cache.DefaultSlidingExpireTime = TimeSpan.FromSeconds(7195);
+                cache.DefaultSlidingExpireTime = TimeSpan.FromSeconds(3600);
             });
         }
 

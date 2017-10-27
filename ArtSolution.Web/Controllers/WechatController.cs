@@ -124,9 +124,10 @@ namespace ArtSolution.Web.Controllers
             {
                 if (!string.IsNullOrEmpty(code))
                 {
-                    OAuthToken oauthToken = HttpUtility.Get<OAuthToken>(string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code", appId, appSecret, code));
+                    OAuthToken oauthToken = Framework.HttpUtility.Get<OAuthToken>(string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code", appId, appSecret, code));
 
-                    var accessToken = _cacheManager.GetCache(ArtSolutionConsts.CACHE_ACCESS_TOKEN).Get(ArtSolutionConsts.CACHE_ACCESS_TOKEN, () => GetAccessToken(appId, appSecret));
+                    var accessToken = _cacheManager.GetCache(ArtSolutionConsts.CACHE_ACCESS_TOKEN)
+                        .Get(ArtSolutionConsts.CACHE_ACCESS_TOKEN, () => GetAccessToken(appId, appSecret));
                     var token = "";
                     if (accessToken != null && !string.IsNullOrEmpty(accessToken.access_token))
                     {
@@ -139,18 +140,14 @@ namespace ArtSolution.Web.Controllers
                         //OAuthUserInfo userInfo = HttpUtility.Get<OAuthUserInfo>(string.Format("https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN", token, oauthToken.openid));
                         if (userInfo != null)
                         {
-                            var jsonData = JsonConvert.SerializeObject(userInfo);
-                            Logger.Debug("jsonData : " + jsonData);
-                            Logger.Debug("token : " + token);
-
                             try
                             {
-                                var customer = _customerService.GetCustomerByOpenId(userInfo.openid);
+                                Logger.Debug("openid" + userInfo.openid);
+                                    var customer = _customerService.GetCustomerByOpenId(userInfo.openid);
                                 
                                 #region 假设用户不存在
                                 if (customer == null || customer.Id == 0) // 判定用户是否存在
                                 {
-                                    Logger.Debug("customer:" + userInfo.nickname);
                                     var salt = CommonHelper.GenerateCode(6);
                                     var _encryptionService = Abp.Dependency.IocManager.Instance.Resolve<IEncryptionService>();
                                     var password = _encryptionService.CreatePasswordHash("123456", salt);
@@ -164,22 +161,27 @@ namespace ArtSolution.Web.Controllers
                                         CustomerRoleId = (int)CustomerRole.Buyer,
                                         NickName = userInfo.nickname,
                                         PasswordSalt = salt,
-                                        IsSubscribe = true,
+                                        IsSubscribe = userInfo.subscribe == 1,
                                         CreationTime = DateTime.Now,
                                         LastModificationTime = DateTime.Now,
                                         VerificationCode = ""
                                     };
                                     customer.Id = _customerService.CreateCustomer(customer);
-                                    Logger.Debug("id" + customer.Id);
-                                    //优惠券处理
-                                    AddNewCustomerConpon(customer);
-                                    //积分处理
+                                    if (customer.IsSubscribe)
+                                    {
+                                        //优惠券处理
+                                        AddNewCustomerConpon(customer);
+                                        //积分处理
 
-                                    //订阅
-                                    SendMessageToUserFirstSub(customer);
+                                        //订阅
+                                        SendMessageToUserFirstSub(customer);
+                                    }
                                 }
                                 #endregion
-                                else
+
+                                #region 用户存在
+
+                                else if(userInfo.subscribe == 1)
                                 {
                                     customer.NickName = userInfo.nickname;
                                     customer.SaveCustomerAttribute<string>(CustomerAttributeNames.Avatar, userInfo.headimgurl);
@@ -192,11 +194,12 @@ namespace ArtSolution.Web.Controllers
 
                                 //用户登录
                                 AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
+                                #endregion
                             }
                             catch (Exception e)
                             {
                                 Logger.Debug("错误信息:" + e.Message);
-                                Logger.Debug("错误内容：" + userInfo.openid + userInfo.nickname);
+                                Logger.Debug("错误内容：" + userInfo.openid + userInfo.nickname + userInfo.subscribe);
                             }
                         }
                     }
@@ -240,7 +243,10 @@ namespace ArtSolution.Web.Controllers
 
         public AccessToken GetAccessToken(string appId, string appSecret)
         {
+
             AccessToken token = HttpUtility.Get<AccessToken>(string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, appSecret));
+
+            Logger.Debug(string.Format("appId：{0}，appSecret：{1}，token:{2}", appId, appSecret, token.access_token));
 
             return token;
         }

@@ -1,5 +1,6 @@
 ﻿using Abp.AutoMapper;
 using Abp.Runtime.Caching;
+using Abp.Web.Security.AntiForgery;
 using ArtSolution.Catalog;
 using ArtSolution.Common;
 using ArtSolution.CommonSettings;
@@ -171,6 +172,19 @@ namespace ArtSolution.Web.Controllers
                                             pageSize: maxCount);
             var models = products.Items.MapTo<IList<SimpleProductModel>>();
             return PartialView(models);
+        }
+
+        [HttpPost]
+        [DisableAbpAntiForgeryTokenValidation]
+        public ActionResult GetProducts(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+
+            var products = _productService.GetAllProducts(pageIndex: pageIndex - 1,
+                                             pageSize: pageSize);
+            var models = products.Items.MapTo<IList<SimpleProductModel>>();
+
+            return AbpJson(models);
+
         }
         #endregion
 

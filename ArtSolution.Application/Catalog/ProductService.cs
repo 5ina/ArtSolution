@@ -82,6 +82,15 @@ namespace ArtSolution.Catalog
             }
         }
 
+        public List<Product> GetProductByIds(List<int> productIds)
+        {
+            var query = _productRepository.GetAll();
+            query = query.Where(p => productIds.Contains(p.Id));
+
+            return query.ToList();                
+            
+        }
+
         public int InsertProduct(Product product)
         {
             if (product == null)
