@@ -8,6 +8,7 @@ using ArtSolution.Customers;
 using ArtSolution.Media;
 using ArtSolution.Names;
 using ArtSolution.Orders;
+using ArtSolution.Web.Framework.DataGrids;
 using ArtSolution.Web.Framework.WeChat;
 using ArtSolution.Web.Models.Catalogs;
 using ArtSolution.Web.Models.Orders;
@@ -179,11 +180,19 @@ namespace ArtSolution.Web.Controllers
         public ActionResult GetProducts(int pageIndex = 0, int pageSize = int.MaxValue)
         {
 
-            var products = _productService.GetAllProducts(pageIndex: pageIndex - 1,
-                                             pageSize: pageSize);
-            var models = products.Items.MapTo<IList<SimpleProductModel>>();
+            var products = _productService.GetAllProducts(pageIndex: pageIndex,
+                                                pageSize: pageSize);
 
-            return AbpJson(models);
+            var total = products.TotalCount / pageSize;
+            total = products.TotalCount % pageSize > 0 ? total + 1 : total;
+
+            var jsonData = new DataSourceResult
+            {
+                Total = total,
+                Data = products.Items.MapTo<IList<SimpleProductModel>>()
+            };
+
+            return AbpJson(jsonData);
 
         }
         #endregion
