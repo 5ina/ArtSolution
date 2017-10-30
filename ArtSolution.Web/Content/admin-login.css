@@ -123,3 +123,24 @@
         text-indent:0;
     }
 }
+
+.field-validation-error{
+    border:1px solid #ccc;
+    color:#ff0000;
+    position:absolute;
+    height:34px;
+    line-height:34px;
+    padding:0 5px;
+    top :-34px;
+    background:#fffbe2 ;
+}
+.validation-summary-errors{
+    color:#ff0000;
+    font-weight:600;
+}
+
+.validation-summary-errors ul,
+.validation-summary-errors li{
+    list-style:none;
+    padding:0;
+}

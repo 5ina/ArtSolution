@@ -2705,3 +2705,1043 @@ DEBUG 2017-10-27 11:37:32,199 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2017-10-27 11:37:32,199 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
 DEBUG 2017-10-27 11:37:32,199 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
 DEBUG 2017-10-27 11:37:32,199 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:17:43,776 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:17:43,797 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:17:43,805 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,808 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,808 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,808 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,809 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,809 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,809 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:43,815 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:17:44,465 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:17:46,194 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:17:46,204 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:17:46,205 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:17:46,206 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:17:46,391 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:17:46,479 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:17:46,479 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:17:46,482 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:17:46,483 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:17:46,484 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+INFO  2017-10-30 15:17:47,398 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Controllers.HomeController.Index is executed by user 1 in 64 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:51,229 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 978 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:51,286 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 56 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:52,050 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 71 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:52,133 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 81 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:52,217 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 82 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:53,487 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.AdvertService.GetAllAdverts is executed by user 1 in 201 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:54,872 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 242 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:58,445 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.CategoryService.GetAllCategories is executed by user 1 in 624 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:59,841 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 68 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:17:59,926 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 83 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,463 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 86 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,526 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 61 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,605 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 76 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,608 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Layout.PageHeadBuilder.GenerateTitle is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,703 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 91 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,778 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 72 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,915 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 136 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,918 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Layout.PageHeadBuilder.GenerateMetaDescription is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:00,996 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 74 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:01,055 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 58 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:01,117 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Common.SettingService.GetSettingByKey is executed by user 1 in 60 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:01,120 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Layout.PageHeadBuilder.GenerateMetaKeywords is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:09,300 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.DashboardController.Index is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:12,067 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 177 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:13,884 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 132 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:16,292 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 581 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:21,139 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetCustomerByMobileAsync is executed by user 1 in 111 ms from 192.168.2.178 IP address with succeed.
+WARN  2017-10-30 15:18:26,622 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-30 15:18:26,704 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-30 15:18:26,736 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+INFO  2017-10-30 15:18:28,696 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 115 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:28,862 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 163 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,037 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 173 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,290 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 252 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,520 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 228 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,674 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 153 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,762 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 85 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,861 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 98 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:29,874 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 1298 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:30,323 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 141 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:30,412 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 87 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:30,495 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 80 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:30,602 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 105 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:30,738 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 134 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:30,825 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 84 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:31,005 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 177 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:31,097 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 91 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:31,109 [7    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 932 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:42,902 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 109 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,025 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 121 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,164 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 137 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,401 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 235 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,585 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 181 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,655 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 69 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,755 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 99 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,857 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 100 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:43,868 [5    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 1078 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,149 [8    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.AccountController.Logout is executed by user 1 in 5 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,464 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 120 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,530 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 63 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,620 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 89 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,702 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 80 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,780 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 77 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,870 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 88 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:44,952 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 80 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:45,041 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 88 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:18:45,053 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 712 ms from 192.168.2.178 IP address with succeed.
+DEBUG 2017-10-30 15:20:32,286 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:20:32,304 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:20:32,309 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,311 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,311 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,311 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,312 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,313 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:32,317 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:20:32,730 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:20:34,321 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:20:34,331 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:20:34,333 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:20:34,335 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:20:34,513 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:20:34,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:20:34,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:20:34,604 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:20:34,605 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:20:34,607 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:20:34,608 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:20:34,609 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:20:34,610 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+WARN  2017-10-30 15:20:49,472 [8    ] reas.Admin.Controllers.AccountController - Method arguments are not valid! See ValidationErrors for details.
+Abp.Runtime.Validation.AbpValidationException: Method arguments are not valid! See ValidationErrors for details.
+   在 Abp.Runtime.Validation.Interception.MethodInvocationValidator.Validate() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Runtime\Validation\Interception\MethodInvocationValidator.cs:行号 94
+   在 Abp.Web.Mvc.Validation.AbpMvcValidationFilter.OnActionExecuting(ActionExecutingContext filterContext) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Validation\AbpMvcValidationFilter.cs:行号 35
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive(Int32 filterIndex)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive(Int32 filterIndex)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive(Int32 filterIndex)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallBeginDelegate(AsyncCallback callback, Object callbackState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+WARN  2017-10-30 15:20:49,486 [8    ] reas.Admin.Controllers.AccountController - There are 1 validation errors:
+WARN  2017-10-30 15:20:49,486 [8    ] reas.Admin.Controllers.AccountController - Password 字段是必需的。 (Password)
+DEBUG 2017-10-30 15:24:08,376 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:24:08,396 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:24:08,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,404 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,405 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,406 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:08,409 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:24:08,854 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:24:10,124 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:24:10,132 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:24:10,134 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:24:10,135 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:24:10,401 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:24:10,510 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:24:10,510 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:24:10,517 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:24:10,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:24:10,519 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:24:10,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:24:10,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:24:10,522 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:24:10,523 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+WARN  2017-10-30 15:24:25,060 [8    ] reas.Admin.Controllers.AccountController - Method arguments are not valid! See ValidationErrors for details.
+Abp.Runtime.Validation.AbpValidationException: Method arguments are not valid! See ValidationErrors for details.
+   在 Abp.Runtime.Validation.Interception.MethodInvocationValidator.Validate() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Runtime\Validation\Interception\MethodInvocationValidator.cs:行号 94
+   在 Abp.Web.Mvc.Validation.AbpMvcValidationFilter.OnActionExecuting(ActionExecutingContext filterContext) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp.Web.Mvc\Web\Mvc\Validation\AbpMvcValidationFilter.cs:行号 35
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive(Int32 filterIndex)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive(Int32 filterIndex)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.InvokeActionMethodFilterAsynchronouslyRecursive(Int32 filterIndex)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallBeginDelegate(AsyncCallback callback, Object callbackState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.BeginInvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+WARN  2017-10-30 15:24:25,091 [8    ] reas.Admin.Controllers.AccountController - There are 1 validation errors:
+WARN  2017-10-30 15:24:25,091 [8    ] reas.Admin.Controllers.AccountController - Password 字段是必需的。 (Password)
+DEBUG 2017-10-30 15:25:25,176 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:25:25,193 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:25:25,200 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,202 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,202 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,202 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,202 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,202 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,203 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:25,206 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:25:25,577 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:25:26,693 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:25:26,701 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:25:26,702 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:25:26,703 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:25:26,862 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:25:26,950 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:25:26,950 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:25:26,953 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:25:26,953 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:25:26,953 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:25:26,953 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:25:26,953 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:25:26,954 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:25:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:25:26,956 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:25:58,014 [7    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-10-30 15:25:58,015 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:25:58,016 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:25:58,016 [7    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-10-30 15:26:11,040 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:26:11,059 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:26:11,065 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,068 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,068 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,068 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,068 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,069 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,069 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,069 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,069 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,069 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,069 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:11,072 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:26:11,426 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:26:12,643 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:26:12,650 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:26:12,651 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:26:12,652 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:26:12,778 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:26:12,830 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:26:12,830 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:26:12,834 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:26:12,835 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:26:12,836 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+INFO  2017-10-30 15:28:04,434 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.DashboardController.Index is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:06,035 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 246 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:07,684 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 91 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:10,096 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 557 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:13,115 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetCustomerByMobileAsync is executed by user 1 in 142 ms from 192.168.2.178 IP address with succeed.
+WARN  2017-10-30 15:28:18,458 [14   ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-30 15:28:18,506 [14   ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-30 15:28:18,511 [14   ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+INFO  2017-10-30 15:28:20,266 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 61 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,296 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 28 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,327 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,358 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 28 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,388 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,419 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,449 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 28 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,479 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 28 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,495 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 301 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,770 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 51 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,807 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 34 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,841 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 33 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,875 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,912 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 36 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,947 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 33 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:20,982 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:21,016 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:21,028 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 313 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:21,075 [11   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.AccountController.Login is executed by user 1 in 0 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,757 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 44 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,787 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,819 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 31 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,849 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 28 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,878 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 28 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,910 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 30 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,941 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 30 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,973 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 30 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:26,985 [17   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 275 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,261 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 47 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,296 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 33 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,330 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,364 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,401 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 35 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,438 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 35 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,476 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 35 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,511 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:27,523 [21   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 310 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:28:28,050 [14   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.AccountController.Logout is executed by user 1 in 4 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:26,976 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.DashboardController.Index is executed by user 1 in 0 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,662 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 46 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,693 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,730 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 35 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,761 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,797 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 33 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,828 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 30 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,859 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 29 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,892 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 32 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:29,905 [27   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 292 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,185 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 58 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,227 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 40 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,267 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 39 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,315 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 46 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,362 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 45 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,398 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 34 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,443 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 43 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,482 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 38 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,495 [6    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 371 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 15:32:30,932 [28   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.AccountController.Logout is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+DEBUG 2017-10-30 15:39:28,752 [31   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-10-30 15:39:28,753 [31   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:39:28,754 [31   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:39:28,754 [31   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-10-30 15:39:44,315 [40   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:39:44,337 [40   ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:39:44,344 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,347 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,347 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,348 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,348 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,348 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,348 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,349 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,349 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,349 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,349 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,350 [40   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:44,354 [40   ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:39:44,768 [40   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:39:45,724 [40   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:39:45,729 [40   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:39:45,730 [40   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:39:45,731 [40   ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:39:45,875 [40   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:39:45,927 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:39:45,927 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:39:45,930 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:39:45,930 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:39:45,930 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:39:45,930 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:39:45,930 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:39:45,931 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:39:45,932 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:39:45,933 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:39:45,933 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:39:45,933 [40   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:42:30,639 [14   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-10-30 15:42:30,641 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:42:30,641 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:42:30,641 [14   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-10-30 15:42:43,223 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:42:43,245 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:42:43,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,258 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,258 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,258 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,259 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,259 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,260 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:43,264 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:42:43,668 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:42:45,091 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:42:45,099 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:42:45,100 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:42:45,101 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:42:45,268 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:42:45,352 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:42:45,352 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:42:45,355 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:42:45,355 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:42:45,355 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:42:45,355 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:42:45,355 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:42:45,355 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:42:45,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:42:45,357 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:42:45,358 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:42:45,358 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:42:45,358 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:42:45,358 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:44:55,369 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:44:55,388 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:44:55,392 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:55,401 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:44:55,751 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:44:57,083 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:44:57,091 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:44:57,092 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:44:57,094 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:44:57,314 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:44:57,418 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:44:57,418 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:44:57,421 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:44:57,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:44:57,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:44:57,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+WARN  2017-10-30 15:45:31,279 [10   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.WrongCredentials' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:47:48,515 [20   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:47:48,518 [20   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.ReturningCustomer' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:02,270 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.WrongCredentials' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:02,310 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:02,313 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.ReturningCustomer' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:26,368 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.WrongCredentials' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:31,652 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.WrongCredentials' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:31,703 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.WrongCredentials' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:52,296 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:48:52,296 [19   ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.ReturningCustomer' in localization source 'ArtSolution'!
+DEBUG 2017-10-30 15:51:02,919 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:51:02,936 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:51:02,940 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:02,948 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:51:03,301 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:04,558 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:51:04,565 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:51:04,567 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+FATAL 2017-10-30 15:51:04,578 [1    ] Abp.AbpBootstrapper                      - Abp.AbpException: Invalid localization file format! D:\ArtSolution\ArtSolution.Web\Localization\ArtSolution\ArtSolution-zh-CN.xml ---> Abp.AbpException: A dictionary can not contain same key twice. There are some duplicated names: ForMoreInformation
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomXmlString(String xmlString) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlLocalizationDictionary.cs:行号 93
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomFile(String filePath) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlLocalizationDictionary.cs:行号 38
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomFile(String filePath) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlLocalizationDictionary.cs:行号 42
+   在 Abp.Localization.Dictionaries.Xml.XmlFileLocalizationDictionaryProvider.CreateXmlLocalizationDictionary(String fileName) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlFileLocalizationDictionaryProvider.cs:行号 50
+   在 Abp.Localization.Dictionaries.Xml.XmlFileLocalizationDictionaryProvider.Initialize(String sourceName) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlFileLocalizationDictionaryProvider.cs:行号 28
+   在 Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\DictionaryBasedLocalizationSource.cs:行号 54
+   在 Abp.Localization.LocalizationManager.InitializeSources() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\LocalizationManager.cs:行号 59
+   在 Abp.AbpKernelModule.PostInitialize() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\AbpKernelModule.cs:行号 94
+   在 Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:行号 48
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Abp.Modules.AbpModuleManager.StartModules() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:行号 48
+   在 Abp.AbpBootstrapper.Initialize() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:行号 132
+Abp.AbpException: Invalid localization file format! D:\ArtSolution\ArtSolution.Web\Localization\ArtSolution\ArtSolution-zh-CN.xml ---> Abp.AbpException: A dictionary can not contain same key twice. There are some duplicated names: ForMoreInformation
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomXmlString(String xmlString) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlLocalizationDictionary.cs:行号 93
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomFile(String filePath) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlLocalizationDictionary.cs:行号 38
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Abp.Localization.Dictionaries.Xml.XmlLocalizationDictionary.BuildFomFile(String filePath) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlLocalizationDictionary.cs:行号 42
+   在 Abp.Localization.Dictionaries.Xml.XmlFileLocalizationDictionaryProvider.CreateXmlLocalizationDictionary(String fileName) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlFileLocalizationDictionaryProvider.cs:行号 50
+   在 Abp.Localization.Dictionaries.Xml.XmlFileLocalizationDictionaryProvider.Initialize(String sourceName) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\Xml\XmlFileLocalizationDictionaryProvider.cs:行号 28
+   在 Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource.Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\Dictionaries\DictionaryBasedLocalizationSource.cs:行号 54
+   在 Abp.Localization.LocalizationManager.InitializeSources() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Localization\LocalizationManager.cs:行号 59
+   在 Abp.AbpKernelModule.PostInitialize() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\AbpKernelModule.cs:行号 94
+   在 Abp.Modules.AbpModuleManager.<>c.<StartModules>b__15_2(AbpModuleInfo module) 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:行号 48
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Abp.Modules.AbpModuleManager.StartModules() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\Modules\AbpModuleManager.cs:行号 48
+   在 Abp.AbpBootstrapper.Initialize() 位置 D:\Halil\Github\aspnetboilerplate\src\Abp\AbpBootstrapper.cs:行号 132
+DEBUG 2017-10-30 15:51:24,975 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 15:51:25,363 [1    ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 15:51:25,368 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,370 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,370 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,370 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,370 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,371 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,371 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,371 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,371 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,372 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,372 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,372 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:25,375 [1    ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 15:51:26,527 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 15:51:26,934 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 15:51:26,941 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 15:51:26,943 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 15:51:26,944 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 15:51:27,208 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 15:51:27,358 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 15:51:27,358 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:51:27,362 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 15:51:27,363 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 15:51:27,364 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+WARN  2017-10-30 15:51:52,566 [8    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:51:52,569 [8    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.ReturningCustomer' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:55:27,959 [5    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:55:27,961 [5    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.ReturningCustomer' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:56:08,538 [8    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:56:08,538 [8    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.ReturningCustomer' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:56:33,763 [9    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+WARN  2017-10-30 15:56:39,782 [5    ] Abp.Logging.LogHelper                    - Can not find 'Account.Login.Unsuccessful' in localization source 'ArtSolution'!
+DEBUG 2017-10-30 16:00:07,671 [31   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-10-30 16:00:07,673 [31   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 16:00:07,674 [31   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 16:00:07,674 [31   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2017-10-30 16:00:09,999 [22   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-10-30 16:00:10,670 [22   ] Abp.Modules.AbpModuleManager             - Found 12 ABP modules in total.
+DEBUG 2017-10-30 16:00:10,713 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.Web.ArtSolutionWebModule, ArtSolution.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,714 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,715 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,715 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,715 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,716 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionDataModule, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,718 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,719 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionCoreModule, ArtSolution.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,719 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionApplicationModule, ArtSolution.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,720 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,722 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: ArtSolution.ArtSolutionWebApiModule, ArtSolution.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,723 [22   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.3.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:10,758 [22   ] Abp.Modules.AbpModuleManager             - 12 modules loaded.
+DEBUG 2017-10-30 16:00:11,899 [22   ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ArtSolution.EntityFramework.ArtSolutionDbContext, ArtSolution.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-10-30 16:00:12,358 [22   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-10-30 16:00:12,363 [22   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-10-30 16:00:12,364 [22   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-10-30 16:00:12,365 [22   ] Abp.Localization.LocalizationManager     - Initialized localization source: ArtSolution
+DEBUG 2017-10-30 16:00:12,574 [22   ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-10-30 16:00:12,700 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 53 classes define auto mapping attributes
+DEBUG 2017-10-30 16:00:12,700 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Authentication.Dto.CustomerDto
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Orders.ShoppingCartItemModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Customers.CustomerAttributeModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Api.Models.Catalog.ProductModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.CreateOrderModel
+DEBUG 2017-10-30 16:00:12,707 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.FavoriteModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderItemModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ProductReviewModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ReturnOrderModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.LoanModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.NewItemModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.SimpleNewItemModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.PromotionalModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.News.TopicModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.ApplyCashModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerCouponModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerModel
+DEBUG 2017-10-30 16:00:12,708 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.WishOrderModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.BrandDetailModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogDetailModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CatalogModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.CategoryModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.SimpleProductModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Official.Models.MessageModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Setting.SettingModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.NewItemModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.PromotionalModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.News.TopicModel
+DEBUG 2017-10-30 16:00:12,709 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Discount.CouponModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.ApplyPromoterModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Customers.CustomerModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Common.AdvertModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ComBoProductModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductTagModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.BrandModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductAttributeModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.CategoryModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Reward.RewardProductModel+ProductAttributeModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.ComBoProductOrderModel+ProductModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Orders.OrderDtailModel+OrderItemsModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.CustomerRewardModel+RewardHistoryModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Customers.MyCustomerListModel+CustomerModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Models.Catalogs.ProductModel+ProductAttributeModel
+DEBUG 2017-10-30 16:00:12,710 [22   ] Abp.AutoMapper.AbpAutoMapperModule       - ArtSolution.Web.Areas.Admin.Models.Orders.OrderDtailModel+OrderItemsModel
+INFO  2017-10-30 16:01:37,701 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.DashboardController.Index is executed by user 1 in 1 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:40,071 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 344 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:42,002 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 155 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:44,933 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Catalog.ProductService.GetAllProducts is executed by user 1 in 643 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:48,480 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetCustomerByMobileAsync is executed by user 1 in 199 ms from 192.168.2.178 IP address with succeed.
+WARN  2017-10-30 16:01:54,172 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-30 16:01:54,244 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-10-30 16:01:54,250 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+INFO  2017-10-30 16:01:56,645 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 181 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:56,832 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 185 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,199 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 364 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,437 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 236 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,596 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 158 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,697 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 98 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,767 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 68 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,869 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 100 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:57,883 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 1435 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,374 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 175 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,449 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 73 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,542 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 91 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,621 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 77 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,694 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 71 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,799 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 103 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:58,904 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 103 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:59,002 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 96 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:59,013 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 820 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:01:59,376 [12   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.AccountController.Logout is executed by user 1 in 4 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:10,114 [29   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.DashboardController.Index is executed by user 1 in 0 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:14,014 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 823 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:14,642 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 625 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:14,803 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 159 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:14,897 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 93 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:14,998 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 98 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:15,085 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 86 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:15,159 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 72 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:15,237 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Orders.OrderService.GetAllOrders is executed by user 1 in 77 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:15,252 [9    ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.OrderController.LoadOrderStatistics is executed by user 1 in 2062 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:15,859 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 133 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:15,941 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 80 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,076 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 133 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,167 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 90 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,275 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 105 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,384 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 107 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,469 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 82 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,586 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Customers.CustomerService.GetAllCustomers is executed by user 1 in 115 ms from 192.168.2.178 IP address with succeed.
+INFO  2017-10-30 16:02:16,598 [26   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: ArtSolution.Web.Areas.Admin.Controllers.CustomerController.LoadCustomerStatistics is executed by user 1 in 876 ms from 192.168.2.178 IP address with succeed.

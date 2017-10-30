@@ -158,13 +158,14 @@ namespace ArtSolution.Customers
         public CustomerLoginResults ValidateCustomer(string loginName, string password, CustomerRole? role = null)
         {
             var result = new CustomerLoginResults();
+            result.Result = LoginResults.WrongPassword;
             var customer = GetCustomerByMobile(loginName);
             if (customer == null)
                 return new CustomerLoginResults(LoginResults.NotRegistered);
             var psd = _encryptionService.CreatePasswordHash(password, customer.PasswordSalt);
             bool isValid = psd == customer.Password;
-            if (!isValid)
-                result.Result = LoginResults.WrongPassword;
+            if (isValid)
+                result.Result = LoginResults.Successful;
             if (role.HasValue)
             {
                 if (role.Value != (CustomerRole)customer.CustomerRoleId)
@@ -173,7 +174,6 @@ namespace ArtSolution.Customers
 
             customer.LastModificationTime = DateTime.Now;
             //_customerService.UpdateCustomer(customer);
-            result.Result = LoginResults.Successful;
             result.Customer = customer;
             return result;
         }

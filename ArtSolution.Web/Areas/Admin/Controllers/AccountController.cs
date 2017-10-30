@@ -53,6 +53,10 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             {
                 returnUrl = Request.ApplicationPath;
             }
+            if (returnUrl.ToUpper().Contains("admin"))
+            {
+                returnUrl = "";
+            }
 
             ViewBag.returnUrl = returnUrl;
             var model = new LoginModel();
@@ -63,40 +67,45 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         [DisableAuditing]
         public ActionResult Login(LoginModel model)
         {
-            var loginResult = _customerService.ValidateCustomer(model.LoginName, model.Password);
-            switch (loginResult.Result)
+
+            if (ModelState.IsValid)
             {
-                case LoginResults.Successful:
-                    {
-                        var customerDto = loginResult.Customer.MapTo<CustomerDto>();
-                        //生成ClaimsIdentity
-                        var identity = _loginManager.CreateUserIdentity(customerDto);
+                var loginResult = _customerService.ValidateCustomer(model.LoginName, model.Password);
+                switch (loginResult.Result)
+                {
+                    case LoginResults.Successful:
+                        {
+                            var customerDto = loginResult.Customer.MapTo<CustomerDto>();
+                            //生成ClaimsIdentity
+                            var identity = _loginManager.CreateUserIdentity(customerDto);
 
-                        //用户登录
-                        AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = model.RememberMe }, identity);
-                        _notificationSubscriptionManager.Subscribe(new Abp.UserIdentifier(null, (long)customerDto.Id), "notice");
-                        if (String.IsNullOrEmpty(model.ReturnUrl) || !Url.IsLocalUrl(model.ReturnUrl))
-                            return RedirectToAction("Index", "Dashboard");
+                            //用户登录
+                            AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = model.RememberMe }, identity);
+                            _notificationSubscriptionManager.Subscribe(new Abp.UserIdentifier(null, (long)customerDto.Id), "notice");
+                            if (String.IsNullOrEmpty(model.ReturnUrl) || !Url.IsLocalUrl(model.ReturnUrl))
+                                return RedirectToAction("Index", "Dashboard");
 
-                        return Redirect(model.ReturnUrl);
-                    }
+                            return Redirect(model.ReturnUrl);
+                        }
 
-                case LoginResults.Deleted:
-                    ModelState.AddModelError("", L("Account.Login.WrongCredentials.Deleted"));
-                    break;
-                case LoginResults.NotRegistered:
-                    ModelState.AddModelError("", L("Account.Login.WrongCredentials.NotRegistered"));
-                    break;
-                case LoginResults.Unauthorized:
-                    ModelState.AddModelError("", L("Account.Login.WrongCredentials.Unauthorized"));
-                    break;
-                case LoginResults.WrongPassword:
-                default:
-                    ModelState.AddModelError("", L("Account.Login.WrongCredentials"));
-                    break;
+                    case LoginResults.Deleted:
+                        ModelState.AddModelError("", "该用户已经被冻结");
+                        break;
+                    case LoginResults.NotRegistered:
+                        ModelState.AddModelError("", "该用户未注册");
+                        break;
+                    case LoginResults.Unauthorized:
+                        ModelState.AddModelError("", "该用户未授权");
+                        break;
+                    case LoginResults.WrongPassword:
+                    default:
+                        ModelState.AddModelError("", "密码错误");
+                        break;
+                }
+                
             }
-
             return View(model);
+
         }
 
 

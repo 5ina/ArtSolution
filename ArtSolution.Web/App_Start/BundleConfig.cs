@@ -101,7 +101,9 @@ namespace ArtSolution.Web
                     .Include(
                         "~/Scripts/jquery-2.1.4.js",
                         "~/Scripts/bootstrap.js",
-                        "~/admin-lte/plugins/iCheck/icheck.js"
+                        "~/admin-lte/plugins/iCheck/icheck.js",
+                        "~/jquery.validate.js",
+                        "~/jquery.validate.unobtrusive.js"
                         )
                 );
             #endregion
