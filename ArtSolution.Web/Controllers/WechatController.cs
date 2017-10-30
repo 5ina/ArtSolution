@@ -67,7 +67,6 @@ namespace ArtSolution.Web.Controllers
             if (Request.HttpMethod.ToUpper() == "POST")
             {
                 //微信服务器对接口消息
-                Logger.Debug("微信服务器对接口消息");
                 using (Stream stream = HttpContext.Request.InputStream)
                 {
                     Byte[] postBytes = new Byte[stream.Length];
@@ -142,7 +141,6 @@ namespace ArtSolution.Web.Controllers
                         {
                             try
                             {
-                                Logger.Debug("openid" + userInfo.openid);
                                     var customer = _customerService.GetCustomerByOpenId(userInfo.openid);
                                 
                                 #region 假设用户不存在
@@ -237,7 +235,6 @@ namespace ArtSolution.Web.Controllers
             StreamReader sr = new StreamReader(response.GetResponseStream(), System.Text.Encoding.UTF8);
 
             string result = sr.ReadToEnd();
-            Logger.Debug("result:" + result);
             return JsonConvert.DeserializeObject<T>(result);
         }
 
@@ -245,9 +242,7 @@ namespace ArtSolution.Web.Controllers
         {
 
             AccessToken token = HttpUtility.Get<AccessToken>(string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, appSecret));
-
-            Logger.Debug(string.Format("appId：{0}，appSecret：{1}，token:{2}", appId, appSecret, token.access_token));
-
+            
             return token;
         }
 
@@ -371,15 +366,11 @@ namespace ArtSolution.Web.Controllers
                     PasswordSalt = code,
                     IsSubscribe = true,
                 };
-                Logger.Debug("新增了用户信息：" + customer.OpenId);
                 customer.Id = _customerService.CreateCustomer(customer);
-                Logger.Debug("新增了用户信息：" + customer.Id);
-
-                Logger.Debug("开始");
+                
                 //优惠券处理
                 AddNewCustomerConpon(customer);
-
-                Logger.Debug("新增了优惠券");
+                
 
                 //发送消息
                 SendMessageToUserFirstSub(customer);
@@ -463,7 +454,6 @@ namespace ArtSolution.Web.Controllers
         /// <param name="customer"></param>
         private void SendMessageToUserFirstSub(Customer customer)
         {
-            Logger.Debug("首次订阅开始");
             var model = new WeChatMessageModel();
             model.msgtype = "news";
             model.touser = customer.OpenId;
