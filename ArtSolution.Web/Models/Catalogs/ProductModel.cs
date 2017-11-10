@@ -14,6 +14,7 @@ namespace ArtSolution.Web.Models.Catalogs
         {
             this.SubPictures = new List<ProductPictureModel>();
             this.SubProductAttributes = new List<ProductAttributeModel>();
+            this.ProductRelateds = new List<SimpleProductModel>();
         }
 
         public int CategoryId { get; set; }
@@ -57,7 +58,9 @@ namespace ArtSolution.Web.Models.Catalogs
         
         public DateTime? SpecialPriceEndDateTime { get; set; }
 
-        
+        public int SpecialQuantity { get; set; }
+
+
         public int DisplayOrder { get; set; }
         public bool Published { get; set; }
         /// <summary>
@@ -68,8 +71,10 @@ namespace ArtSolution.Web.Models.Catalogs
         public IList<ProductPictureModel> SubPictures { get; set; }
 
         public IList<ProductAttributeModel> SubProductAttributes { get; set; }
-                
-        
+
+        public string RelatedProductIds { get; set; }
+        public List<SimpleProductModel> ProductRelateds { get; set; }
+
         /// <summary>
         /// 商品图片
         /// </summary>

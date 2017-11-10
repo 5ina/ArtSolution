@@ -1305,6 +1305,8 @@
     <Content Include="Areas\Admin\Views\ComBoProduct\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ComBoProduct\_CreateOrUpdate.cshtml" />
     <Content Include="Areas\Admin\Views\ComBoProduct\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_CreateOrUpdate.Related.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CopyProduct.cshtml" />
     <None Include="Properties\PublishProfiles\art.pubxml" />
     <Content Include="Scripts\admin.common.js" />
     <Content Include="Scripts\admin.navigation.js" />
@@ -1626,6 +1628,7 @@
     <Compile Include="Areas\Admin\Controllers\WishOrderController.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\BrandListModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\ComBoProductModel.cs" />
+    <Compile Include="Areas\Admin\Models\Catalog\ProductReviewModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\ProductTagModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\BrandModel.cs" />
     <Compile Include="Areas\Admin\Models\Catalog\ProductAttributeModel.cs" />

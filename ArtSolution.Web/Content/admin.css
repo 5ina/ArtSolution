@@ -314,3 +314,9 @@ table.product-attributes a.btn{margin:5px;}
 .mapping_list tr td .del{cursor:pointer;color:#f85005}
 .mapping_list tr.mapping_items:hover{background:#8daecf;}
 .mapping_list tr.mapping_items:hover > td{border-color:#fff;}
+
+
+.related-products, .related-products li{margin:0;padding:0; list-style:none;}
+.related-products li input[type=checkbox]{display:none;}
+.related-products li label{color:#fff;border:1px solid #466482;background:#466482;font-weight:normal;padding:4px 18px 4px 8px;border-radius:3px;}
+.related-products li label i{margin-left:8px}

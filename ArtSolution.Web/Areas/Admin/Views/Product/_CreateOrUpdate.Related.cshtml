@@ -1,0 +1,69 @@
+﻿@model ArtSolution.Web.Areas.Admin.Models.Catalog.ProductModel
+<!-- 关联商品 -->
+<div class="panel-group">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <i class="fa fa-info"></i>
+            <h3 class="box-title">关联商品</h3>
+        </div>
+        <div class="box-header with-border">
+
+            <table class="adminContent">
+                <tbody>
+
+                    <tr>
+                        <td class="adminTitle"></td>
+                        <td class="adminData">
+                            <div class="input-group">
+                                <a class="btn btn-default btn-u-green create-related" href="@Url.Action("BoxProduct","Product",new { BrandId = Model.BrandId})" data-target="#products-modal" data-toggle="modal">
+                                    新增关联商品
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="adminTitle"></td>
+                        <td class="adminData">
+
+                            <ul class="related-products">
+                                @foreach (var related in Model.ProductRelateds)
+                                {
+                                    <li id="li-@(related.Id)">
+                                        
+                                        <input type="checkbox" name="RelatedProductIds" id="related-@(related.Id)" value="@(related.Id)" checked="checked" />
+                                        <label onclick="deleteThis('@(related.Id)');" for="related-@(related.Id)">
+                                            @related.Name
+                                            <i class="fa fa-close false-icon"></i>
+                                        </label>
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal fade" id="products-modal" role="basic" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script type="text/javascript">
+
+                function changeproductId(productId, productName, productPrice) {
+                    $(".related-products").append('<li id="li-' + productId + '"><input type="checkbox" name="RelatedProductIds" id="related-' + productId + '" checked="checked" value="' + productId + '" /><label onclick="deleteThis(' + productId + ');" for="related-' + productId + '">' + productName + '<i class="fa fa-close false-icon"></i></label></li>');
+                    $('#products-modal').modal('toggle');
+                }
+
+                function deleteThis(productId) {
+                    $("#li-" + productId).remove();
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+

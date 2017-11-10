@@ -18,7 +18,7 @@
                 <a href="#product_full" data-toggle="tab">图文信息</a>
             </li>
             <li>
-                <a href="#product_attribute" data-toggle="tab">商品属性</a>
+                <a href="#product_related" data-toggle="tab">关联商品</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -185,19 +185,12 @@
                 </div>
             </div>
 
-            <!--商品属性-->
+            <!--关联商品-->
 
-            <div class="tab-pane" id="product_attribute">
+            <div class="tab-pane" id="product_related">
                 <div class="row">
                     <div class="col-md-12">
-                        @if (Model.Id == 0)
-                        {
-                            <span> 请先保存数据后再操作商品属性 </span>
-                        }
-                        else
-                        {
-                            @Html.Partial("_CreateOrUpdate.Attribute", Model);
-                        }
+                            @Html.Partial("_CreateOrUpdate.Related", Model)
                     </div>
                 </div>
             </div>

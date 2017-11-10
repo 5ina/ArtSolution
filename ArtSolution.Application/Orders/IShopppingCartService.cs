@@ -48,7 +48,6 @@ namespace ArtSolution.Orders
         /// <returns></returns>
         IPagedResult<ShoppingCartItem> GetAllShoppingItems(int customerId = 0,
             int productId = 0, 
-            int attributeId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue);
              
     }

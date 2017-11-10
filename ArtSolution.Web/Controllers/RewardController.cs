@@ -209,7 +209,7 @@ namespace ArtSolution.Web.Controllers
 
         //生成订单
         [HttpPost]
-        public ActionResult RewardToOrder(int productId, int item_num, int ProductAttributeId, int billing)
+        public ActionResult RewardToOrder(int productId, int item_num, int billing)
         {
             var product = _productService.GetProductById(productId);
             if (product == null)
@@ -247,7 +247,6 @@ namespace ArtSolution.Web.Controllers
                     OrderItemGuid = Guid.NewGuid(),
                     PreSell = product.PreSell,
                     Price = product.Price,
-                    ProductAttributeId = ProductAttributeId,
                     ProductId = product.Id,
                     ProductImage = product.ProductImage,
                     ProductName = product.Name,

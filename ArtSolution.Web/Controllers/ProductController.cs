@@ -75,8 +75,21 @@ namespace ArtSolution.Web.Controllers
                 if (attributes.Count > 0)
                 {
                     model.SubProductAttributes = attributes.Select(a => a.MapTo<ProductModel.ProductAttributeModel>()).ToList();
-                }            
+                }
         }
+        [NonAction]
+        protected void PrepareProductRelated(ProductModel model)
+        {
+            if (!String.IsNullOrWhiteSpace(model.RelatedProductIds))
+            {
+                var relatedIds = model.RelatedProductIds;
+                var ids = relatedIds.Split(',').Select(i => Convert.ToInt32(i)).ToList();
+                var relateds = _productService.GetProductByIds(ids);
+                if (relateds != null)
+                    model.ProductRelateds = relateds.Select(r => r.MapTo<SimpleProductModel>()).ToList();
+            }
+        }
+        
         #endregion
 
         #region Method
@@ -111,6 +124,8 @@ namespace ArtSolution.Web.Controllers
 
             //属性
             PrepareProductAttribute(model);
+            //关联商品
+            PrepareProductRelated(model);
             //收藏
             if (CustomerId ==0)
                 model.IsFavorites = false;
@@ -179,17 +194,16 @@ namespace ArtSolution.Web.Controllers
         [DisableAbpAntiForgeryTokenValidation]
         public ActionResult GetProducts(int pageIndex = 0, int pageSize = int.MaxValue)
         {
-
             var products = _productService.GetAllProducts(pageIndex: pageIndex,
                                                 pageSize: pageSize);
 
             var total = products.TotalCount / pageSize;
             total = products.TotalCount % pageSize > 0 ? total + 1 : total;
-
             var jsonData = new DataSourceResult
             {
                 Total = total,
-                Data = products.Items.MapTo<IList<SimpleProductModel>>()
+                Data = products.Items.MapTo<IList<SimpleProductModel>>(),
+                ShowNext = total > pageIndex
             };
 
             return AbpJson(jsonData);

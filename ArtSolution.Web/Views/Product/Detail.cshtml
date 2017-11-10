@@ -8,6 +8,15 @@
 
     Html.AddMetaDescriptionParts(Model.MetaDescription);
     Html.AddMetaKeywordParts(Model.MetaKeywords);
+
+    var stockQuantity = Model.StockQuantity;
+    if (Model.SpecialPriceStartDateTime.HasValue && Model.SpecialPriceEndDateTime.HasValue)
+    {
+        if (Model.SpecialPriceStartDateTime.Value < DateTime.Now && Model.SpecialPriceEndDateTime.Value > DateTime.Now)
+        {
+            stockQuantity = Model.SpecialQuantity;
+        }
+    }
 }
 
 @section styles
@@ -30,7 +39,7 @@
             <div class="swiper-wrapper">
                 @foreach (var image in Model.SubPictures)
                 {
-                <div class="swiper-slide"><img src="@image.PictureUrl" /></div>
+                    <div class="swiper-slide"><img src="@image.PictureUrl" /></div>
                 }
             </div>
             <!-- Add Pagination -->
@@ -38,48 +47,76 @@
         </div>
         <div class="shop-product-heading">
             <h2>@Model.Name</h2>
-            <span class="product-price">￥@Model.Price</span>
+            @if (Model.SpecialPriceStartDateTime.HasValue && Model.SpecialPriceEndDateTime.HasValue)
+            {
+                if (Model.SpecialPriceStartDateTime < DateTime.Now && Model.SpecialPriceEndDateTime > DateTime.Now)
+                {
+                    <div class="product-price">
+                        惊爆价￥@Model.SpecialPrice
+                        <span class="end-time">促销截止 @Model.SpecialPriceEndDateTime.Value.ToString("yyyy/MM/dd")</span>
+                    </div>
+                }
+                {
+                    <span class="product-price">￥@Model.Price</span>
+                }
+            }
+            else
+            {
+                <span class="product-price">￥@Model.Price</span>
+            }
             <p class="pull-left"> 聚美价：<span class="price">￥@Model.Market</span>  库存：@Model.StockQuantity</p>
-            <p class="pull-right">@if (Model.AllowReward) { <text><a href="@Url.Action("Exchange", "Reward", new { productId = Model.Id })">积分兑换:@Model.RewardExchange 积分</a></text>}</p>
+            <p class="pull-right">
+                @if (Model.AllowReward)
+            { <text><a href="@Url.Action("Exchange", "Reward", new { productId = Model.Id })">积分兑换:@Model.RewardExchange 积分</a></text>}
+            </p>
 
         </div><!--/end shop product social-->
-        @if (!Model.PreSell)
-        {
-            @Html.Partial("_Distribution")
-        }
-        @if (Model.BrandId > 0)
-        {
-            <div class="shop-product-content brand clearfix">
 
-                <div class="pull-left margin-left-10 brand-image">
-                    <a class="" href="@Url.Action("BrandProducts", "Catalog", new { brandId = Model.BrandId })">
-                        <img src="@Model.BrandImage" class="img-circle" alt="@Model.BrandName">
-                    </a>
+        @if (Model.ProductRelateds.Count > 0)
+        {
+            <div class="related-products clearfix">
+                <div class="related-title"><span>产品</span></div>
+                <div class="related-content">
+
+                    @foreach (var related in Model.ProductRelateds)
+                {
+                        <a class="related-name @if (related.Id == Model.Id)
+                        { <text>active</text>} " href="@Url.Action("Detail", "Product", new { productId = related.Id })">@related.Name</a>
+
+                    }
                 </div>
-                <div class="pull-left margin-left-10 brand-info">
-                    <a class="brand" href="@Url.Action("BrandProducts", "Catalog", new { brandId = Model.BrandId })">
-                        <span>@Model.BrandName</span>
-                        <span>在售商品：@Model.BrandToProductCount</span>
-                    </a>
-                </div>
+
             </div>
         }
 
-        @*<div class="shop-product-content">
-                <div class="title">
-                    <h5>产品介绍</h5>
+        <!-- 是否预售-->
+        @*@if (!Model.PreSell)
+            {
+                @Html.Partial("_Distribution")
+            }
+            @if (Model.BrandId > 0)
+            {
+                <div class="shop-product-content brand clearfix">
+
+                    <div class="pull-left margin-left-10 brand-image">
+                        <a class="" href="@Url.Action("BrandProducts", "Catalog", new { brandId = Model.BrandId })">
+                            <img src="@Model.BrandImage" class="img-circle" alt="@Model.BrandName">
+                        </a>
+                    </div>
+                    <div class="pull-left margin-left-10 brand-info">
+                        <a class="brand" href="@Url.Action("BrandProducts", "Catalog", new { brandId = Model.BrandId })">
+                            <span>@Model.BrandName</span>
+                            <span>在售商品：@Model.BrandToProductCount</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="content">
-                    @Html.Raw(Model.ShortDescription)
-                </div>
-            </div>*@
+            }*@
 
         <div class="shop-product-detail">
             <div class="title">
                 <h5>商品详情</h5>
             </div>
             <div class="content">
-                @*@Html.Raw(Model.FullDescription.Replace("src=", "class=\"lazy\" src=\"/images/grey.gif\" data-original="))*@
                 @Html.Raw(Model.FullDescription)
             </div>
         </div>
@@ -90,12 +127,12 @@
             <nav class="navbar navbar-default navbar-fixed-bottom product-footer">
                 <ul>
                     <li class="items">
-                        <button class="btn btn-large btn-block btn-danger btn-cart" @if (Model.SpecialPrice.HasValue) { <text> disabled="disabled" </text> } >
+                        <button class="btn btn-large btn-block btn-danger btn-cart" @if (Model.SpecialPrice.HasValue) { <text> disabled="disabled" </text>    }>
                             <span class="footer-action-icon icon-goshop">加入购物车</span>
                         </button>
                     </li>
                     <li class="items">
-                        <button class="btn btn-large btn-block btn-success btn-order" @if (Model.StockQuantity == 0) { <text> disabled </text>         }>立即购买</button>
+                        <button class="btn btn-large btn-block btn-success btn-order" @if (Model.StockQuantity == 0) { <text> disabled </text>            }>立即购买</button>
                     </li>
                 </ul>
             </nav>
@@ -109,7 +146,7 @@
                                 ￥
                                 @if (Model.SpecialPrice.HasValue && DateTime.Now > Model.SpecialPriceStartDateTime && DateTime.Now < Model.SpecialPriceEndDateTime)
                                 {
-                                    @Html.Raw(Model.SpecialPrice);
+                                    @Html.Raw("惊爆价：" + Model.SpecialPrice);
                                 }
                                 else
                                 {
@@ -122,47 +159,26 @@
                             </span>
                             <div id="control_item_info_close" class="abs close-icon">&nbsp;</div>
                         </div>
-                        @if (Model.SubProductAttributes.Count > 0)
-                        {
-
-                            <div class="form-group clearfix">
-                                <label class="col-xs-2 control-label">规格</label>
-                                <div class="col-xs-10">
-                                    @foreach (var attr in Model.SubProductAttributes)
-                                    {
-                                        <input type="radio" class="attribute" id="attribute-@attr.Id" data-attId="@attr.Id" name="ProductAttributeId" value="@attr.Id" />
-                                        <label class="attribute-label" for="attribute-@attr.Id">@attr.ValueName</label>
-                                    }
-                                </div>
-                            </div>
-                        }
-                        else
-                        {
-
-                            <div class="hidden">
-                                <input type="radio" class="attribute" id="attribute-0" data-attId="0" name="ProductAttributeId" checked="checked" value="0" />
-                            </div>
-                        }
                         <div class="form-group clearfix">
-                            @if (Model.SpecialPrice.HasValue)
-                            {
-                                <input  id="cart_num" class="hidden" value="1" type="tel">
-                            }
-                            else
-                            {
                             <label class="col-xs-2 control-label">数量</label>
                             <div class="col-xs-6">
                                 <input name="item_num" id="cart_num" class="center block item_num" value="1" type="tel">
- 
                             </div>
                             <div class="col-xs-4">
                             </div>
-                            }
+
                         </div>
                         <div class="form-group clearfix">
                             <label class="col-xs-2 control-label">库存</label>
                             <div class="col-xs-4">
-                                @Model.StockQuantity
+                                @if (Model.SpecialPrice.HasValue && DateTime.Now > Model.SpecialPriceStartDateTime && DateTime.Now < Model.SpecialPriceEndDateTime)
+                                {
+                                    @Model.SpecialQuantity
+                                }
+                                else
+                                {
+                                    @Model.StockQuantity
+                                }
                             </div>
                             <div class="col-xs-6">
                             </div>
@@ -190,7 +206,6 @@
 {
     @Html.AntiForgeryToken()
     @Html.Hidden("productId", Model.Id)
-    <input type="hidden" id="attribute" name="attribute" value="0" />
     <input type="hidden" id="qty" name="qty" value="0" />
 }
 
@@ -200,7 +215,6 @@
     @Html.AntiForgeryToken()
     @Html.Hidden("productId", Model.Id)
 
-    <input type="hidden" id="attribute" name="attribute" value="0" />
     <input type="hidden" id="qty" name="qty" value="0" />
 }
 
@@ -231,21 +245,14 @@
 
         $("input[name='item_num']").TouchSpin({
             min: 1,
-            max: @(Model.StockQuantity),
+            max: @(stockQuantity),
             step: 1
         });
 
         //提交到购物车
         $('#att_to_cart').click(function (e) {
             var qty = $("#cart_num").val();
-            var attributeId = $("input[name='ProductAttributeId']:checked").val();
             $('#cartFrom #qty').val(qty);
-            $('#cartFrom #attribute').val(attributeId);
-            if((attributeId == 0||attributeId == null) && @(Model.SubProductAttributes.Count ) > 0)
-            {
-                swal("请选择商品规格");
-                return false;
-            }
             $('#cartFrom').submit();
             return false;
         });
@@ -253,14 +260,8 @@
         //立即购买
         $('#buy_now').click(function (e) {
             var qty = $("#cart_num").val();
-            var attributeId = $("input[name='ProductAttributeId']:checked").val();
             $('#orderFrom #qty').val(qty);
-            $('#orderFrom #attribute').val(attributeId);
-            if((attributeId == 0||attributeId == null) && @(Model.SubProductAttributes.Count ) > 0)
-            {
-                swal("请选择商品规格");
-                return false;
-            }
+
             $('#orderFrom').submit();
             return false;
         });

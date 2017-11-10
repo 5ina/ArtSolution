@@ -39,7 +39,6 @@ namespace ArtSolution.Orders
 
         public IPagedResult<ShoppingCartItem> GetAllShoppingItems(int customerId = 0,
             int productId = 0, 
-            int attributeId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue)
         {
             var query = _cartRepository.GetAll();
@@ -48,10 +47,7 @@ namespace ArtSolution.Orders
 
             if (productId > 0)
                 query = query.Where(c => productId == c.ProductId);
-
-            if(attributeId>0)
-                query = query.Where(c => attributeId == c.ProductAttributeId);
-
+            
             query = query.OrderByDescending(c => c.CreationTime);
 
             return new PagedResult<ShoppingCartItem>(query, pageIndex, pageSize);

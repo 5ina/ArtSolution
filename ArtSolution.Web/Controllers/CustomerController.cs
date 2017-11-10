@@ -11,6 +11,7 @@ using ArtSolution.Domain.News;
 using ArtSolution.Domain.Orders;
 using ArtSolution.Domain.Settings;
 using ArtSolution.Messages;
+using ArtSolution.Models.WeChats;
 using ArtSolution.Names;
 using ArtSolution.News;
 using ArtSolution.Orders;
@@ -24,8 +25,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using static ArtSolution.Web.Framework.CacheNames;
-using static ArtSolution.Web.Models.Customers.CustomerRewardModel;
 
 namespace ArtSolution.Web.Controllers
 {
@@ -99,7 +98,17 @@ namespace ArtSolution.Web.Controllers
             this._unitOfWorkManager = unitOfWorkManager;
         }
         #endregion
-        
+
+        #region Uni
+
+        public AccessToken GetAccessToken(string appId, string appSecret)
+        {
+
+            AccessToken token = HttpUtility.Get<AccessToken>(string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, appSecret));
+
+            return token;
+        }
+        #endregion
 
         #region Method
 
@@ -356,8 +365,11 @@ namespace ArtSolution.Web.Controllers
                 var appId = _settingService.GetSettingByKey<string>(WeChatSettingNames.AppId);
                 var appSecret = _settingService.GetSettingByKey<string>(WeChatSettingNames.AppSecret);
 
-                var access_token = wx.GetAccessToken(_cacheManager, appId, appSecret);
-                string url = string.Format(QRCode_Url, access_token.access_token);
+                var accessToken = GetAccessToken(appId, appSecret);
+                //var accessToken = _cacheManager.GetCache(ArtSolutionConsts.CACHE_ACCESS_TOKEN)
+                //    .Get(ArtSolutionConsts.CACHE_ACCESS_TOKEN, () => GetAccessToken(appId, appSecret));
+                
+                string url = string.Format(QRCode_Url, accessToken.access_token);
                 expireTime = DateTime.Now.AddSeconds(expire * 24 * 60 * 60);
 
                 var result = wx.QRCode(_cacheManager, appId, appSecret, expire * 24 * 60 * 60, false, this.CustomerId);

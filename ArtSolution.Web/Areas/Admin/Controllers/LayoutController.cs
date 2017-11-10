@@ -8,6 +8,7 @@ using ArtSolution.Authentication.Dto;
 using ArtSolution.Authentication;
 using Abp.Runtime.Caching;
 using ArtSolution.Web.Areas.Admin.Models.Layout;
+using System;
 
 namespace ArtSolution.Web.Areas.Admin.Controllers
 {
@@ -16,7 +17,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
 
         #region Constructors && Fields
 
-        private const string CURRENTCUSTOMER = "art.current.customer";
+        private const string CURRENTCUSTOMER = "art.current.customer-{0}";
 
         private readonly ICacheManager _cacheManager;
         private readonly IUserNavigationManager _userNavigationManager;
@@ -42,10 +43,12 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         [NonAction]
         public async Task<CustomerDto> GetCurrentCustomerAsync()
         {
-
-            return await _cacheManager.GetCache(CURRENTCUSTOMER).Get(HttpContext.User.Identity.Name,
-                () => _customerManager.FindByNameAsync(HttpContext.User.Identity.Name) as Task<CustomerDto>);
-
+            string key = string.Format(CURRENTCUSTOMER, AbpSession.UserId);
+            return await _cacheManager.GetCache(key).Get(key,
+                () =>
+                {
+                    return _customerManager.FindByIdAsync(Convert.ToInt32(AbpSession.UserId));
+                });
         }
         #endregion
 

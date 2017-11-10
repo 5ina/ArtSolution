@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using Abp.Domain.Uow;
 using Abp.Runtime.Caching;
 using Abp.UI;
 using Abp.Web.Security.AntiForgery;
@@ -33,7 +34,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         private readonly IProductAttributeService _attributeService;
         private readonly IBrandService _brandService;
         private readonly IProductTagService _tagService;
-
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
 
         public ProductController(ICategoryService categoryService,
             IProductService productService,
@@ -42,7 +43,8 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             IOssService imageService,
             IProductAttributeService attributeService,
             IBrandService brandService,
-            IProductTagService tagService)
+            IProductTagService tagService,
+            IUnitOfWorkManager unitOfWorkManager)
         {
             this._categoryService = categoryService;
             this._productService = productService;
@@ -52,6 +54,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             this._imageService = imageService;
             this._brandService = brandService;
             this._tagService = tagService;
+            this._unitOfWorkManager = unitOfWorkManager;
         }
         #endregion
 
@@ -127,6 +130,22 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             }
         }
 
+        [NonAction]
+        protected void PrepareProductRelated(ProductModel model)
+        {
+            if (model.Id > 0)
+            {
+                if (!String.IsNullOrWhiteSpace(model.RelatedProductIds))
+                {
+                    var relatedIds = model.RelatedProductIds;
+                    var ids = relatedIds.Split(',').Select(i => Convert.ToInt32(i)).ToList();
+                    var relateds = _productService.GetProductByIds(ids);
+                    if (relateds != null)
+                        model.ProductRelateds = relateds.Select(r => r.MapTo<ProductReviewModel>()).ToList();
+                }
+            }
+        }
+
 
         [NonAction]
         protected void PrepareProductBrands(ProductModel model)
@@ -184,7 +203,8 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             var products = _productService.GetAllProducts(keywords: model.Keywords,
                                                         categoryIds: model.CategoryIds,
                                                         showHidden: true,
-                                                        isPre:model.IsPreSell,
+                                                        brand: model.BrandId,
+                                                        isPre: model.IsPreSell,
                                                         pageIndex: command.Page - 1,
                                                         pageSize: command.PageSize);
             var jsonData = new DataSourceResult
@@ -211,7 +231,7 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         public ActionResult Create(ProductModel model, bool continueEditing)
         {
             if (ModelState.IsValid)
-            {
+            {                
                 var entity = model.MapTo<Product>();              
                 model.Id = _productService.InsertProduct(entity);
                 return continueEditing ? RedirectToAction("Edit", new { id = model.Id }) : RedirectToAction("List");
@@ -232,11 +252,11 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             PrepareProductModel(model);
             PrepareProductImagesModel(model);
             PrepareProductBrands(model);
-            PrepareProductAttribute(model);
+            PrepareProductRelated(model);
             PreparProductTags(model);
             return View(model);
         }
-
+        
 
         [ValidateInput(false)]
         [HttpPost, ParameterBasedOnFormName("save-continue", "continueEditing")]
@@ -244,6 +264,8 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var relateds = Request.Form["RelatedProductIds"];
+                model.RelatedProductIds = relateds;
                 var product = _productService.GetProductById(model.Id);
                 product = model.MapTo<ProductModel, Product>(product);
                 _productService.UpdateProduct(product);
@@ -251,7 +273,54 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
             }
             PrepareProductModel(model);
             PrepareProductBrands(model);
-            PrepareProductAttribute(model);
+            //PrepareProductAttribute(model);
+            PrepareProductRelated(model);
+            PreparProductTags(model);
+            return View(model);
+        }
+
+        public ActionResult CopyProduct(int productId)
+        {
+            var product = _productService.GetProductById(productId);
+            var model = product.MapTo<ProductModel>();
+            PrepareProductModel(model);
+            PrepareProductImagesModel(model);
+            PrepareProductBrands(model);
+            PreparProductTags(model);
+            PrepareProductRelated(model);
+            model.DisplayOrder = 999;
+            model.Published = true;
+            model.AllowReward = true;
+            return View(model);
+        }
+
+        [ValidateInput(false)]
+        [HttpPost, ParameterBasedOnFormName("save-continue", "continueEditing")]
+        public ActionResult CopyProduct(ProductModel model, bool continueEditing)
+        {
+            if (ModelState.IsValid)
+            {
+                var entity = model.MapTo<Product>();
+                var modelId = 0;
+                using (var unitOfWork = _unitOfWorkManager.Begin())
+                {
+                    var product = _productService.GetProductById(model.Id);
+                    var images = _productImageService.GetProductImagesByProductId(model.Id);
+                    entity.ProductImage = product.ProductImage;
+                    entity.Id = 0;
+                    modelId = _productService.InsertProduct(entity);
+                    //增加图片
+                    images.ToList().ForEach(e => _productImageService.InsertImage(new ProductImage {
+                        ProductId = modelId,
+                        Url = e.Url
+                    }));
+                    unitOfWork.Complete();
+                }
+
+                return continueEditing ? RedirectToAction("Edit", new { id = modelId }) : RedirectToAction("List");
+            }
+            PrepareProductModel(model);
+            PrepareProductBrands(model);
             PreparProductTags(model);
             return View(model);
         }
@@ -432,9 +501,8 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         #endregion
 
         #region BoxSearch
-        public ActionResult BoxProduct()
+        public ActionResult BoxProduct(ProductListModel model)
         {
-            var model = new ProductListModel();
             PrepareProductListModel(model);
             return View(model);
         }

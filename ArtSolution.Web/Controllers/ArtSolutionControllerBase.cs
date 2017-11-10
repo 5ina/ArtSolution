@@ -32,7 +32,8 @@ namespace ArtSolution.Web.Controllers
         {
             get
             {
-                return Convert.ToInt32(AbpSession.UserId);
+                return 65;
+                //return Convert.ToInt32(AbpSession.UserId);
             }
         }
 

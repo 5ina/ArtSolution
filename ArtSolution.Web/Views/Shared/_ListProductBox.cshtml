@@ -73,7 +73,7 @@
                 type: 'POST',
                 dataType: 'json',
                 success: function (jsonData) {
-                    if (jsonData.Total >= $("#pageIndex").val())
+                    if (!jsonData.ShowNext )
                         $(".more").hide();
                     $.each(jsonData.Data, function (idx, obj) {
                         boxs.append(productBoxAppend(obj));

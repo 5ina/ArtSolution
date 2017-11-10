@@ -36,12 +36,7 @@ namespace ArtSolution.Web.Areas.Admin.Models.Customers
         /// </summary>
         public int CustomerRoleId { get; set; }
 
-
-        /// <summary>
-        /// 秘钥
-        /// </summary>
-        [DisplayName("秘钥")]
-        public string PasswordSalt { get; set; }
+        
         /// <summary>
         /// 是否关注
         /// </summary>
@@ -49,9 +44,6 @@ namespace ArtSolution.Web.Areas.Admin.Models.Customers
         public bool IsSubscribe { get; set; }
         [DisplayName("是否推广人")]
         public bool IsPromoter { get; set; }
-        [DisplayName("关注时间")]
-        public DateTime CreationTime { get; set; }
-
 
         public List<SelectListItem> AvailableCustomerRoles { get; set; }
 

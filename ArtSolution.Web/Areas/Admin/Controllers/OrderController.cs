@@ -81,7 +81,6 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
                 ProductName = p.ProductName,
                 Quantity = p.Quantity,
                 TotalPrice = p.TotalPrice,
-                Specifications = p.ProductAttributeId > 0 ? _attributeService.GetProductAttributeById(p.ProductAttributeId).ValueName : ""
             }).ToList();
             return model;
         }

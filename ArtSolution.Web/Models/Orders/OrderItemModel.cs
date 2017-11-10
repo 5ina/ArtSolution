@@ -41,7 +41,5 @@ namespace ArtSolution.Web.Models.Orders
 
         public string ProductImage { get; set; }
         public string ProductName { get; set; }
-        public int ProductAttributeId { get; set; }
-        public string ProductAttributeName { get; set; }
     }
 }

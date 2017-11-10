@@ -30,14 +30,24 @@
             <fieldset>
                 <legend>订单总汇</legend>
                 <!-- Product Info-->
-                <div class="row">
-                    <div class="col-xs-4">
-                        <div class="order-product-image">
+                <div class="product-list">
+
+                    <div class="product-item">
+                        <div class="product-item-image">
                             <img src="@Model.ProductImage" />
                         </div>
-                    </div>
+                        <div class="product-item-info">
+                                <div class="order-product-name">
+                                    <p>@Model.ProductName</p>
+                                </div>
+                                <div class="order-product-total clearfix">
+                                    <div class="pull-left"><span class="product-price"><i class="fa fa-rmb"></i>@Model.Price</span></div>
 
-                    <div class="col-xs-8">
+                                    <div class="pull-right"> x @Model.Quantity</div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-xs-8">
                         <div class="order-product-detail ">
                             <div class="order-product-name">
                                 <p>@Model.ProductName</p>
@@ -51,7 +61,7 @@
                                 <div class="pull-right"> x @Model.Quantity</div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </fieldset>
         </div>
@@ -70,7 +80,6 @@
             @Html.HiddenFor(model => model.Price)
             @Html.HiddenFor(model => model.Freight)
             @Html.HiddenFor(model => model.ProductAttributeName)
-            @Html.HiddenFor(model => model.ProductAttributeId)
             @Html.HiddenFor(model => model.Billing)
             @Html.HiddenFor(model => model.PreSell)
 

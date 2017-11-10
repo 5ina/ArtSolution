@@ -47,18 +47,8 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
         #endregion
 
         #region Login / Logout
-        public ActionResult Login(string returnUrl = "")
+        public ActionResult Login()
         {
-            if (string.IsNullOrWhiteSpace(returnUrl))
-            {
-                returnUrl = Request.ApplicationPath;
-            }
-            if (returnUrl.ToUpper().Contains("admin"))
-            {
-                returnUrl = "";
-            }
-
-            ViewBag.returnUrl = returnUrl;
             var model = new LoginModel();
             return View(model);
         }
@@ -82,10 +72,8 @@ namespace ArtSolution.Web.Areas.Admin.Controllers
                             //用户登录
                             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = model.RememberMe }, identity);
                             _notificationSubscriptionManager.Subscribe(new Abp.UserIdentifier(null, (long)customerDto.Id), "notice");
-                            if (String.IsNullOrEmpty(model.ReturnUrl) || !Url.IsLocalUrl(model.ReturnUrl))
-                                return RedirectToAction("Index", "Dashboard");
 
-                            return Redirect(model.ReturnUrl);
+                            return RedirectToAction("Index", "Dashboard");
                         }
 
                     case LoginResults.Deleted:

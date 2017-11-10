@@ -51,6 +51,7 @@ namespace ArtSolution.Domain.Catalog
         /// </summary>
         public decimal Market { get; set; }
 
+        
         /// <summary>
         /// 成本价
         /// </summary>
@@ -64,6 +65,7 @@ namespace ArtSolution.Domain.Catalog
         public DateTime? SpecialPriceStartDateTime { get; set; }
 
         public DateTime? SpecialPriceEndDateTime { get; set; }
+        public int SpecialQuantity { get; set; }
 
         /// <summary>
         /// 是否预售
@@ -74,6 +76,8 @@ namespace ArtSolution.Domain.Catalog
         /// 允许使用积分兑换
         /// </summary>
         public bool AllowReward { get; set; }
+
+        public string RelatedProductIds { get; set; }
 
         public int DisplayOrder { get; set; }
         public bool Published { get; set; }

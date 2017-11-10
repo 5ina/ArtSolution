@@ -21,6 +21,7 @@ namespace ArtSolution.Web.Areas.Admin.Models.Catalog
             this.AvailableBrands = new List<SelectListItem>();
             this.ProductTagIds = new List<int>();
             this.AvailableProductTag = new List<SelectListItem>();
+            this.ProductRelateds = new List<ProductReviewModel>();
         }
         [DisplayName("商品类别")]
         public int CategoryId { get; set; }
@@ -74,6 +75,8 @@ namespace ArtSolution.Web.Areas.Admin.Models.Catalog
         [DisplayName("促销日期（结束）")]
         [UIHint("DateNullable")]
         public DateTime? SpecialPriceEndDateTime { get; set; }
+        [DisplayName("促销数量")]
+        public int SpecialQuantity { get; set; }
 
 
         [DisplayName("权重")]
@@ -84,6 +87,11 @@ namespace ArtSolution.Web.Areas.Admin.Models.Catalog
         [DisplayName("商品标签")]
         [UIHint("MultipleSelect")]
         public List<int> ProductTagIds { get; set; }
+
+        [DisplayName("关联商品")]
+        public string RelatedProductIds { get; set; }
+        public List<ProductReviewModel> ProductRelateds { get; set; }
+
 
         public List<SelectListItem> AvailableProductTag { get; set; }
         public ProductPictureModel AddPictureModel { get; set; }

@@ -16,13 +16,14 @@ namespace ArtSolution.Web.Framework.WeChat
 
         public AccessToken GetAccessToken(ICacheManager cacheManager, string appId, string appSecret)
         {
-            AccessToken token = cacheManager.GetCache(ArtSolution.ArtSolutionConsts.CACHE_ACCESS_TOKEN)
-                                    .Get(ArtSolutionConsts.CACHE_ACCESS_TOKEN, () =>
-                                    {
-                                        return HttpUtility.Get<AccessToken>(string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, appSecret));
-                                    });
+            //AccessToken token = cacheManager.GetCache(ArtSolution.ArtSolutionConsts.CACHE_ACCESS_TOKEN)
+            //                        .Get(ArtSolutionConsts.CACHE_ACCESS_TOKEN, () =>
+            //                        {
+            //                            return HttpUtility.Get<AccessToken>(string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, appSecret));
+            //                        });
+            return HttpUtility.Get<AccessToken>(string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", appId, appSecret));
 
-            return token;
+            //return token;
         }
 
         public OAuthUserInfo GetWeChatUserInfo( ISettingService _settingService,string code)

@@ -65,8 +65,6 @@ namespace ArtSolution.Web.Controllers
             {
                 var product = _productService.GetProductById(sci.ProductId);
                 ProductAttribute attribute = null;
-                if(sci.ProductAttributeId>0)
-                 attribute = _attributeService.GetProductAttributeById(sci.ProductAttributeId);
 
                 var cartItemModel = new ShoppingCartModel.ShoppingCartItemModel
                 {
@@ -79,7 +77,6 @@ namespace ArtSolution.Web.Controllers
                     UnitPrice = sci.Price,
                     ProductImage = product.ProductImage,
                     MaxStockQuantity = product.StockQuantity,
-                    ProductAttributeName = sci.ProductAttributeId > 0 ? attribute.ValueName : "",
                 };
                 model.Items.Add(cartItemModel);
             }
@@ -152,7 +149,7 @@ namespace ArtSolution.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [DisableAbpAntiForgeryTokenValidation]
-        public ActionResult AddToCart(int productId,int qty,int attribute)
+        public ActionResult AddToCart(int productId,int qty)
         {
             var customerId = AbpSession.UserId.HasValue ? Convert.ToInt32(AbpSession.UserId) : 0;
             if (customerId == 0)
@@ -164,8 +161,7 @@ namespace ArtSolution.Web.Controllers
                 return AjaxResult(Framework.UIEnums.AjaxResultStatus.Error, "该商品不存在");
 
             var carts = _cartService.GetAllShoppingItems(customerId: customerId,
-                    productId: productId,
-                    attributeId: attribute);
+                    productId: productId);
             ShoppingCartItem cart = null;
 
             if (carts.TotalCount == 0)
@@ -180,7 +176,6 @@ namespace ArtSolution.Web.Controllers
                     SpecialPriceEndDateTime = product.SpecialPriceEndDateTime,
                     SpecialPriceStartDateTime = product.SpecialPriceStartDateTime,
                     CreationTime = DateTime.Now,
-                    ProductAttributeId = attribute,
                     PreSell = product.PreSell,
                 };
                 _cartService.InsertCart(cart);
@@ -196,13 +191,13 @@ namespace ArtSolution.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ToCart(int productId, int qty, int attribute)
+        public ActionResult ToCart(int productId, int qty)
         {
             var product = _productService.GetProductById(productId);
             try
             {
                 var products = _cartService.GetAllShoppingItems(customerId: Convert.ToInt32(AbpSession.UserId),
-                                                 productId: productId, attributeId: attribute);
+                                                 productId: productId);
                 
                
                 if (products.Items.Count > 0)
@@ -219,7 +214,6 @@ namespace ArtSolution.Web.Controllers
                     Price = product.Price,
                     ProductId = product.Id,
                     Quantity = qty,
-                    ProductAttributeId = attribute,
                     SpecialPrice = product.SpecialPrice,
                     SpecialPriceEndDateTime = product.SpecialPriceEndDateTime,
                     SpecialPriceStartDateTime = product.SpecialPriceStartDateTime,

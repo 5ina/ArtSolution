@@ -201,6 +201,18 @@
     <Compile Include="Migrations\201710250134375_Update_ComBoProduct_Scripts.Designer.cs">
       <DependentUpon>201710250134375_Update_ComBoProduct_Scripts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711080040526_Update_Product_Related_Scripts.cs" />
+    <Compile Include="Migrations\201711080040526_Update_Product_Related_Scripts.Designer.cs">
+      <DependentUpon>201711080040526_Update_Product_Related_Scripts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711080159500_Update_Product_Special_Scripts.cs" />
+    <Compile Include="Migrations\201711080159500_Update_Product_Special_Scripts.Designer.cs">
+      <DependentUpon>201711080159500_Update_Product_Special_Scripts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711080701133_Update_Delete_ProductAttribute_Scripts.cs" />
+    <Compile Include="Migrations\201711080701133_Update_Delete_ProductAttribute_Scripts.Designer.cs">
+      <DependentUpon>201711080701133_Update_Delete_ProductAttribute_Scripts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ArtSolutionDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultCatalogData.cs" />
@@ -287,6 +299,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710250134375_Update_ComBoProduct_Scripts.resx">
       <DependentUpon>201710250134375_Update_ComBoProduct_Scripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711080040526_Update_Product_Related_Scripts.resx">
+      <DependentUpon>201711080040526_Update_Product_Related_Scripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711080159500_Update_Product_Special_Scripts.resx">
+      <DependentUpon>201711080159500_Update_Product_Special_Scripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711080701133_Update_Delete_ProductAttribute_Scripts.resx">
+      <DependentUpon>201711080701133_Update_Delete_ProductAttribute_Scripts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

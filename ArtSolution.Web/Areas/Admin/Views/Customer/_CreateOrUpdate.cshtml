@@ -2,7 +2,7 @@
 
 @Html.ValidationSummary(false)
 @Html.HiddenFor(model => model.Id)
-
+@Html.HiddenFor(model=>model.CustomerRoleId)
 <div id="customer-edit">
     <div class="row">
         <div class="col-md-7">
@@ -27,18 +27,6 @@
                             </td>
                         </tr>
 
-                        <tr>
-                            <td class="adminTitle">
-                                @Html.ArtLabelFor(model => model.CustomerRoleId):
-                            </td>
-                            <td class="adminData">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                                    @Html.DropDownListFor(model => model.CustomerRoleId, Model.AvailableCustomerRoles, new { @class = "form-control", disabled = "disabled" })
-                                    @Html.ValidationMessageFor(model => model.CustomerRoleId)
-                                </div>
-                            </td>
-                        </tr>
                         @if (Model.Id > 0)
             {
                             <tr>
@@ -53,19 +41,8 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="adminTitle">
-                                    @Html.ArtLabelFor(model => model.PasswordSalt):
-                                </td>
-                                <td class="adminData">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                                        @Html.TextBoxFor(model => model.PasswordSalt, new { @class = "form-control", disabled = "disabled" })
-                                        @Html.ValidationMessageFor(model => model.PasswordSalt)
-                                    </div>
-                                </td>
-                            </tr>
-                }
+
+                        }
                     </table>
 
                 </div>
@@ -93,18 +70,8 @@
                             </td>
                         </tr>
 
-                        <tr>
-                            <td class="adminTitle">
-                                @Html.ArtLabelFor(model => model.CreationTime):
-                            </td>
-                            <td class="adminData">
-                                <div class="input-group">
-                                    @Html.Raw(Model.CreationTime)
-                                </div>
-                            </td>
-                        </tr>
                         @if (Model.Id > 0)
-            {
+                        {
                             <tr>
                                 <td class="adminTitle">
                                     @Html.ArtLabelFor(model => model.Password):
@@ -114,18 +81,6 @@
                                         <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
                                         @Html.ArtEditorFor(model => model.Password)
                                         @Html.ValidationMessageFor(model => model.Password)
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="adminTitle">
-                                    @Html.ArtLabelFor(model => model.PasswordSalt):
-                                </td>
-                                <td class="adminData">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-amazon"></i></span>
-                                        @Html.TextBoxFor(model => model.PasswordSalt, new { @class = "form-control", disabled = "disabled" })
-                                        @Html.ValidationMessageFor(model => model.PasswordSalt)
                                     </div>
                                 </td>
                             </tr>

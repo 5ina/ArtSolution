@@ -26,6 +26,9 @@ namespace ArtSolution.Web.Areas.Admin.Models.Catalog
 
         [DisplayName("是否预售")]
         public bool? IsPreSell { get; set; }
+        
+
+        public int BrandId { get; set; }
 
     }
 }

@@ -801,7 +801,33 @@ nav.product-footer li {
     .shop-product .form-group .control-label {
         text-align: right;
     }
-
+    .shop-product .related-products{
+        margin-top:15px;
+        background:#fff;
+        padding:5px 9px;
+    }
+    .shop-product .related-products .related-title{
+        display:table-cell;
+        width:18%;
+    }
+    
+    .shop-product .related-products .related-content{
+        
+        width:82%;
+        display:table-cell;
+    }
+    .shop-product .related-products .related-name{
+        border:1px solid #000;
+        padding:3px 5px;
+        display:block;
+        margin-top:8px;
+    }
+    .shop-product .related-products .related-name.active{
+        border:1px solid #ff5000;
+        color:#ff5000;
+        padding:3px 5px;
+        line-height:1.9em;
+    }
 .close-icon::before {
     transform: rotate(45deg);
 }
@@ -1295,6 +1321,10 @@ nav.product-footer li {
     }
     .shop-product .shop-product-heading p .price{
         text-decoration:line-through;
+        color:#ff803a;
+    }
+    .shop-product .shop-product-heading .end-time{
+        font-size:12px;
         color:#ff803a;
     }
 
@@ -2146,6 +2176,8 @@ nav.product-footer li {
 .mycart .cart-content .shopping-cart .cart-item .cart-item-description{
     vertical-align:top;
     padding:0 15px;
+
+    position:relative;
 }
 .mycart .cart-content .shopping-cart .cart-item .cart-item-description h5{    
     line-height:1.2em;
@@ -2153,8 +2185,10 @@ nav.product-footer li {
     padding:0;
 }
 .mycart .cart-content .shopping-cart .cart-item .cart-item-description .number{
-    vertical-align:middle;
-    display:table-cell;
+    width:100%;
+    position:absolute;
+    padding:0 15px;
+    bottom:0;
 }
 .mycart .cart-content .shopping-cart .cart-item .cart-item-description .number .price{
     color:#c9253c;
@@ -2345,12 +2379,49 @@ nav.product-footer li {
         .create-order .product-detail legend {
             font-size: 1.4em;
         }
-        .create-order .product-detail fieldset .row {
-            
-            margin-bottom:12px;
+        .create-order .product-detail .product-list {
+            padding-bottom:15px;
+        }
+        .create-order .product-detail .product-list .product-item{
+            min-height:80px;    
+            display: inline-block;
+            padding-bottom:15px;
+            width:100%;
+
         }
         
+        .create-order .product-detail .product-list .product-item:last-child{
+            padding-bottom:0;
+        }
+        .create-order .product-detail .product-list .product-item-image{
+            
+            display:table-cell;
+        }
+        .create-order .product-detail .product-list .product-item-image img {
+            width:100%;
+            width:120px;
+        }        
+        
+        .create-order .product-detail .product-list .product-item-info{
+            vertical-align:top;   
+            display:table-cell;
+            padding:0 12px;
+            width:100%;
+            position:relative;
+        }
+    
+        .create-order .product-detail .product-list .product-item-info .product-price {
+            color: #c9253c;
+            font-size: 1.4em;
+        }
 
+        .create-order .product-detail .product-list .product-item-info .order-product-total {
+            position:absolute;
+            bottom:0px;
+            width:100%;
+            padding:0 15px;
+        }
+        
     .create-order .address li.info {
         width: 80%;
     }
@@ -2372,22 +2443,6 @@ nav.product-footer li {
         padding: 0 15px;
     }
 
-    .create-order .product-detail .order-product-detail {
-        color: #000;
-    }
-
-        .create-order .product-detail .order-product-detail .order-product-total {
-            line-height: 1.4em;
-        }
-
-        .create-order .product-detail .order-product-detail .product-price {
-            color: #c9253c;
-            font-size: 1.4em;
-        }
-
-    .create-order .product-detail .order-product-image img {
-        width: 100%;
-    }
 
     .create-order .form-horizontal .navbar-fixed-bottom .wd-nav .btn{
         height:50px;

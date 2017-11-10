@@ -72,13 +72,6 @@
                         contentType: "application/json",
                         data: additionalData
                     },
-
-                    update: {
-                        url: "@Html.Raw(Url.Action("UpdateProductPrice", "Product"))",
-                        type: "POST",
-                        dataType: "json",
-                        data: addAntiForgeryToken
-                    },
                     parameterMap: function (data, operation) {
                         if (operation != "read") {
                             return data;
@@ -92,32 +85,6 @@
                     data: "Data",
                     total: "Total",
                     errors: "Errors",
-                    model: {
-                        id: "Id",
-                        fields: {
-                            Name: { editable: false, type: "string" },
-                            ProductImage: { editable: false, type: "string" },
-                            PreSell: { editable: false, type: "bool" },
-                            ProductCode: { editable: false, type: "string" },
-                            Market: { editable: false, type: "string" },
-                            CategoryId: { editable: false, type: "string" },
-                            CreationTime: { editable: false, type: "string" },
-                            WithOrder: { editable: false, type: "string" },
-                            StockQuantity: { editable: false, type: "string" },
-                            Price: { editable: true, type: "number" },
-                            Id: { editable: false, type: "number" }
-                        }
-                    }
-                },
-                requestEnd: function (e) {
-                    if (e.type == "create" || e.type == "update") {
-                        this.read();
-                    }
-                },
-                error: function (e) {
-                    display_kendoui_grid_error(e);
-                    // Cancel the changes
-                    this.cancelChanges();
                 },
                 pageSize: 20,
                 serverPaging: true,
@@ -129,11 +96,6 @@
                 pageSizes: [10, 20, 50]
             },
             scrollable: false,
-            
-            editable: {
-                confirmation: "删除",
-                mode: "inline"
-        },
             columns: [
                 {
                     field: "Id",
@@ -185,26 +147,12 @@
                     field: "StockQuantity",
                     title: "库存",
                     width: 80,
-                },
-                {
-                    command: [
-                        {
-                            name: "edit",
-                            text: {
-                                edit: "编辑",
-                                update: "保存",
-                                cancel: "取消"
-                            }
-                        }, 
-                    ],
-                    width: 200
+                }, {
+                    field: "Id",
+                    title: "操作",
+                    width: 240,
+                    template: '<a class="btn btn-success" href="Edit/#=Id#">编辑</a><a class="btn btn-danger">删除</a><a class="btn btn-info"  href="/Admin/Product/CopyProduct?productId=#=Id#" >复制商品</a>'
                 }
-                //}, {
-                //    field: "Id",
-                //    title: "操作",
-                //    width: 240,
-                //    template: '<a class="btn btn-success" href="Edit/#=Id#">编辑</a><a class="btn btn-danger">删除</a><a class="btn btn-info btn-product-price" onclick="setPrice(#=Id#);" >设置价格</a>'
-                //}
             ]
         });
 

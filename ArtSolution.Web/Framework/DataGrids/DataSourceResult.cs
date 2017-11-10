@@ -11,5 +11,6 @@ namespace ArtSolution.Web.Framework.DataGrids
         public object Errors { get; set; }
 
         public int Total { get; set; }
+        public bool ShowNext { get; set; }
     }
 }

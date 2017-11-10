@@ -44,7 +44,6 @@ namespace ArtSolution.Web.Controllers
         private readonly IShopppingCartService _cartService;
         private readonly ICouponService _couponService;
         private readonly ICustomerAddressService _addressService;
-        private readonly IProductAttributeService _attributeService;
         private readonly IPaymentRecordService _recordService;
         private readonly ICustomerRewardService _rewardService;
         private readonly IComBoProductService _comboProductService;
@@ -59,7 +58,6 @@ namespace ArtSolution.Web.Controllers
                                 IShopppingCartService cartService,
                                 ICustomerAddressService addressService,
                                  ICouponService couponService,
-                                 IProductAttributeService attributeService, 
                                  IPaymentRecordService recordService, 
                                  ICustomerRewardService rewardService,
                                  IComBoProductService comboProductService,
@@ -74,7 +72,6 @@ namespace ArtSolution.Web.Controllers
             this._customerService = customerService;
             this._addressService = addressService;
             this._couponService = couponService;
-            this._attributeService = attributeService;
             this._recordService = recordService;
             this._rewardService = rewardService;
             this._comboProductService = comboProductService;
@@ -364,6 +361,21 @@ namespace ArtSolution.Web.Controllers
                         var amount = order.OrderCommission(customer, _orderService);
                         #endregion
 
+                        //促销 数量更改
+                        var orderItems = _orderService.GetOrderItems(order.Id);
+                        orderItems.ToList().ForEach(i => {
+                            var product = _productService.GetProductById(i.ProductId);
+                            if (product.SpecialPriceStartDateTime.HasValue && product.SpecialPriceEndDateTime.HasValue)
+                            {
+                                if (product.SpecialPriceStartDateTime < DateTime.Now && product.SpecialPriceEndDateTime.Value > DateTime.Now)
+                                {
+                                    product.SpecialQuantity = product.SpecialQuantity - i.Quantity;
+                                    _productService.UpdateProduct(product);
+                                }
+                            }
+                        });
+                        
+
                         //发送消息
                         SendMessageToUser(order, amount, customer);
 
@@ -408,6 +420,8 @@ namespace ArtSolution.Web.Controllers
 
                         }
                         #endregion
+
+                        
 
                         unitOfWork.Complete();
                     }
@@ -545,7 +559,6 @@ namespace ArtSolution.Web.Controllers
                     OrderId = order.Id,
                     OrderItemGuid = Guid.NewGuid(),
                     Price = s.Price,
-                    ProductAttributeId = s.ProductAttributeId,
                     ProductId = s.ProductId,
                     ProductImage = _productService.GetProductById(s.ProductId).ProductImage,
                     ProductName = _productService.GetProductById(s.ProductId).Name,
@@ -559,8 +572,6 @@ namespace ArtSolution.Web.Controllers
                 {
                     Id = i.Id,
                     Price = i.Price,
-                    ProductAttributeId = i.ProductAttributeId,
-                    ProductAttributeName = i.ProductAttributeId > 0 ? _attributeService.GetProductAttributeById(i.ProductAttributeId).ValueName : "",
                     ProductId = i.ProductId,
                     ProductImage = _productService.GetProductById(i.ProductId).ProductImage,
                     ProductName = _productService.GetProductById(i.ProductId).Name,
@@ -784,8 +795,7 @@ namespace ArtSolution.Web.Controllers
                             product.SpecialPriceStartDateTime < DateTime.Now ?
                             product.SpecialPrice.Value :
                             product.Price;
-                var productAttribute = _attributeService.GetProductAttributeById(model.ProductAttributeId);
-
+                
                 //用户地址
                 var customer = _customerService.GetCustomerId(this.CustomerId);
                 var Billing = _addressService.InsertAddress(new CustomerAddress
@@ -830,7 +840,6 @@ namespace ArtSolution.Web.Controllers
                 #endregion
                 _orderService.InsertOrderItems(new OrderItem
                 {
-                    ProductAttributeId = model.ProductAttributeId,
                     OrderId = order.Id,
                     OrderItemGuid = Guid.NewGuid(),
                     Price = model.Price,
@@ -891,7 +900,7 @@ namespace ArtSolution.Web.Controllers
 
         [HttpPost]
         [CustomerAntiForgery]
-        public ActionResult ProductToOrder(int productId, int qty, int attribute)
+        public ActionResult ProductToOrder(int productId, int qty)
         {
             var product = _productService.GetProductById(productId);
             if (product == null)
@@ -901,22 +910,15 @@ namespace ArtSolution.Web.Controllers
             var freight = orderSettigns.OrderFreeShip > qty * product.Price ? orderSettigns.ShipFee : 0;
 
             //价格体系
-            var price = decimal.Zero;
-            ProductAttribute productAttribute = null;
-            if (attribute == 0)
-            {
-                price = product.SpecialPrice.HasValue &&
-                            product.SpecialPriceEndDateTime > DateTime.Now &&
-                            product.SpecialPriceStartDateTime < DateTime.Now ?
-                            product.SpecialPrice.Value :
-                            product.Price;
-            }
-            else
-            {
-                productAttribute = _attributeService.GetProductAttributeById(attribute);
-                price = productAttribute.Price;
-            }            
+            var price = product.Price;
 
+            if (product.SpecialPriceEndDateTime.HasValue && product.SpecialPriceStartDateTime.HasValue)
+            {
+                if (product.SpecialPriceStartDateTime.Value < DateTime.Now && product.SpecialPriceEndDateTime > DateTime.Now)
+                {
+                    price = product.SpecialPrice.Value;
+                }
+            }
             var model = new ProductToOrderModel
             {
                 ProductId = product.Id,
@@ -925,8 +927,6 @@ namespace ArtSolution.Web.Controllers
                 ProductName = product.Name,
                 ProductImage = product.ProductImage,
                 Billing = 0,
-                ProductAttributeId = attribute,
-                ProductAttributeName = attribute == 0 ? "" : productAttribute.ValueName,
                 OrderRemarks = "",
                 Price = price,
                 OrderTotal = freight + (qty * price),
@@ -1132,8 +1132,6 @@ namespace ArtSolution.Web.Controllers
             {
                 Id = i.Id,
                 Price = i.Price,
-                ProductAttributeId = i.ProductAttributeId,
-                ProductAttributeName = i.ProductAttributeId > 0 ? _attributeService.GetProductAttributeById(i.ProductAttributeId).ValueName : "",
                 ProductId = i.ProductId,
                 ProductImage = i.ProductImage,
                 ProductName = i.ProductName,
@@ -1331,7 +1329,6 @@ namespace ArtSolution.Web.Controllers
                     OrderItemGuid = Guid.NewGuid(),
                     PreSell = p.PreSell,
                     Price = p.Price,
-                    ProductAttributeId = 0,
                     ProductId = p.Id,
                     ProductImage = p.ProductImage,
                     ProductName = p.Name,

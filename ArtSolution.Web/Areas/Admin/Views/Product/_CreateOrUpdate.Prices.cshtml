@@ -105,4 +105,16 @@
             </div>
         </td>
     </tr>
+
+    <tr class="special">
+        <td class="adminTitle">
+            @Html.ArtLabelFor(model => model.SpecialQuantity):
+        </td>
+        <td class="adminData">
+            <div class="input-group">
+                @Html.TextBoxFor(model => model.SpecialQuantity, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SpecialQuantity)
+            </div>
+        </td>
+    </tr>
 </table>

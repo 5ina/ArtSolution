@@ -51,7 +51,6 @@ namespace ArtSolution.Web.Models.ShoppingCart
             /// 最大购买量
             /// </summary>
             public int MaxStockQuantity { get; set; }
-            public string ProductAttributeName { get; set; }
 
         }
         

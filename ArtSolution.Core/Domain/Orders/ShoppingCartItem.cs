@@ -22,8 +22,6 @@ namespace ArtSolution.Domain.Orders
 
         public decimal? SpecialPrice { get; set; }
 
-        public int ProductAttributeId { get; set; }
-
         public DateTime? SpecialPriceStartDateTime { get; set; }
 
         public DateTime? SpecialPriceEndDateTime { get; set; }

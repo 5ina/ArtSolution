@@ -25,23 +25,17 @@
         <div class="box product-detail">
             <fieldset>
                 <legend>订单总汇</legend>
-                <!-- Product Info-->
-                @foreach (var item in Model.Items)
-                {
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="order-product-image">
+                <div class="product-list">
+                    <!-- Product Info-->
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="product-item">
+                            <div class="product-item-image">
                                 <img src="@item.ProductImage" />
                             </div>
-                        </div>
-
-                        <div class="col-xs-8">
-                            <div class="order-product-detail ">
+                            <div class="product-item-info">
                                 <div class="order-product-name">
                                     <p>@item.ProductName</p>
-                                </div>
-                                <div class="order-product-attribute">
-                                    <p>@item.ProductAttributeName</p>
                                 </div>
                                 <div class="order-product-total clearfix">
                                     <div class="pull-left"><span class="product-price"><i class="fa fa-rmb"></i>@item.Price</span></div>
@@ -50,9 +44,11 @@
                                 </div>
                             </div>
                         </div>
+
+                    }
                     </div>
-                }
-            </fieldset>
+
+</fieldset>
         </div>
         <!-- Order End -->
 

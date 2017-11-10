@@ -45,8 +45,7 @@ namespace ArtSolution.Domain.Orders
         /// 总价
         /// </summary>
         public decimal TotalPrice { get; set; }
-
-        public int ProductAttributeId { get; set; }
+        
         /// <summary>
         /// 商品评论
         /// </summary>

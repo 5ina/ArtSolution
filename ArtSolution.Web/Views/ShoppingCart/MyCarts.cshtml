@@ -45,8 +45,9 @@
                                             <p>规格：@item.ProductAttributeName</p>
                                         }
                                         <div class="number row">
-                                            <label class="price col-xs-5"><i class="fa fa-rmb"></i> @item.UnitPrice</label>
-                                            <input name="item_num" class="col-xs-7 form-control item_num" value="@item.Quantity" data-sci="@item.Id" type="tel" data-max="@item.MaxStockQuantity">
+                                            <label class="price pull-left"><i class="fa fa-rmb"></i> @item.UnitPrice</label>                                            
+                                                <input name="item_num" class="pull-right item_num" value="@item.Quantity" data-sci="@item.Id" type="tel" data-max="@item.MaxStockQuantity">
+                                            
                                         </div>
                                     </div>
                                 </div>

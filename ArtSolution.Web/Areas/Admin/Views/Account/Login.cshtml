@@ -11,9 +11,8 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">OSS系统管理后台登录</p>
-            <form class="login-form" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="post" novalidate="novalidate">
+            <form class="login-form" action="@(Url.Action("Login", "Account"))" method="post" novalidate="novalidate">
                 @Html.AntiForgeryToken()
-                @Html.HiddenFor(model => model.ReturnUrl)
 
                 @{var validationSummary = Html.ValidationSummary(true);
 

@@ -15,8 +15,7 @@ namespace ArtSolution.Web.Areas.Admin.Models.Customers
         
         [DisplayName("保存密码")]
         public bool RememberMe { get; set; }
-
-        public string ReturnUrl { get; set; }
+        
 
         public void AddValidationErrors(CustomValidationContext context)
         {

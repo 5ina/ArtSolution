@@ -13,7 +13,6 @@ namespace ArtSolution.Web.Models.Orders
         public int ProductId { get; set; }
         public string ProductImage { get; set; }
         public string ProductName { get; set; }
-        public int ProductAttributeId { get; set; }
         public string ProductAttributeName { get; set; }
 
         public int Quantity { get; set; }
